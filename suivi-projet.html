@@ -67,9 +67,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 1 / 7</span>Découper une fonctionnalité en paliers livrables</h2>
         <ul class="sf-list">
-          <li class="sf-cadre">découper une fonctionnalité en paliers livrables</li>
-          <li class="sf-cadre">valider un palier avant de passer au suivant</li>
-          <li class="sf-cadre">analyser un problème avant d'écrire du code</li>
+          <li class="sf-cadre n1">découper une fonctionnalité en paliers livrables</li>
+          <li class="sf-cadre n2">valider un palier avant de passer au suivant</li>
+          <li class="sf-cadre n3">analyser un problème avant d'écrire du code</li>
         </ul>
       </div>
 
@@ -83,7 +83,7 @@
               <tbody>
                 <tr>
                   <td><b>Palier 1</b><br><span class="mono" style="font-size:.72rem">2cd5192</span></td>
-                  <td>Montage réseau du dossier <b>en lecture seule</b> <span class="rp">1</span></td>
+                  <td>Montage réseau du dossier <b>en lecture seule</b> <span class="rp n1">1</span></td>
                   <td>Le dossier apparaît dans l'explorateur, les fichiers s'ouvrent</td>
                 </tr>
                 <tr>
@@ -93,7 +93,7 @@
                 </tr>
                 <tr>
                   <td><b>Palier 3</b><br><span class="mono" style="font-size:.72rem">d7ef9bd</span></td>
-                  <td>Concurrence optimiste : on n'écrase que le fichier qu'on a lu <span class="rp">2</span></td>
+                  <td>Concurrence optimiste : on n'écrase que le fichier qu'on a lu <span class="rp n2">2</span></td>
                   <td>Deux modifications simultanées ne s'écrasent plus</td>
                 </tr>
                 <tr>
@@ -103,7 +103,7 @@
                 </tr>
                 <tr>
                   <td><span style="color:var(--txt-mute)">Après revue</span><br><span class="mono" style="font-size:.72rem">8078ba0</span></td>
-                  <td>Correctifs issus de la relecture : taille des envois, groupe par défaut, erreurs, tests <span class="rp">3</span></td>
+                  <td>Correctifs issus de la relecture : taille des envois, groupe par défaut, erreurs, tests <span class="rp n3">3</span></td>
                   <td>Suite de tests au vert</td>
                 </tr>
               </tbody>
@@ -115,9 +115,9 @@
             <span class="legende">
               <b>Légende :</b> chaque ligne correspond à un incrément réellement livré et enregistré dans le
               dépôt ; la colonne de droite est le critère qui permettait de déclarer le palier terminé.
-              <span class="rp">1</span> le premier palier est volontairement minimal — voir le dossier suffit ;
-              <span class="rp">2</span> la gestion de la concurrence est traitée <em>après</em> l'écriture, pas
-              en même temps ; <span class="rp">3</span> une passe de correction distincte, après relecture.
+              <span class="rp n1">1</span> le premier palier est volontairement minimal — voir le dossier suffit ;
+              <span class="rp n2">2</span> la gestion de la concurrence est traitée <em>après</em> l'écriture, pas
+              en même temps ; <span class="rp n3">3</span> une passe de correction distincte, après relecture.
             </span>
           </figcaption>
         </figure>
@@ -143,7 +143,7 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-cadre">Découper une fonctionnalité en paliers livrables</span> — le point
-              <span class="rp">1</span> illustre la règle que j'applique désormais : le premier palier doit être
+              <span class="rp n1">1</span> illustre la règle que j'applique désormais : le premier palier doit être
               le plus petit incrément qui a une valeur observable. Monter le dossier en lecture seule ne sert à
               rien fonctionnellement, mais valide toute la chaîne — authentification, routage, arborescence —
               avant d'ajouter quoi que ce soit.
@@ -151,7 +151,7 @@
             <p class="sfp">
               <span class="sf sf-cadre">Valider un palier avant de passer au suivant</span> — la colonne de
               droite du tableau est la partie la plus importante. Chaque palier avait son critère d'acceptation
-              écrit <em>avant</em> d'être développé. Le point <span class="rp">2</span> en est la conséquence
+              écrit <em>avant</em> d'être développé. Le point <span class="rp n2">2</span> en est la conséquence
               directe : traiter la concurrence en même temps que l'écriture aurait rendu impossible d'identifier
               l'origine d'un dysfonctionnement.
             </p>
@@ -159,7 +159,7 @@
               <span class="sf sf-cadre">Analyser un problème avant d'écrire du code</span> — sur la gestion des
               conflits, la consigne reçue était explicite : analyser le problème et proposer des solutions
               <em>sans coder</em>, puis découper en versions successives. Cette contrainte m'a fait gagner du
-              temps. Le point <span class="rp">3</span> montre que le découpage ne dispense pas d'une passe de
+              temps. Le point <span class="rp n3">3</span> montre que le découpage ne dispense pas d'une passe de
               correction après relecture, traitée elle aussi comme une étape à part entière.
             </p>
           </div>
@@ -174,9 +174,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 2 / 7</span>Instruire une décision avant de l'engager</h2>
         <ul class="sf-list">
-          <li class="sf-cadre">comparer des solutions sur des critères explicites</li>
-          <li class="sf-cadre">vérifier la faisabilité avant de s'engager</li>
-          <li class="sf-cadre">planifier l'ordre des opérations d'un chantier</li>
+          <li class="sf-cadre n1">comparer des solutions sur des critères explicites</li>
+          <li class="sf-cadre n2">vérifier la faisabilité avant de s'engager</li>
+          <li class="sf-cadre n3">planifier l'ordre des opérations d'un chantier</li>
         </ul>
       </div>
 
@@ -189,7 +189,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Coût de licence <span class="rp">1</span></td>
+                  <td>Coût de licence <span class="rp n1">1</span></td>
                   <td class="no">≈ 50 à 60 €/mois <b>par utilisateur</b></td>
                   <td class="ok">Gratuit</td>
                 </tr>
@@ -204,7 +204,7 @@
                   <td class="ok">Sans frais supplémentaire</td>
                 </tr>
                 <tr>
-                  <td>Modules nécessaires <span class="rp">2</span></td>
+                  <td>Modules nécessaires <span class="rp n2">2</span></td>
                   <td>Contacts, Ventes, Facturation, Site web</td>
                   <td class="ok">Tous disponibles en version libre — vérifié</td>
                 </tr>
@@ -216,7 +216,7 @@
                 <tr>
                   <td>Fonctions absentes</td>
                   <td>—</td>
-                  <td class="no">Quelques modules propriétaires à recréer <span class="rp">3</span></td>
+                  <td class="no">Quelques modules propriétaires à recréer <span class="rp n3">3</span></td>
                 </tr>
               </tbody>
             </table>
@@ -233,9 +233,9 @@
             <span class="trace-title">Comparatif Odoo Enterprise / Community produit avant la décision de migrer</span>
             <span class="legende">
               <b>Légende :</b> synthèse de la semaine de cadrage (deuxième semaine), avant toute mise en œuvre.
-              <span class="rp">1</span> le critère décisif : une licence facturée par utilisateur contre une
-              solution libre ; <span class="rp">2</span> la vérification préalable de la disponibilité des
-              modules réellement utilisés ; <span class="rp">3</span> les manques identifiés dès le cadrage, et
+              <span class="rp n1">1</span> le critère décisif : une licence facturée par utilisateur contre une
+              solution libre ; <span class="rp n2">2</span> la vérification préalable de la disponibilité des
+              modules réellement utilisés ; <span class="rp n3">3</span> les manques identifiés dès le cadrage, et
               qui donneront lieu à un développement spécifique.
             </span>
           </figcaption>
@@ -260,15 +260,15 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-cadre">Comparer des solutions sur des critères explicites</span> — le point
-              <span class="rp">1</span> est l'argument central, mais il ne suffisait pas : j'ai dû expliciter
+              <span class="rp n1">1</span> est l'argument central, mais il ne suffisait pas : j'ai dû expliciter
               aussi ce que l'entreprise <em>perdrait</em>. Un comparatif qui ne présente que des avantages n'est
               pas un comparatif, c'est une justification après coup.
             </p>
             <p class="sfp">
               <span class="sf sf-cadre">Vérifier la faisabilité avant de s'engager</span> — le point
-              <span class="rp">2</span> a été le vrai travail de la semaine : vérifier module par module que ce
+              <span class="rp n2">2</span> a été le vrai travail de la semaine : vérifier module par module que ce
               qui est utilisé au quotidien existe bien en version libre, puis monter une instance de test en
-              local pour le constater plutôt que de le lire. Le point <span class="rp">3</span> est le résultat
+              local pour le constater plutôt que de le lire. Le point <span class="rp n3">3</span> est le résultat
               de cet examen : quelques fonctions manquantes, connues <em>avant</em> la bascule et non découvertes
               après (voir <a href="integration.html#sp-17">trace 17</a>).
             </p>
@@ -290,9 +290,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 3 / 7</span>Reprendre du code existant pour le rendre maintenable</h2>
         <ul class="sf-list">
-          <li class="sf-qual">refactorer un code monolithique</li>
-          <li class="sf-qual">écrire des tests automatisés</li>
-          <li class="sf-qual">protéger les données contre une opération destructrice</li>
+          <li class="sf-qual n1">refactorer un code monolithique</li>
+          <li class="sf-qual n2">écrire des tests automatisés</li>
+          <li class="sf-qual n3">protéger les données contre une opération destructrice</li>
         </ul>
       </div>
 
@@ -307,7 +307,7 @@
                 <tr>
                   <td>Back-end</td>
                   <td class="no">Un ensemble non séparé</td>
-                  <td class="ok">4 modules : routes, données, scoring, authentification <span class="rp">1</span></td>
+                  <td class="ok">4 modules : routes, données, scoring, authentification <span class="rp n1">1</span></td>
                 </tr>
                 <tr>
                   <td>Front-end</td>
@@ -322,12 +322,12 @@
                 <tr>
                   <td>Tests</td>
                   <td class="no">Aucun</td>
-                  <td class="ok">Suite couvrant les règles de sécurité <span class="rp">2</span></td>
+                  <td class="ok">Suite couvrant les règles de sécurité <span class="rp n2">2</span></td>
                 </tr>
                 <tr>
                   <td>Mise à jour du serveur</td>
                   <td class="no">Synchronisation destructive : un questionnaire a disparu</td>
-                  <td class="ok">Synchronisation non destructive <span class="rp">3</span></td>
+                  <td class="ok">Synchronisation non destructive <span class="rp n3">3</span></td>
                 </tr>
                 <tr>
                   <td>Retour en arrière dans le quiz</td>
@@ -343,10 +343,10 @@
             <span class="legende">
               <b>Légende :</b> comparaison entre le code repris en début de stage et son état après les semaines
               2 et 3.
-              <span class="rp">1</span> la séparation en modules, détaillée en
+              <span class="rp n1">1</span> la séparation en modules, détaillée en
               <a href="technique.html#sp-1">trace 1</a> ;
-              <span class="rp">2</span> l'apparition d'une suite de tests, jusque-là inexistante ;
-              <span class="rp">3</span> la correction la plus importante — une perte de données réelle en
+              <span class="rp n2">2</span> l'apparition d'une suite de tests, jusque-là inexistante ;
+              <span class="rp n3">3</span> la correction la plus importante — une perte de données réelle en
               production, corrigée à la racine.
             </span>
           </figcaption>
@@ -361,7 +361,7 @@
               étapes plutôt que réécrire.
             </p>
             <p>
-              La <b>trace 11</b> résume ce passage. La ligne <span class="rp">3</span> est celle qui compte
+              La <b>trace 11</b> résume ce passage. La ligne <span class="rp n3">3</span> est celle qui compte
               vraiment : lors d'une mise à jour du serveur, un questionnaire a purement et simplement disparu.
               L'incident n'a pas été traité en restaurant le fichier, mais en corrigeant la logique de
               synchronisation pour qu'elle ne puisse plus supprimer de données.
@@ -372,13 +372,13 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-qual">Refactorer un code monolithique</span> — au point
-              <span class="rp">1</span>, la restructuration n'a apporté aucune fonctionnalité nouvelle, ce qui
+              <span class="rp n1">1</span>, la restructuration n'a apporté aucune fonctionnalité nouvelle, ce qui
               la rend difficile à justifier sur le moment. Elle s'est pourtant payée dès la semaine suivante :
               minuteur, statistiques par quiz, mail de fin personnalisé et affichage mobile ont tous été ajoutés
               sur cette base, sans conflit entre eux.
             </p>
             <p class="sfp">
-              <span class="sf sf-qual">Écrire des tests automatisés</span> — le point <span class="rp">2</span>
+              <span class="sf sf-qual">Écrire des tests automatisés</span> — le point <span class="rp n2">2</span>
               correspond à la mise à jour de sécurité décrite en
               <a href="technique.html#sp-7">trace 7</a>. J'ai retenu une règle simple : ce qui protège
               l'application doit être testé, parce que c'est précisément ce que personne ne pense à vérifier
@@ -386,7 +386,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-qual">Protéger les données contre une opération destructrice</span> — le point
-              <span class="rp">3</span> est ma principale leçon de qualité du stage. Une procédure de
+              <span class="rp n3">3</span> est ma principale leçon de qualité du stage. Une procédure de
               déploiement qui supprime est une bombe à retardement, même si elle fonctionne cent fois. Corriger
               le symptôme aurait pris cinq minutes ; corriger la logique de synchronisation a pris une
               demi-journée et a supprimé le risque.
@@ -403,9 +403,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 4 / 7</span>Faire relire son code et chercher la cause racine</h2>
         <ul class="sf-list">
-          <li class="sf-qual">soumettre son code à une revue et en traiter les retours</li>
-          <li class="sf-qual">traiter la cause racine plutôt que le contournement</li>
-          <li class="sf-qual">corriger sans introduire de régression</li>
+          <li class="sf-qual n1">soumettre son code à une revue et en traiter les retours</li>
+          <li class="sf-qual n2">traiter la cause racine plutôt que le contournement</li>
+          <li class="sf-qual n3">corriger sans introduire de régression</li>
         </ul>
       </div>
 
@@ -414,22 +414,22 @@
           <div class="trace-media" data-src="assets/img/trace-12.png"
                data-hint="Capture du rapport de revue de code exécuté sur MailRGE : la liste des points relevés, leur gravité, et les fichiers concernés.">
             <img src="assets/img/trace-12.png" alt="Rapport de revue de code sur MailRGE : 7 constats classés par gravité (1 élevé, 3 moyens, 3 faibles), chacun rattaché à un emplacement précis dans server/index.mjs.">
-            <span class="pt-box" style="--x:0.5%;--y:9%;--w:99%;--h:20%"></span>
-            <span class="pt" style="--x:6%;--y:19%">1</span>
-            <span class="pt-box" style="--x:8%;--y:30%;--w:63%;--h:15%"></span>
-            <span class="pt" style="--x:6%;--y:37.5%">2</span>
-            <span class="pt-box" style="--x:83%;--y:29.5%;--w:16.5%;--h:63%"></span>
-            <span class="pt" style="--x:91%;--y:33%">3</span>
+            <span class="pt-box n1" style="--x:0.5%;--y:8.5%;--w:99%;--h:9.8%"></span>
+            <span class="pt n1" style="--x:5%;--y:11.5%">1</span>
+            <span class="pt-box n2" style="--x:8%;--y:22.6%;--w:63%;--h:6.8%"></span>
+            <span class="pt n2" style="--x:5.5%;--y:24.2%">2</span>
+            <span class="pt-box n3" style="--x:83%;--y:29.5%;--w:16.5%;--h:63%"></span>
+            <span class="pt n3" style="--x:91%;--y:33%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 12</span>
             <span class="trace-title">Revue de code de MailRGE : constats classés par gravité et localisés</span>
             <span class="legende">
               <b>Légende :</b> rapport de revue exécutée sur le code réel de MailRGE (branche <code>main</code>).
-              <span class="rp">1</span> la répartition des <b>7 constats</b> par gravité — 1 élevé, 3 moyens,
-              3 faibles ; <span class="rp">2</span> le constat prioritaire, qui touche à la fiabilité et à
-              l'abus des envois (endpoint sans authentification, envoi séquentiel sans reprise) ;
-              <span class="rp">3</span> l'emplacement exact de chaque constat, jusqu'au numéro de ligne, pour
+              <span class="rp n1">1</span> la répartition des <b>7 constats</b> par gravité — 1 élevé, 3 moyens,
+              3 faibles ; <span class="rp n2">2</span> le constat le plus grave, traité en priorité — l'endpoint d'envoi
+              sans authentification ni plafond de destinataires ;
+              <span class="rp n3">3</span> l'emplacement exact de chaque constat, jusqu'au numéro de ligne, pour
               pouvoir corriger sans le chercher.
             </span>
           </figcaption>
@@ -455,8 +455,8 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-qual">Soumettre son code à une revue et en traiter les retours</span> — au
-              point <span class="rp">1</span>, la difficulté est de trier : tous les points relevés ne se valent
-              pas. J'ai priorisé au point <span class="rp">2</span> ceux qui touchaient à la fiabilité des envois
+              point <span class="rp n1">1</span>, la difficulté est de trier : tous les points relevés ne se valent
+              pas. J'ai priorisé au point <span class="rp n2">2</span> ceux qui touchaient à la fiabilité des envois
               — un mail parti à tort ne se rattrape pas — avant les remarques de lisibilité.
             </p>
             <p class="sfp">
@@ -469,7 +469,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-qual">Corriger sans introduire de régression</span> — le point
-              <span class="rp">3</span> localise chaque constat jusqu'à la ligne, ce qui rend la correction
+              <span class="rp n3">3</span> localise chaque constat jusqu'à la ligne, ce qui rend la correction
               ciblée plutôt qu'approximative. Mais une passe de correction reste risquée : sur MailRGE, chaque
               correctif a été vérifié sur un jeu de recherche réel ; sur le module de messagerie d'Odoo, j'ai dû
               revérifier plus tard que les envois partaient toujours après une modification — une régression qui
@@ -487,9 +487,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 5 / 7</span>Un historique et une documentation exploitables</h2>
         <ul class="sf-list">
-          <li class="sf-git">tenir un historique de versions lisible</li>
-          <li class="sf-git">documenter un livrable pour son futur lecteur</li>
-          <li class="sf-git">organiser un dépôt et son mode de publication</li>
+          <li class="sf-git n1">tenir un historique de versions lisible</li>
+          <li class="sf-git n2">documenter un livrable pour son futur lecteur</li>
+          <li class="sf-git n3">organiser un dépôt et son mode de publication</li>
         </ul>
       </div>
 
@@ -517,9 +517,9 @@ sale_payment_schedule/
             <span class="legende">
               <b>Légende :</b> extraits du dépôt privé du module Odoo développé en cinquième semaine, et de
               celui de FileManager.
-              <span class="rp">1</span> une première version publiée seulement quand le module est complet ;
-              <span class="rp">2</span> le changement de licence isolé dans son propre commit, pour qu'il reste
-              retrouvable ; <span class="rp">3</span> le README, rédigé en même temps que le code et non après.
+              <span class="rp n1">1</span> une première version publiée seulement quand le module est complet ;
+              <span class="rp n2">2</span> le changement de licence isolé dans son propre commit, pour qu'il reste
+              retrouvable ; <span class="rp n3">3</span> le README, rédigé en même temps que le code et non après.
             </span>
           </figcaption>
         </figure>
@@ -543,8 +543,8 @@ sale_payment_schedule/
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-git">Tenir un historique lisible</span> — les points <span class="rp">1</span>
-              et <span class="rp">2</span> traduisent deux règles complémentaires : un commit correspond à une
+              <span class="sf sf-git">Tenir un historique lisible</span> — les points <span class="rp n1">1</span>
+              et <span class="rp n2">2</span> traduisent deux règles complémentaires : un commit correspond à une
               intention unique, et son message dit ce qui change, pas ce qui a été touché. Le changement de
               licence isolé permet de répondre plus tard à la question « depuis quand ce module est-il
               propriétaire ? » sans relire le code. Le même principe s'applique aux paliers de FileManager, où
@@ -552,7 +552,7 @@ sale_payment_schedule/
             </p>
             <p class="sfp">
               <span class="sf sf-git">Documenter un livrable pour son futur lecteur</span> — au point
-              <span class="rp">3</span>, le README explique le fonctionnement du module : on écrit une balise de
+              <span class="rp n3">3</span>, le README explique le fonctionnement du module : on écrit une balise de
               pourcentage dans les notes d'un devis, et le PDF affiche le montant correspondant sans modifier le
               texte enregistré. Sans cette explication, un utilisateur découvrant une balise dans un devis la
               prendrait pour une coquille.
@@ -575,9 +575,9 @@ sale_payment_schedule/
       <div class="sp-head">
         <h2><span class="num">Sous-page 6 / 7</span>Assurer la continuité d'un projet en cours</h2>
         <ul class="sf-list">
-          <li class="sf-git">synthétiser l'état d'un projet pour le transmettre</li>
-          <li class="sf-git">conserver les décisions techniques par écrit</li>
-          <li class="sf-git">changer d'outil sans perdre le contexte</li>
+          <li class="sf-git n1">synthétiser l'état d'un projet pour le transmettre</li>
+          <li class="sf-git n2">conserver les décisions techniques par écrit</li>
+          <li class="sf-git n3">changer d'outil sans perdre le contexte</li>
         </ul>
       </div>
 
@@ -586,7 +586,7 @@ sale_payment_schedule/
           <div class="trace-html">
             <blockquote class="quote">
               « résume cette conv que je donne à claude code qu'il prenne la relève »
-              <cite>Demande formulée en cours de migration Odoo, quatrième semaine <span class="rp">1</span></cite>
+              <cite>Demande formulée en cours de migration Odoo, quatrième semaine <span class="rp n1">1</span></cite>
             </blockquote>
             <div class="blocks" style="margin-top:12px">
               <div class="blk" style="--c:var(--sf-git)">
@@ -594,13 +594,13 @@ sale_payment_schedule/
                 <span class="sub">Les accès et la configuration du serveur ; les tables déjà migrées et celles
                   restantes ; l'ordre de migration retenu ; les règles apprises (mapper l'ID externe, découper
                   les gros fichiers) ; les problèmes en cours.</span>
-                <span class="pt pt-inline">2</span>
+                <span class="pt pt-inline n2">2</span>
               </div>
               <div class="blk" style="--c:var(--sf-git)">
                 <b>Ce que la synthèse a permis ensuite</b>
                 <span class="sub">Reprendre la migration sans repartir de zéro, et retrouver les informations
                   serveur depuis les échanges du projet plutôt que de les redonner à chaque fois.</span>
-                <span class="pt pt-inline">3</span>
+                <span class="pt pt-inline n3">3</span>
               </div>
               <div class="blk" style="--c:var(--txt-mute)">
                 <b>Limite explicitement posée</b>
@@ -615,9 +615,9 @@ sale_payment_schedule/
             <span class="legende">
               <b>Légende :</b> la migration Odoo, commencée avec un premier assistant de développement, a été
               poursuivie avec un autre alors qu'elle était en cours.
-              <span class="rp">1</span> la demande de synthèse, formulée avant le changement d'outil ;
-              <span class="rp">2</span> le contenu que cette synthèse devait couvrir ;
-              <span class="rp">3</span> ce que la continuité du contexte a permis les semaines suivantes.
+              <span class="rp n1">1</span> la demande de synthèse, formulée avant le changement d'outil ;
+              <span class="rp n2">2</span> le contenu que cette synthèse devait couvrir ;
+              <span class="rp n3">3</span> ce que la continuité du contexte a permis les semaines suivantes.
             </span>
           </figcaption>
         </figure>
@@ -642,7 +642,7 @@ sale_payment_schedule/
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-git">Synthétiser l'état d'un projet pour le transmettre</span> — le point
-              <span class="rp">1</span> est la demande, le point <span class="rp">2</span> son contenu. Écrire
+              <span class="rp n1">1</span> est la demande, le point <span class="rp n2">2</span> son contenu. Écrire
               cette synthèse m'a obligé à distinguer ce que je savais de ce que j'avais seulement supposé. C'est
               un exercice qui ressemble beaucoup à la rédaction d'un rapport hebdomadaire, et qui a la même
               vertu : on découvre les zones floues en les écrivant.
@@ -655,7 +655,7 @@ sale_payment_schedule/
             </p>
             <p class="sfp">
               <span class="sf sf-git">Changer d'outil sans perdre le contexte</span> — le point
-              <span class="rp">3</span> mesure le résultat : la migration a repris sans temps mort et le
+              <span class="rp n3">3</span> mesure le résultat : la migration a repris sans temps mort et le
               contexte serveur est resté exploitable jusqu'au déploiement de FileManager, trois semaines plus
               tard. J'en retiens aussi qu'un contexte transmis doit s'accompagner de ses limites, d'où la
               restriction explicite sur la base Odoo.

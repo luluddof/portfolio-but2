@@ -51,6 +51,14 @@
   --sf-eco:    #10697f;   /* Intégration— contraintes économiques  */
   --sf-user:   #5b46a8;   /* Intégration— autonomie utilisateurs   */
 
+  /* Code couleur des points remarquables : une couleur par n° de repère,
+     réutilisée d'une trace à l'autre (①=bleu, ②=violet, ③=ambre, …). */
+  --n1: #2563eb;
+  --n2: #7c3aed;
+  --n3: #c2610c;
+  --n4: #0e8a80;
+  --n5: #be2f6a;
+
   --r:   14px;
   --r-s: 9px;
   --shadow:   0 1px 2px rgba(27, 32, 48, .05), 0 6px 20px rgba(27, 32, 48, .06);
@@ -513,6 +521,20 @@ p code, li code, td code {
 .pc-metier { --pc: var(--sf-metier); }
 .pc-eco    { --pc: var(--sf-eco); }
 .pc-user   { --pc: var(--sf-user); }
+
+/* Couleur par n° de repère : chaque point remarquable ①②③ a sa couleur.
+   Appliquée à la pastille, au cadre, au marqueur de légende et à la puce
+   du savoir-faire élémentaire correspondant — pour que tout se réponde. */
+.n1 { --pc: var(--n1); }
+.n2 { --pc: var(--n2); }
+.n3 { --pc: var(--n3); }
+.n4 { --pc: var(--n4); }
+.n5 { --pc: var(--n5); }
+.sf-list li.n1 { --c: var(--n1); }
+.sf-list li.n2 { --c: var(--n2); }
+.sf-list li.n3 { --c: var(--n3); }
+.sf-list li.n4 { --c: var(--n4); }
+.sf-list li.n5 { --c: var(--n5); }
 @keyframes fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
 .sp-head { margin-bottom: 13px; }

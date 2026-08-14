@@ -68,9 +68,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 1 / 7</span>Faire parler le logiciel dans la langue du métier</h2>
         <ul class="sf-list">
-          <li class="sf-metier">adopter le vocabulaire métier du client</li>
-          <li class="sf-metier">détourner un champ standard d'un progiciel</li>
-          <li class="sf-metier">vérifier l'impact d'une modification sur tous les documents</li>
+          <li class="sf-metier n1">adopter le vocabulaire métier du client</li>
+          <li class="sf-metier n2">détourner un champ standard d'un progiciel</li>
+          <li class="sf-metier n3">vérifier l'impact d'une modification sur tous les documents</li>
         </ul>
       </div>
 
@@ -79,12 +79,12 @@
           <div class="trace-media" data-src="assets/img/trace-15.png"
                data-hint="Captures d'un devis de l'Odoo en production : le libellé du champ d'adresse, et le document tel que le client le reçoit.">
             <img src="assets/img/trace-15.png" alt="Deux vues d'un devis en production : la fiche affiche « Adresse de chantier », et le document imprimé parle de « Visite technique » sans jamais employer le mot livraison.">
-            <span class="pt-box" style="--x:4.2%;--y:26.5%;--w:24%;--h:6.5%"></span>
-            <span class="pt" style="--x:4.2%;--y:26.5%">1</span>
-            <span class="pt-box" style="--x:1.5%;--y:53.5%;--w:20%;--h:4.5%"></span>
-            <span class="pt" style="--x:1.5%;--y:53.5%">2</span>
-            <span class="pt-box" style="--x:38%;--y:40.2%;--w:10%;--h:3%"></span>
-            <span class="pt" style="--x:38%;--y:40.2%">3</span>
+            <span class="pt-box n1" style="--x:2.5%;--y:26.3%;--w:34%;--h:8.4%"></span>
+            <span class="pt n1" style="--x:1%;--y:30%">1</span>
+            <span class="pt-box n2" style="--x:1.5%;--y:53.5%;--w:20%;--h:4.5%"></span>
+            <span class="pt n2" style="--x:1.5%;--y:53.5%">2</span>
+            <span class="pt-box n3" style="--x:38%;--y:40.2%;--w:10%;--h:3%"></span>
+            <span class="pt n3" style="--x:38%;--y:40.2%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 15</span>
@@ -92,12 +92,12 @@
             <span class="legende">
               <b>Légende :</b> relevé sur un devis réel de l'instance en production ; l'identité du client est
               masquée.
-              <span class="rp">1</span> les deux adresses du devis : Odoo affiche normalement « Adresse de
+              <span class="rp n1">1</span> les deux adresses du devis : Odoo affiche normalement « Adresse de
               facturation » et « Adresse de <b>livraison</b> » — la seconde est ici devenue
               <b>« Adresse de chantier »</b> ;
-              <span class="rp">2</span> le document que reçoit le client : il parle de <b>visite technique</b>,
+              <span class="rp n2">2</span> le document que reçoit le client : il parle de <b>visite technique</b>,
               et les mots « livraison » et « expédition » n'y apparaissent nulle part ;
-              <span class="rp">3</span> l'onglet « Autres informations », où subsiste en revanche le libellé
+              <span class="rp n3">3</span> l'onglet « Autres informations », où subsiste en revanche le libellé
               interne « Date de livraison » : le renommage s'arrête à ce que le client voit.
             </span>
           </figcaption>
@@ -123,7 +123,7 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-metier">Adopter le vocabulaire métier du client</span> — le point
-              <span class="rp">1</span> peut passer pour du détail cosmétique. Il ne l'est pas : un devis part
+              <span class="rp n1">1</span> peut passer pour du détail cosmétique. Il ne l'est pas : un devis part
               chez un particulier, et un document qui parle de « livraison » pour des travaux d'isolation
               décrédibilise l'entreprise. C'est un besoin exprimé sans ambiguïté par le dirigeant, et la demande
               incluait explicitement que le mot « livraison » n'apparaisse plus <em>nulle part</em>, ni sur les
@@ -134,16 +134,16 @@
               de nouveaux champs, j'ai réutilisé ceux d'Odoo : l'adresse de chantier <em>est</em> l'adresse de
               livraison, renommée. Ce choix conserve tout le comportement natif du progiciel — les liens vers le
               contact, l'affichage dans les documents — au lieu de le réécrire. Le point
-              <span class="rp">2</span> applique le même principe à la date.
+              <span class="rp n2">2</span> applique le même principe à la date.
             </p>
             <p class="sfp">
               <span class="sf sf-metier">Vérifier l'impact sur tous les documents</span> — un renommage dans un
-              ERP se propage à des endroits qu'on n'anticipe pas, et le point <span class="rp">3</span> est
+              ERP se propage à des endroits qu'on n'anticipe pas, et le point <span class="rp n3">3</span> est
               l'aveu que le travail n'est pas terminé : derrière l'onglet « Autres informations », le libellé
               interne « Date de livraison » subsiste, alors que le document client, lui, est propre. J'ai
               priorisé ce que le client voit — c'est défendable, mais l'incohérence reste visible pour
               quiconque utilise l'outil au quotidien, et elle figurait déjà comme point ouvert dans mon rapport
-              hebdomadaire. La vérification que je retiens, c'est celle du point <span class="rp">2</span> :
+              hebdomadaire. La vérification que je retiens, c'est celle du point <span class="rp n2">2</span> :
               relire le document produit mot par mot, plutôt que de supposer qu'un renommage s'est propagé.
             </p>
           </div>
@@ -158,9 +158,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 2 / 7</span>Automatiser un document contractuel existant</h2>
         <ul class="sf-list">
-          <li class="sf-metier">reproduire fidèlement un document de l'entreprise</li>
-          <li class="sf-metier">automatiser un remplissage par variables</li>
-          <li class="sf-metier">valider un livrable par itérations avec le client</li>
+          <li class="sf-metier n1">reproduire fidèlement un document de l'entreprise</li>
+          <li class="sf-metier n2">automatiser un remplissage par variables</li>
+          <li class="sf-metier n3">valider un livrable par itérations avec le client</li>
         </ul>
       </div>
 
@@ -169,12 +169,12 @@
           <div class="trace-media" data-src="assets/img/trace-16.png"
                data-hint="Capture du contrat « accompagnement MAR » généré depuis un devis de production.">
             <img src="assets/img/trace-16.png" alt="Contrat de mission Mon Accompagnateur Rénov' en onze articles, généré automatiquement depuis le devis S00286 : identité du client pré-remplie, article 5 reprenant les montants du devis, blocs de signature.">
-            <span class="pt-box" style="--x:8.2%;--y:12.2%;--w:13%;--h:6%"></span>
-            <span class="pt" style="--x:8.2%;--y:12.2%">1</span>
-            <span class="pt-box" style="--x:8.2%;--y:51.3%;--w:81%;--h:6.8%"></span>
-            <span class="pt" style="--x:8.2%;--y:51.3%">2</span>
-            <span class="pt-box" style="--x:8.2%;--y:89.3%;--w:81%;--h:4.5%"></span>
-            <span class="pt" style="--x:8.2%;--y:89.3%">3</span>
+            <span class="pt-box n1" style="--x:8.2%;--y:12.2%;--w:13%;--h:6%"></span>
+            <span class="pt n1" style="--x:8.2%;--y:12.2%">1</span>
+            <span class="pt-box n2" style="--x:8.2%;--y:51.3%;--w:81%;--h:6.8%"></span>
+            <span class="pt n2" style="--x:8.2%;--y:51.3%">2</span>
+            <span class="pt-box n3" style="--x:8.2%;--y:89.3%;--w:81%;--h:4.5%"></span>
+            <span class="pt n3" style="--x:8.2%;--y:89.3%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 16</span>
@@ -183,11 +183,11 @@
               <b>Légende :</b> document produit par le module maison <code>aq_mar_contract</code> à partir d'un
               devis réel — onze articles, de l'identification des parties aux pièces jointes. L'identité du
               client et le numéro de police d'assurance sont masqués.
-              <span class="rp">1</span> l'article 1.1, dont l'identité, l'adresse et le courriel du client sont
+              <span class="rp n1">1</span> l'article 1.1, dont l'identité, l'adresse et le courriel du client sont
               repris du devis sans aucune saisie ;
-              <span class="rp">2</span> l'article 5, où <b>828,00 € d'accompagnement + 522,00 € d'audit</b>
+              <span class="rp n2">2</span> l'article 5, où <b>828,00 € d'accompagnement + 522,00 € d'audit</b>
               reconstituent exactement le total du devis, 1 350 € ;
-              <span class="rp">3</span> les blocs de signature des deux parties, ajoutés après relecture, avec
+              <span class="rp n3">3</span> les blocs de signature des deux parties, ajoutés après relecture, avec
               les mentions d'assurance de l'article 6.
             </span>
           </figcaption>
@@ -220,8 +220,8 @@
             </p>
             <p class="sfp">
               <span class="sf sf-metier">Automatiser un remplissage par variables</span> — au point
-              <span class="rp">1</span>, l'identité, l'adresse et le courriel du client sont repris du devis
-              sans aucune ressaisie. Le point <span class="rp">2</span> est le plus sensible : le montant devait
+              <span class="rp n1">1</span>, l'identité, l'adresse et le courriel du client sont repris du devis
+              sans aucune ressaisie. Le point <span class="rp n2">2</span> est le plus sensible : le montant devait
               suivre le devis d'accompagnement, jamais une valeur figée dans le modèle. La vérification est
               immédiate sur la capture — 828 € + 522 € = 1 350 €, le total exact du devis S00286 — et c'est
               précisément le genre d'erreur qu'une recopie manuelle finit toujours par produire. Le montant
@@ -229,7 +229,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-metier">Valider par itérations avec le client</span> — le point
-              <span class="rp">3</span> résume tout ce qui n'apparaissait pas dans la demande initiale et qui
+              <span class="rp n3">3</span> résume tout ce qui n'apparaissait pas dans la demande initiale et qui
               est remonté à la relecture : des données d'assurance manquantes, l'absence de cachet et de
               signature, un article 5 à corriger. Aucun de ces éléments n'était devinable ; ils ne sont apparus
               qu'en montrant une version imparfaite. J'ai ensuite poursuivi vers l'étape suivante — envoyer le
@@ -247,9 +247,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 3 / 7</span>Combler un manque fonctionnel et en faire un actif</h2>
         <ul class="sf-list">
-          <li class="sf-eco">développer plutôt que payer un abonnement</li>
-          <li class="sf-eco">évaluer la valeur commerciale d'une production interne</li>
-          <li class="sf-eco">choisir une licence cohérente avec une stratégie</li>
+          <li class="sf-eco n1">développer plutôt que payer un abonnement</li>
+          <li class="sf-eco n2">évaluer la valeur commerciale d'une production interne</li>
+          <li class="sf-eco n3">choisir une licence cohérente avec une stratégie</li>
         </ul>
       </div>
 
@@ -258,12 +258,12 @@
           <div class="trace-media" data-src="assets/img/trace-17.png"
                data-hint="Le texte enregistré dans un devis, avec ses balises de pourcentage, et le même devis imprimé avec les montants calculés.">
             <img src="assets/img/trace-17.png" alt="Le devis stocke le texte « [40%] TTC » et « [60%] TTC » ; le document imprimé affiche 540,00 € et 810,00 €, soit 40 % et 60 % du total de 1 350 €.">
-            <span class="pt-box" style="--x:3%;--y:13.5%;--w:6.5%;--h:7.5%"></span>
-            <span class="pt" style="--x:3%;--y:13.5%">1</span>
-            <span class="pt-box" style="--x:27.5%;--y:4.5%;--w:25%;--h:3.5%"></span>
-            <span class="pt" style="--x:27.5%;--y:4.5%">2</span>
-            <span class="pt-box" style="--x:1.7%;--y:52%;--w:14%;--h:16%"></span>
-            <span class="pt" style="--x:1.7%;--y:52%">3</span>
+            <span class="pt-box n1" style="--x:3%;--y:13.5%;--w:6.5%;--h:7.5%"></span>
+            <span class="pt n1" style="--x:3%;--y:13.5%">1</span>
+            <span class="pt-box n2" style="--x:27.5%;--y:4.5%;--w:25%;--h:3.5%"></span>
+            <span class="pt n2" style="--x:27.5%;--y:4.5%">2</span>
+            <span class="pt-box n3" style="--x:1.7%;--y:52%;--w:14%;--h:16%"></span>
+            <span class="pt n3" style="--x:1.7%;--y:52%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 17</span>
@@ -272,10 +272,10 @@
               <b>Légende :</b> en haut le texte tel qu'il est <b>enregistré en base</b> pour le devis S00286,
               en bas le <b>même devis imprimé</b> tel que le client le reçoit. Les coordonnées bancaires sont
               masquées.
-              <span class="rp">1</span> les balises <code>[40%]</code> et <code>[60%]</code> saisies dans le
+              <span class="rp n1">1</span> les balises <code>[40%]</code> et <code>[60%]</code> saisies dans le
               texte, qui ne sont jamais modifiées ;
-              <span class="rp">2</span> le total du devis, 1 350 € TTC ;
-              <span class="rp">3</span> les montants calculés à l'impression : <b>540,00 €</b> et
+              <span class="rp n2">2</span> le total du devis, 1 350 € TTC ;
+              <span class="rp n3">3</span> les montants calculés à l'impression : <b>540,00 €</b> et
               <b>810,00 €</b> — soit exactement 40 % et 60 % de ce total.
             </span>
           </figcaption>
@@ -303,7 +303,7 @@
             <p class="sfp">
               <span class="sf sf-eco">Développer plutôt que payer un abonnement</span> — l'arbitrage est simple
               à poser : quelques jours de développement une fois, contre un abonnement mensuel indéfiniment. Le
-              point <span class="rp">1</span> montre que j'ai en plus généralisé le besoin — n'importe quel
+              point <span class="rp n1">1</span> montre que j'ai en plus généralisé le besoin — n'importe quel
               pourcentage fonctionne, pas seulement 40/60. Ce n'est pas gratuit en effort, mais c'est ce qui
               évite de revenir sur le module au premier changement commercial : d'autres devis de la base
               utilisent aujourd'hui un découpage en <code>[45%]</code>, <code>[35%]</code> et <code>[20%]</code>
@@ -311,10 +311,10 @@
             </p>
             <p class="sfp">
               <span class="sf sf-eco">Évaluer la valeur commerciale d'une production interne</span> — les points
-              <span class="rp">2</span> et <span class="rp">3</span> traduisent la contrainte de conception la
+              <span class="rp n2">2</span> et <span class="rp n3">3</span> traduisent la contrainte de conception la
               plus structurante : ne jamais modifier le texte stocké, seulement son rendu. Le devis garde
               <code>[40%]</code> en base et affiche 540,00 € à l'impression, soit exactement 40 % des 1 350 €
-              du point <span class="rp">2</span>. Cette réversibilité rend le module réutilisable chez
+              du point <span class="rp n2">2</span>. Cette réversibilité rend le module réutilisable chez
               n'importe quel utilisateur d'Odoo sans effet de bord sur ses données — c'est ce qui en fait un
               produit potentiel et pas seulement un correctif interne, pour une entreprise qui est aussi
               éditeur de logiciels.
@@ -341,9 +341,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 4 / 7</span>Arbitrer entre coût, effort et qualité du résultat</h2>
         <ul class="sf-list">
-          <li class="sf-eco">exploiter une source de données publique gratuite</li>
-          <li class="sf-eco">accepter une solution dégradée mais suffisante</li>
-          <li class="sf-eco">renoncer à une fonctionnalité au bon moment</li>
+          <li class="sf-eco n1">exploiter une source de données publique gratuite</li>
+          <li class="sf-eco n2">accepter une solution dégradée mais suffisante</li>
+          <li class="sf-eco n3">renoncer à une fonctionnalité au bon moment</li>
         </ul>
       </div>
 
@@ -365,19 +365,19 @@
                   <td><b>Extraction depuis des sites web</b></td>
                   <td>Gratuit</td>
                   <td class="no">Fragile, casse à chaque changement de site</td>
-                  <td class="no">Abandonnée après essai <span class="rp">3</span></td>
+                  <td class="no">Abandonnée après essai <span class="rp n3">3</span></td>
                 </tr>
                 <tr>
                   <td><b>API publiques SIRENE / ADEME</b></td>
                   <td class="ok">Gratuit</td>
-                  <td>Correcte, avec des trous à combler <span class="rp">1</span></td>
+                  <td>Correcte, avec des trous à combler <span class="rp n1">1</span></td>
                   <td class="ok"><b>Retenue</b> pour la recherche d'entreprises</td>
                 </tr>
                 <tr>
                   <td><b>Données locales préparées à la main</b></td>
                   <td class="ok">Gratuit</td>
                   <td>Limitée mais parfaitement prévisible</td>
-                  <td class="ok">Retenue pour les fournisseurs régionaux <span class="rp">2</span></td>
+                  <td class="ok">Retenue pour les fournisseurs régionaux <span class="rp n2">2</span></td>
                 </tr>
               </tbody>
             </table>
@@ -388,10 +388,10 @@
             <span class="legende">
               <b>Légende :</b> arbitrage mené sur MailRGE entre les semaines 5 et 6, à mesure que les limites de
               chaque approche apparaissaient.
-              <span class="rp">1</span> les API publiques, gratuites, complétées par des mécanismes de repli
-              (voir <a href="technique.html#sp-6">trace 6</a>) ; <span class="rp">2</span> le repli sur des
+              <span class="rp n1">1</span> les API publiques, gratuites, complétées par des mécanismes de repli
+              (voir <a href="technique.html#sp-6">trace 6</a>) ; <span class="rp n2">2</span> le repli sur des
               données locales préparées pour les fournisseurs régionaux ;
-              <span class="rp">3</span> l'extraction automatique depuis des sites web, essayée puis abandonnée.
+              <span class="rp n3">3</span> l'extraction automatique depuis des sites web, essayée puis abandonnée.
             </span>
           </figcaption>
         </figure>
@@ -415,14 +415,14 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-eco">Exploiter une source de données publique gratuite</span> — le point
-              <span class="rp">1</span> a été la bonne réponse pour l'essentiel du besoin : les qualifications
+              <span class="rp n1">1</span> a été la bonne réponse pour l'essentiel du besoin : les qualifications
               RGE et les établissements sont des données ouvertes. Le prix à payer est technique, pas financier
               — c'est tout le travail de normalisation et de repli décrit en
               <a href="technique.html#sp-6">trace 6</a>.
             </p>
             <p class="sfp">
               <span class="sf sf-eco">Accepter une solution dégradée mais suffisante</span> — le point
-              <span class="rp">2</span> a été le plus difficile à admettre. Après avoir tenté de trouver
+              <span class="rp n2">2</span> a été le plus difficile à admettre. Après avoir tenté de trouver
               automatiquement les distributeurs régionaux — avec la subtilité des enseignes sous licence, où
               c'est l'établissement local qu'il faut viser et non la maison mère — j'ai remplacé cette recherche
               par des données locales préparées, interrogeables par département, secteur, nom ou adresse. Moins
@@ -430,7 +430,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-eco">Renoncer à une fonctionnalité au bon moment</span> — le point
-              <span class="rp">3</span> va plus loin : la section « fournisseurs régionaux » a finalement été
+              <span class="rp n3">3</span> va plus loin : la section « fournisseurs régionaux » a finalement été
               masquée dans l'interface, le code étant conservé, le temps que le besoin réel soit reclarifié.
               Laisser en ligne une fonction dont on doute est un mauvais service rendu à son utilisateur ; c'est
               le genre d'arbitrage que je n'aurais pas su faire au début du stage, où « supprimer » ressemblait à
@@ -448,9 +448,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 5 / 7</span>Rendre le contenu modifiable sans développeur</h2>
         <ul class="sf-list">
-          <li class="sf-user">concevoir une interface d'administration sans code</li>
-          <li class="sf-user">gérer des comptes pour plusieurs utilisateurs</li>
-          <li class="sf-user">faire évoluer le contenu et sa présentation au fil de l'usage</li>
+          <li class="sf-user n1">concevoir une interface d'administration sans code</li>
+          <li class="sf-user n2">gérer des comptes pour plusieurs utilisateurs</li>
+          <li class="sf-user n3">faire évoluer le contenu et sa présentation au fil de l'usage</li>
         </ul>
       </div>
 
@@ -459,12 +459,12 @@
           <div class="trace-media" data-src="assets/img/trace-19.png"
                data-hint="Montage de deux captures du quiz en production : le catalogue des questionnaires et une question côté candidat.">
             <img src="assets/img/trace-19.png" alt="Deux vues du quiz en production : le catalogue des quatre questionnaires publiés, et une question à choix multiple avec minuteur.">
-            <span class="pt-box" style="--x:19%;--y:16.5%;--w:62%;--h:20.2%"></span>
-            <span class="pt" style="--x:19%;--y:16.5%">1</span>
-            <span class="pt-box" style="--x:19%;--y:37.3%;--w:62%;--h:8.7%"></span>
-            <span class="pt" style="--x:19%;--y:37.3%">2</span>
-            <span class="pt-box" style="--x:26%;--y:68.5%;--w:48%;--h:21.5%"></span>
-            <span class="pt" style="--x:26%;--y:68.5%">3</span>
+            <span class="pt-box n1" style="--x:19%;--y:16.5%;--w:62%;--h:20.2%"></span>
+            <span class="pt n1" style="--x:19%;--y:16.5%">1</span>
+            <span class="pt-box n2" style="--x:19%;--y:37.3%;--w:62%;--h:8.7%"></span>
+            <span class="pt n2" style="--x:19%;--y:37.3%">2</span>
+            <span class="pt-box n3" style="--x:26%;--y:68.5%;--w:48%;--h:21.5%"></span>
+            <span class="pt n3" style="--x:26%;--y:68.5%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 19</span>
@@ -472,12 +472,12 @@
             <span class="legende">
               <b>Légende :</b> montage de deux captures prises sur <code>quiz.auditetqualite.fr</code> —
               en haut le catalogue public, en bas une question côté candidat.
-              <span class="rp">1</span> les questionnaires publiés, de <b>2 à 11 questions</b> : ils ont été
+              <span class="rp n1">1</span> les questionnaires publiés, de <b>2 à 11 questions</b> : ils ont été
               créés et modifiés depuis l'administration, sans aucune intervention sur le code ;
-              <span class="rp">2</span> l'un d'eux porte un intitulé et une accroche qui lui sont propres
+              <span class="rp n2">2</span> l'un d'eux porte un intitulé et une accroche qui lui sont propres
               (« Testez vos compétences en ITE — 7 questions pour évaluer votre niveau avant la formation »),
               saisis eux aussi depuis l'interface ;
-              <span class="rp">3</span> une question telle que la voit le candidat : cases à choix multiple
+              <span class="rp n3">3</span> une question telle que la voit le candidat : cases à choix multiple
               même pour une question à réponse unique, option « Je ne sais pas », minuteur et progression.
             </span>
           </figcaption>
@@ -505,10 +505,10 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-user">Concevoir une interface d'administration sans code</span> — le point
-              <span class="rp">1</span> en est la démonstration par les faits : quatre questionnaires coexistent,
+              <span class="rp n1">1</span> en est la démonstration par les faits : quatre questionnaires coexistent,
               de 2 à 11 questions, sur des sujets distincts (ITE, combles). Une telle variété ne se produit que
               si créer un questionnaire coûte quelques minutes à une personne non développeuse. Le point
-              <span class="rp">2</span> va plus loin : même l'intitulé et l'accroche d'un questionnaire se
+              <span class="rp n2">2</span> va plus loin : même l'intitulé et l'accroche d'un questionnaire se
               saisissent depuis l'interface. Tout cela repose sur la décision technique prise en amont — sortir
               les questionnaires du code source (<a href="technique.html#sp-1">trace 1</a>).
             </p>
@@ -521,7 +521,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-user">Faire évoluer le contenu et sa présentation au fil de l'usage</span> — le
-              point <span class="rp">3</span> porte la trace de plusieurs décisions successives : toutes les
+              point <span class="rp n3">3</span> porte la trace de plusieurs décisions successives : toutes les
               questions sont passées en cases à cocher, <em>y compris celles qui n'appellent qu'une seule bonne
               réponse</em>, pour ne pas souffler la réponse par la forme du champ ; une option « Je ne sais
               pas » évite de confondre l'ignorance et l'erreur ; un minuteur et un indicateur de progression ont
@@ -541,9 +541,9 @@
       <div class="sp-head">
         <h2><span class="num">Sous-page 6 / 7</span>Supprimer tout prérequis technique à l'usage</h2>
         <ul class="sf-list">
-          <li class="sf-user">automatiser l'installation des dépendances</li>
-          <li class="sf-user">masquer la complexité technique</li>
-          <li class="sf-user">choisir le bon support de diffusion pour l'utilisateur</li>
+          <li class="sf-user n1">automatiser l'installation des dépendances</li>
+          <li class="sf-user n2">masquer la complexité technique</li>
+          <li class="sf-user n3">choisir le bon support de diffusion pour l'utilisateur</li>
         </ul>
       </div>
 
@@ -560,20 +560,20 @@
                   <td class="no">Installer l'environnement d'exécution, ouvrir un terminal, installer les
                       dépendances, lancer le serveur puis l'interface</td>
                   <td class="ok">Double-cliquer sur le lanceur : il installe ce qui manque et démarre tout
-                      <span class="rp">1</span></td>
+                      <span class="rp n1">1</span></td>
                 </tr>
                 <tr>
                   <td><b>FileManager</b></td>
                   <td class="no">Démarrer le serveur dans une fenêtre, puis le client dans une autre, et penser
                       à tout arrêter</td>
                   <td class="ok">Un seul raccourci : serveur lancé masqué, client ouvert, arrêt automatique à
-                      la fermeture <span class="rp">2</span></td>
+                      la fermeture <span class="rp n2">2</span></td>
                 </tr>
                 <tr>
                   <td><b>FileManager (accès nomade)</b></td>
                   <td class="no">Installer le client de bureau sur chaque poste Windows</td>
                   <td class="ok">Interface web accessible depuis un navigateur, hébergée sur le VPS
-                      <span class="rp">3</span></td>
+                      <span class="rp n3">3</span></td>
                 </tr>
               </tbody>
             </table>
@@ -591,9 +591,9 @@
             <span class="legende">
               <b>Légende :</b> comparaison, pour chaque outil, entre les manipulations initialement requises et
               celles qui subsistent.
-              <span class="rp">1</span> le lanceur Windows de MailRGE, qui installe automatiquement les
-              dépendances ; <span class="rp">2</span> le lanceur unique de FileManager, sans fenêtre de
-              terminal ; <span class="rp">3</span> l'interface web, qui supprime l'installation elle-même.
+              <span class="rp n1">1</span> le lanceur Windows de MailRGE, qui installe automatiquement les
+              dépendances ; <span class="rp n2">2</span> le lanceur unique de FileManager, sans fenêtre de
+              terminal ; <span class="rp n3">3</span> l'interface web, qui supprime l'installation elle-même.
             </span>
           </figcaption>
         </figure>
@@ -617,13 +617,13 @@
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
               <span class="sf sf-user">Automatiser l'installation des dépendances</span> — le point
-              <span class="rp">1</span> correspond au lanceur Windows écrit pour MailRGE dès la deuxième
+              <span class="rp n1">1</span> correspond au lanceur Windows écrit pour MailRGE dès la deuxième
               semaine : un script qui installe ce qui manque puis démarre l'application, pour qu'une personne
               non développeuse puisse s'en servir par un simple double-clic.
             </p>
             <p class="sfp">
               <span class="sf sf-user">Masquer la complexité technique</span> — au point
-              <span class="rp">2</span>, FileManager posait un problème plus délicat : c'est une application en
+              <span class="rp n2">2</span>, FileManager posait un problème plus délicat : c'est une application en
               deux morceaux, un serveur et un client. Le lanceur démarre le serveur de façon invisible, ouvre le
               client, et arrête tout à la fermeture. J'ai d'ailleurs dû faire le ménage parmi plusieurs
               variantes de lanceurs pour n'en garder qu'un seul — proposer trois façons de démarrer est une
@@ -631,7 +631,7 @@
             </p>
             <p class="sfp">
               <span class="sf sf-user">Choisir le bon support de diffusion</span> — le point
-              <span class="rp">3</span> est l'aboutissement de ce raisonnement : la meilleure installation reste
+              <span class="rp n3">3</span> est l'aboutissement de ce raisonnement : la meilleure installation reste
               l'absence d'installation. L'ajout d'une interface web à FileManager, déployée sur le VPS aux côtés
               du quiz et d'Odoo, rend l'outil accessible depuis n'importe quel navigateur. Le client de bureau
               reste disponible pour l'usage quotidien, mais il n'est plus la seule porte d'entrée.

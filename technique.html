@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technique — Portfolio BUT 2 · Lucas Requena</title>
+<meta name="description" content="Savoir-faire techniques : développement, système et réseau, données, sécurité. Huit traces commentées et un bilan.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="shell">
+
+  <header class="masthead">
+    <div class="ident">
+      <span class="ident-name">Lucas <b>REQUENA</b></span>
+      <span class="ident-line">
+        <a href="mailto:lucas.requena.foch@gmail.com">lucas.requena.foch@gmail.com</a>
+        <span class="sep">•</span>
+        <span>BUT&nbsp;Informatique — 2<sup>e</sup> année</span>
+        <span class="sep">•</span>
+        <span>Stage chez De&nbsp;Niveau — <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
+      </span>
+    </div>
+    <nav class="mainnav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="technique.html" class="is-current" aria-current="page">Technique</a>
+      <a href="suivi-projet.html">Suivi de projet</a>
+      <a href="integration.html">Intégration en entreprise</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <h1 class="page-title">Technique<span class="dot">.</span></h1>
+      <p class="resume">
+        Huit traces issues des quatre projets du stage, regroupées deux par deux autour de quatre savoir-faire
+        généraux : <b class="sf sf-dev">le développement d'applications web complètes</b>,
+        <b class="sf sf-sys">le déploiement et l'exploitation en production</b>,
+        <b class="sf sf-data">la manipulation et la migration de données</b> et
+        <b class="sf sf-sec">la sécurisation des applications et des accès</b>.
+        La dernière sous-page en dresse le bilan et évalue mon niveau avant et après le stage.
+      </p>
+    </div>
+
+    <!-- ============ NAVIGATION ENTRE SOUS-PAGES (propre à la page) ====== -->
+    <nav class="subnav" aria-label="Navigation entre les sous-pages">
+      <div class="arrows">
+        <button type="button" data-nav="prev" aria-label="Sous-page précédente">‹</button>
+      </div>
+      <div class="subnav-scroll" role="tablist" aria-label="Sous-pages">
+        <button type="button" class="sp-tab t-dev"   role="tab" id="tab-1" aria-controls="sp-1" aria-selected="true">1 · Back-end modulaire</button>
+        <button type="button" class="sp-tab t-dev"   role="tab" id="tab-2" aria-controls="sp-2" aria-selected="false">2 · Interface MailRGE</button>
+        <button type="button" class="sp-tab t-sys"   role="tab" id="tab-3" aria-controls="sp-3" aria-selected="false">3 · Trois services, un serveur</button>
+        <button type="button" class="sp-tab t-sys"   role="tab" id="tab-4" aria-controls="sp-4" aria-selected="false">4 · Diagnostic des 502</button>
+        <button type="button" class="sp-tab t-data"  role="tab" id="tab-5" aria-controls="sp-5" aria-selected="false">5 · Migration Odoo</button>
+        <button type="button" class="sp-tab t-data"  role="tab" id="tab-6" aria-controls="sp-6" aria-selected="false">6 · API ADEME / SIRENE</button>
+        <button type="button" class="sp-tab t-sec"   role="tab" id="tab-7" aria-controls="sp-7" aria-selected="false">7 · Durcissement des accès</button>
+        <button type="button" class="sp-tab t-sec"   role="tab" id="tab-8" aria-controls="sp-8" aria-selected="false">8 · Droits par ressource</button>
+        <button type="button" class="sp-tab t-bilan" role="tab" id="tab-9" aria-controls="sp-bilan" aria-selected="false">★ Bilan &amp; analyse</button>
+      </div>
+      <div class="arrows">
+        <button type="button" data-nav="next" aria-label="Sous-page suivante">›</button>
+      </div>
+    </nav>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 1                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-1" role="tabpanel" aria-labelledby="tab-1">
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 1 / 9</span>Le back-end du quiz redécoupé en modules</h2>
+        <ul class="sf-list">
+          <li class="sf-dev">découper un back-end en modules fonctionnels</li>
+          <li class="sf-dev">externaliser les données hors du code</li>
+          <li class="sf-dev">étendre une application sans la casser</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-html">
+            <div class="blocks">
+              <div class="blk" style="--c:var(--sf-dev)">
+                <b>Routes HTTP</b> — points d'entrée du quiz et de l'administration
+                <span class="sub">Reçoivent la requête, délèguent, renvoient la réponse. Aucune règle métier.</span>
+                <span class="pt pt-inline">1</span>
+              </div>
+              <div class="blk" style="--c:var(--sf-dev)">
+                <b>Gestion des données</b> — lecture et écriture des questionnaires
+                <span class="sub">Les questions vivent désormais dans des fichiers éditables, plus dans le code source.</span>
+                <span class="pt pt-inline">2</span>
+              </div>
+              <div class="blk" style="--c:var(--sf-dev)">
+                <b>Scoring</b> — calcul du résultat et du niveau atteint
+                <span class="sub">Isolé : c'est lui qui alimente le message du mail de fin et les statistiques par quiz.</span>
+              </div>
+              <div class="blk" style="--c:var(--sf-dev)">
+                <b>Authentification</b> — comptes administrateurs
+                <span class="sub">Module ajouté <em>après</em> le découpage, sans modifier les trois autres.</span>
+                <span class="pt pt-inline">3</span>
+              </div>
+              <div class="blk" style="--c:var(--txt-mute)">
+                <b>Front-end</b> — auparavant un fichier unique, éclaté en plusieurs fichiers
+                <span class="sub">Même logique appliquée côté navigateur : un fichier = une responsabilité.</span>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 1</span>
+            <span class="trace-title">Architecture du back-end Flask du quiz après refactoring</span>
+            <span class="legende">
+              <b>Légende :</b> chaque bloc est un module autonome du back-end Flask ; l'ordre de lecture va du
+              plus externe (la requête HTTP) au plus interne (les données).
+              <span class="rp">1</span> la couche des routes ne contient plus aucune règle de calcul ;
+              <span class="rp">2</span> le contenu des questionnaires est sorti du code vers des fichiers éditables ;
+              <span class="rp">3</span> le module d'authentification, ajouté dans un second temps, n'a demandé
+              aucune modification des trois autres.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 1 et sa place dans le stage</h3>
+            <p>
+              Le quiz d'évaluation des experts en isolation thermique par l'extérieur (ITE) existait déjà, mais
+              tout y était figé : les questions étaient écrites dans le code et le front-end tenait dans un seul
+              fichier. Toute modification de contenu supposait un développeur, et toute nouvelle fonctionnalité
+              risquait d'en casser une autre.
+            </p>
+            <p>
+              La <b>trace 1</b> représente l'état du back-end après le travail de restructuration mené en
+              deuxième semaine : quatre modules aux responsabilités distinctes, plus un front-end éclaté en
+              plusieurs fichiers. C'est le socle sur lequel toutes les évolutions ultérieures du quiz se sont
+              appuyées — minuteur, statistiques par quiz, mail de fin personnalisé, affichage mobile.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-dev">Découper un back-end en modules fonctionnels</span> — j'ai d'abord listé
+              ce que faisait réellement l'application, puis regroupé le code par responsabilité plutôt que par
+              ordre d'écriture. Le point remarquable <span class="rp">1</span> traduit la règle que je me suis
+              fixée : une route ne fait que recevoir et répondre. C'est ce qui rend le scoring testable
+              indépendamment du serveur web.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-dev">Externaliser les données hors du code</span> — au point
+              <span class="rp">2</span>, les questionnaires deviennent des fichiers de données. Cette décision
+              est technique en apparence, mais c'est elle qui a rendu possible l'interface d'administration
+              (<a href="integration.html#sp-19">trace 19</a>) : sans séparation entre contenu et code, aucune
+              personne non développeuse n'aurait pu créer un quiz.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-dev">Étendre une application sans la casser</span> — le point
+              <span class="rp">3</span> est la vérification de tout le reste. L'ajout des comptes
+              administrateurs, une semaine plus tard, n'a touché aucun des trois modules existants. C'est le
+              seul critère qui m'a convaincu que le découpage était le bon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 2                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 2 / 9</span>L'interface de segmentation des campagnes MailRGE</h2>
+        <ul class="sf-list">
+          <li class="sf-dev">construire une interface réactive avec Vue 3</li>
+          <li class="sf-dev">charger des données distantes par tranches (offset)</li>
+          <li class="sf-dev">corriger des défauts d'affichage et de superposition</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-media" data-src="assets/img/trace-02.png"
+               data-hint="Capture de l'écran principal de MailRGE : la liste des entreprises RGE trouvées, le champ « diviser en N parts », le sélecteur de division et le bouton d'envoi.">
+            <img src="assets/img/trace-02.png" alt="Écran principal de MailRGE : 5 342 entreprises RGE trouvées autour de Nantes dans un rayon de 50 km, liste divisée en 10 parts, division 1 chargée avec 238 destinataires sélectionnés.">
+            <span class="pt-box" style="--x:20%;--y:12%;--w:60%;--h:33%"></span>
+            <span class="pt" style="--x:20%;--y:12%">1</span>
+            <span class="pt-box" style="--x:21%;--y:53.5%;--w:58%;--h:5.5%"></span>
+            <span class="pt" style="--x:21%;--y:53.5%">2</span>
+            <span class="pt-box" style="--x:21%;--y:59.5%;--w:58%;--h:39%"></span>
+            <span class="pt" style="--x:21%;--y:59.5%">3</span>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 2</span>
+            <span class="trace-title">Écran de recherche et de segmentation des envois de MailRGE (Vue 3)</span>
+            <span class="legende">
+              <b>Légende :</b> recherche réelle exécutée depuis l'application, autour du code postal 44000
+              dans un rayon de 50 km.
+              <span class="rp">1</span> les critères de la zone — code postal, coordonnées, rayon et domaines
+              RGE cumulables — qui donnent ici <b>5 342 lignes RGE dans la zone</b> ;
+              <span class="rp">2</span> le découpage de cette liste en 10 parts (535, 535, 534…), la
+              division 1 étant chargée ;
+              <span class="rp">3</span> la liste des <b>238 destinataires</b> de cette seule division, cochés
+              et prêts pour l'étape d'envoi.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 2 et sa place dans le stage</h3>
+            <p>
+              MailRGE répond à un besoin de prospection : à partir d'un code postal, l'outil détermine une ville
+              et ses coordonnées, trace un rayon autour du chantier, interroge les données publiques pour trouver
+              les entreprises qualifiées RGE du secteur voulu, puis leur envoie un e-mail avec pièces jointes.
+            </p>
+            <p>
+              La <b>trace 2</b> montre l'écran tel qu'il est après la cinquième semaine, une fois ajoutée la
+              fonction de division des listes. Le besoin était concret, et les chiffres de la capture le
+              montrent : une recherche ordinaire — Nantes, 50 km — remonte <b>5 342 lignes</b>. Envoyer autant
+              de mails d'un coup n'est ni souhaitable ni raisonnable ; il fallait pouvoir traiter la liste par
+              paquets, ici 238 destinataires.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-dev">Construire une interface réactive avec Vue 3</span> — toute la zone
+              <span class="rp">1</span> pilote un état partagé : changer un secteur d'activité ou le rayon
+              recalcule immédiatement le nombre d'entreprises concernées, sans rechargement. C'est le premier
+              projet où j'ai réellement travaillé avec un framework à état réactif plutôt qu'en manipulant le
+              DOM à la main.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-dev">Charger des données distantes par tranches</span> — la première version
+              récupérait tous les résultats avant de les découper, ce qui était lent et fragile. Le point
+              <span class="rp">2</span> repose maintenant sur une récupération par <em>offset</em> : seule la
+              tranche du x<sup>e</sup> au y<sup>e</sup> résultat est demandée, ce qui suffit à calculer et à
+              afficher la division retenue.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-dev">Corriger des défauts d'affichage</span> — la barre du point
+              <span class="rp">2</span> a demandé plusieurs correctifs avant d'arriver à cet état : des blocs
+              passaient derrière le champ de saisie, et les contrôles « diviser en » et « charger tout le
+              résultat » se superposaient. Sur la capture, les deux sont désormais nettement séparés et une
+              ligne d'état confirme la division chargée, ce qui lève l'ambiguïté avant l'envoi visible au point
+              <span class="rp">3</span>. Ces bugs, sans gravité fonctionnelle, rendaient l'outil déroutant pour
+              son unique utilisateur ; les traiter faisait partie du travail au même titre que le reste.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 3                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 3 / 9</span>Trois services en ligne sur un seul serveur</h2>
+        <ul class="sf-list">
+          <li class="sf-sys">configurer un reverse proxy Nginx</li>
+          <li class="sf-sys">publier un service en HTTPS derrière un nom de domaine</li>
+          <li class="sf-sys">conteneuriser une application avec Docker</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-html">
+            <table class="ttab">
+              <thead>
+                <tr><th>Sous-domaine public</th><th>Service</th><th>Exécution</th><th>Écoute locale</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">quiz.auditetqualite.fr <span class="rp">1</span></td>
+                  <td>Quiz ITE</td>
+                  <td>Service Python / Flask</td>
+                  <td class="mono">127.0.0.1</td>
+                </tr>
+                <tr>
+                  <td class="mono">crmaq.auditetqualite.fr</td>
+                  <td>Odoo 18 Community</td>
+                  <td>Conteneur Docker <span class="rp">3</span></td>
+                  <td class="mono">127.0.0.1:8069</td>
+                </tr>
+                <tr>
+                  <td class="mono">(sous-domaine dédié)</td>
+                  <td>FileManager Web</td>
+                  <td>ASP.NET Core + Blazor WASM</td>
+                  <td class="mono">127.0.0.1</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="blocks" style="margin-top:12px">
+              <div class="blk" style="--c:var(--sf-sys)">
+                <b>Nginx — unique point d'entrée public</b>
+                <span class="sub">Termine le TLS sur le port 443, puis oriente vers le service local selon le
+                  sous-domaine demandé. Aucun service applicatif n'est exposé directement sur Internet.</span>
+                <span class="pt pt-inline">2</span>
+              </div>
+              <div class="blk" style="--c:var(--txt-mute)">
+                <b>Serveur : Ubuntu 24.04 · 1 vCPU · ~945 Mo de RAM</b>
+                <span class="sub">Un seul VPS pour les trois services — contrainte assumée, à l'origine des
+                  incidents analysés dans la trace 4.</span>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 3</span>
+            <span class="trace-title">Plan d'adressage du VPS : trois services derrière un seul Nginx</span>
+            <span class="legende">
+              <b>Légende :</b> chaque ligne du tableau est un service joignable publiquement ; la colonne
+              « écoute locale » indique l'adresse sur laquelle il n'est accessible <em>que</em> depuis la machine.
+              <span class="rp">1</span> le quiz, premier service mis en ligne, a été rebasculé de
+              <code>quizite</code> vers <code>quiz</code> lors de sa mise en production ;
+              <span class="rp">2</span> Nginx assure le HTTPS et le routage par sous-domaine ;
+              <span class="rp">3</span> Odoo est le seul service conteneurisé, pour isoler ses dépendances.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 3 et sa place dans le stage</h3>
+            <p>
+              L'entreprise dispose d'un seul serveur. Chaque nouveau projet devait donc venir s'ajouter aux
+              précédents <b>sans les interrompre</b> : le quiz a été mis en ligne en premier, Odoo est venu
+              cohabiter avec lui en troisième semaine, puis l'interface web de FileManager en septième.
+            </p>
+            <p>
+              La <b>trace 3</b> est le plan d'adressage résultant. C'est le document que je reconstruis
+              mentalement à chaque intervention sur le serveur, parce qu'il répond à la seule question qui
+              compte avant de toucher à une configuration : <em>qu'est-ce que je risque de casser&nbsp;?</em>
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-sys">Configurer un reverse proxy Nginx</span> — le point
+              <span class="rp">2</span> est la clé de voûte du dispositif. Un seul processus écoute sur le port
+              public ; il lit le nom de domaine demandé et transmet la requête au bon service local. Ce choix
+              évite d'ouvrir un port par application et centralise en un seul endroit les certificats et les
+              journaux.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sys">Publier un service en HTTPS derrière un nom de domaine</span> — au point
+              <span class="rp">1</span>, la mise en production du quiz a impliqué le passage complet du
+              sous-domaine <code>quizite.auditetqualite.fr</code> à <code>quiz.auditetqualite.fr</code> :
+              enregistrement DNS, certificat, configuration Nginx et vérification que les liens envoyés par mail
+              pointaient bien vers la nouvelle adresse.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sys">Conteneuriser une application avec Docker</span> — le point
+              <span class="rp">3</span> traduit une décision : Odoo apporte ses propres dépendances Python et sa
+              base PostgreSQL, que je ne voulais pas mélanger avec le reste du serveur. Je l'ai d'abord testé
+              en local sous Docker avant de reproduire la même configuration sur le VPS, ce qui a rendu la mise
+              en ligne beaucoup plus prévisible.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 4                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 4 / 9</span>Remonter à la cause d'une erreur 502 en production</h2>
+        <ul class="sf-list">
+          <li class="sf-sys">lire les journaux pour remonter à la cause d'une panne</li>
+          <li class="sf-sys">dimensionner la mémoire d'un serveur (mémoire virtuelle)</li>
+          <li class="sf-sys">faire cohabiter des services sur une machine contrainte</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-media" data-src="assets/img/trace-04.png"
+               data-hint="Capture du diagnostic : journal Nginx montrant l'erreur 502 / upstream, et sortie de « free -h » avant et après l'ajout de mémoire virtuelle.">
+            <img src="assets/img/trace-04.png" alt="Journal Nginx affichant une erreur 502 et état de la mémoire du serveur.">
+            <span class="pt" style="--x:26%;--y:22%">1</span>
+            <span class="pt" style="--x:26%;--y:62%">2</span>
+            <span class="pt" style="--x:72%;--y:82%">3</span>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 4</span>
+            <span class="trace-title">Diagnostic des erreurs 502 Bad Gateway et des lenteurs d'Odoo</span>
+            <span class="legende">
+              <b>Légende :</b> relevé effectué pendant la mise en production d'Odoo, en quatrième semaine.
+              <span class="rp">1</span> l'erreur 502 renvoyée par Nginx : le service applicatif ne répond plus ;
+              <span class="rp">2</span> l'état de la mémoire vive au même instant, qui donne la vraie cause ;
+              <span class="rp">3</span> la mémoire virtuelle ajoutée pour absorber les pics, et le retour à des
+              temps de réponse normaux.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 4 et sa place dans le stage</h3>
+            <p>
+              Une fois Odoo réellement mis en ligne, le site est devenu instable : erreurs
+              <code>502 Bad Gateway</code>, <em>Internal Server Error</em>, et des temps de chargement de
+              30 à 60 secondes. Le problème n'était plus reproductible en local — il n'existait que sur le
+              serveur de production, chargé.
+            </p>
+            <p>
+              La <b>trace 4</b> est le relevé qui a permis de trancher. Elle occupe une place charnière dans le
+              stage : c'est le moment où la migration Odoo est passée de « ça marche sur ma machine » à un
+              service réellement utilisable par le dirigeant au quotidien.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-sys">Lire les journaux pour remonter à la cause</span> — le point
+              <span class="rp">1</span> montre le symptôme, pas la panne. Une 502 signifie seulement que Nginx
+              n'a pas obtenu de réponse ; elle ne dit rien de la raison. La démarche a consisté à ne
+              <em>pas</em> s'arrêter là et à corréler l'horodatage de l'erreur avec l'état de la machine —
+              c'est exactement l'exigence que mon maître de stage a formulée à plusieurs reprises :
+              chercher l'origine du problème, pas le contournement le plus rapide.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sys">Dimensionner la mémoire d'un serveur</span> — au point
+              <span class="rp">2</span>, la cause apparaît : avec environ 945 Mo de mémoire vive, le serveur
+              n'absorbait pas les pics d'Odoo. L'ajout de mémoire virtuelle (<em>swap</em>), visible au point
+              <span class="rp">3</span>, a supprimé les coupures. Ce n'est pas une solution idéale — le swap
+              est lent — mais c'est la bonne réponse à la contrainte réelle : le budget serveur de l'entreprise.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sys">Faire cohabiter des services sur une machine contrainte</span> — chaque
+              intervention ultérieure a dû tenir compte de ce plafond. C'est aussi ce qui explique les
+              déconnexions des connexions temps réel d'Odoo observées la semaine suivante : sur une machine
+              aussi juste, la ressource mémoire est devenue un critère de conception, pas seulement
+              d'exploitation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 5                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 5 / 9</span>Migrer les données d'un ERP propriétaire vers sa version libre</h2>
+        <ul class="sf-list">
+          <li class="sf-data">exporter et réimporter des données via CSV et identifiants externes</li>
+          <li class="sf-data">découper un jeu de données trop volumineux</li>
+          <li class="sf-data">restaurer une base à partir d'un dump complet</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-media" data-src="assets/img/trace-05.png"
+               data-hint="Captures des listes de l'Odoo en production montrant les compteurs d'enregistrements migrés.">
+            <img src="assets/img/trace-05.png" alt="Trois listes de l'Odoo en production : 275 contacts, 219 factures clients, 261 devis et commandes. Le contenu des lignes est volontairement flouté.">
+            <span class="pt-box" style="--x:77.5%;--y:7.7%;--w:6.5%;--h:2.4%"></span>
+            <span class="pt" style="--x:74.8%;--y:8.9%">1</span>
+            <span class="pt-box" style="--x:77.5%;--y:39.7%;--w:6.5%;--h:2.4%"></span>
+            <span class="pt" style="--x:74.8%;--y:40.9%">2</span>
+            <span class="pt-box" style="--x:70.5%;--y:71.6%;--w:6.5%;--h:2.4%"></span>
+            <span class="pt" style="--x:67.8%;--y:72.8%">3</span>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 5</span>
+            <span class="trace-title">Les données migrées, comptées dans l'Odoo Community en production</span>
+            <span class="legende">
+              <b>Légende :</b> relevé effectué directement sur l'instance de production. Le contenu des lignes
+              est <b>volontairement flouté</b> — ce sont des données clients réelles, et seul le compteur
+              importe ici.
+              <span class="rp">1</span> <b>275 contacts</b> ;
+              <span class="rp">2</span> <b>219 factures et avoirs</b> ;
+              <span class="rp">3</span> <b>261 devis et commandes</b>.
+              À quoi s'ajoutent, mesurés dans la base, 58 produits, 682 écritures comptables et surtout
+              <b>249 identifiants externes</b> rattachés aux seuls contacts.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 5 et sa place dans le stage</h3>
+            <p>
+              L'entreprise gérait ses contacts, devis, commandes et factures sous <b>Odoo Enterprise</b>. Le
+              projet consistait à basculer sur <b>Odoo 18 Community</b>, la version libre, auto-hébergée sur le
+              VPS. Une migration d'ERP ne tolère pas l'à-peu-près : ce sont les données comptables et
+              commerciales réelles de la société.
+            </p>
+            <p>
+              La <b>trace 5</b> est le résultat, constaté sur l'instance de production plusieurs semaines après
+              la bascule. J'ai délibérément choisi de montrer les <em>compteurs</em> plutôt que l'assistant
+              d'import : une migration ne se juge pas à l'écran qu'on a vu pendant qu'elle tournait, mais aux
+              volumes qu'on retrouve de l'autre côté.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-data">Exporter et réimporter via CSV et identifiants externes</span> — la règle
+              que j'ai fini par ériger en principe : toujours mapper l'« ID externe ». Sans lui, chaque ligne
+              importée reçoit un nouvel identifiant et les relations entre tables sont perdues — une facture ne
+              retrouve plus son client, une ligne de commande plus son produit. C'est l'erreur que j'ai commise
+              sur mes premiers essais. Les <b>249 identifiants externes</b> encore présents sur les contacts en
+              sont la trace durable : ils ne servent plus à rien au quotidien, mais ce sont eux qui ont permis
+              aux 219 factures du point <span class="rp">2</span> de retrouver leur client parmi les 275 du
+              point <span class="rp">1</span>.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-data">Découper un jeu de données trop volumineux</span> — au point
+              <span class="rp">1</span>, le fichier des contacts était tout simplement trop gros pour être
+              avalé d'un coup par le serveur. J'ai écrit un script qui le découpe en une dizaine de morceaux
+              importés successivement, avec gestion des étiquettes et des doublons. La contrainte matérielle du
+              VPS a donc directement dicté la méthode de migration.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-data">Restaurer une base à partir d'un dump complet</span> — après plusieurs
+              tables importées une à une, j'ai changé de stratégie : reprendre le dump complet de la base
+              Enterprise plutôt que de poursuivre table par table. Le compte rendu du point
+              <span class="rp">3</span> reste le juge de paix — une migration se vérifie par comptage, pas par
+              impression.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 6                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-6" role="tabpanel" aria-labelledby="tab-6" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 6 / 9</span>Exploiter des API publiques et normaliser leurs données</h2>
+        <ul class="sf-list">
+          <li class="sf-data">consommer une API publique et respecter ses limites</li>
+          <li class="sf-data">normaliser des données hétérogènes</li>
+          <li class="sf-data">prévoir un repli et filtrer les faux positifs</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-html">
+            <table class="ttab">
+              <thead>
+                <tr><th style="width:34%">Symptôme observé</th><th style="width:33%">Cause identifiée</th><th>Correction apportée</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Aucun résultat alors que le département en contient <span class="rp">1</span></td>
+                  <td>Le code NAF était transmis avec son point (<code>43.99C</code>)</td>
+                  <td class="ok">Normalisation du code avant appel : suppression du point</td>
+                </tr>
+                <tr>
+                  <td>Requête rejetée par le service</td>
+                  <td>Le paramètre de recherche <code>q</code> est obligatoire</td>
+                  <td class="ok">Ajout systématique du paramètre, même vide</td>
+                </tr>
+                <tr>
+                  <td>Zéro entreprise remontée sur certains secteurs <span class="rp">2</span></td>
+                  <td>Le code d'activité seul est trop restrictif</td>
+                  <td class="ok">Repli automatique sur une recherche par mots-clés</td>
+                </tr>
+                <tr>
+                  <td>Adresses e-mail invalides dans les listes <span class="rp">3</span></td>
+                  <td>Faux positifs récupérés lors de l'enrichissement</td>
+                  <td class="ok">Filtrage par liste d'exclusion (ex. <code>error-lite@duckduckgo.com</code>)</td>
+                </tr>
+                <tr>
+                  <td>Requêtes trop nombreuses, réponses instables</td>
+                  <td>Un appel émis par critère au lieu d'un appel groupé</td>
+                  <td class="ok">Regroupement des appels et réduction de leur nombre</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 6</span>
+            <span class="trace-title">Journal des anomalies rencontrées sur les API ADEME et SIRENE, et de leurs corrections</span>
+            <span class="legende">
+              <b>Légende :</b> tableau construit au fil du développement de MailRGE ; chaque ligne est un
+              problème réel rencontré en interrogeant les données publiques.
+              <span class="rp">1</span> la normalisation des codes d'activité ;
+              <span class="rp">2</span> le mécanisme de repli quand la recherche stricte ne renvoie rien ;
+              <span class="rp">3</span> le filtrage des adresses aberrantes avant constitution de la liste
+              d'envoi.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 6 et sa place dans le stage</h3>
+            <p>
+              MailRGE ne possède aucune base d'entreprises : il interroge en direct les données ouvertes de
+              l'État — l'API de l'ADEME pour les qualifications RGE, l'API SIRENE pour les établissements et
+              leurs codes d'activité. Toute la valeur de l'outil dépend donc de la qualité de ces appels.
+            </p>
+            <p>
+              La <b>trace 6</b> réunit les anomalies rencontrées et leurs corrections, principalement lors de
+              l'ajout de la recherche de fournisseurs régionaux en cinquième semaine. Elle montre la partie du
+              travail qui ne se voit pas dans l'interface mais qui décide de sa fiabilité.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-data">Consommer une API publique et respecter ses limites</span> — la dernière
+              ligne du tableau résume une leçon : la première version émettait un appel par critère, ce qui
+              multipliait les requêtes, déclenchait des limitations côté service et produisait des bugs
+              intermittents. Regrouper les appels a autant amélioré la fiabilité que la lisibilité du code.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-data">Normaliser des données hétérogènes</span> — le point
+              <span class="rp">1</span> est typique du travail sur données publiques : le même code d'activité
+              s'écrit avec ou sans point selon la source. Tant que je n'ai pas mis en place une normalisation
+              systématique à l'entrée, j'ai cherché des bugs applicatifs là où il n'y avait qu'un problème de
+              format.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-data">Prévoir un repli et filtrer les faux positifs</span> — les points
+              <span class="rp">2</span> et <span class="rp">3</span> traduisent la même exigence : une liste
+              d'envoi vide est inutile, mais une liste polluée est pire, car les mails partent réellement. Le
+              repli par mots-clés évite le résultat vide ; la liste d'exclusion évite d'écrire à une adresse
+              qui n'a jamais existé.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 7                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-7" role="tabpanel" aria-labelledby="tab-7" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 7 / 9</span>Durcir les accès d'un site avant sa mise en production</h2>
+        <ul class="sf-list">
+          <li class="sf-sec">appliquer une politique de mot de passe</li>
+          <li class="sf-sec">limiter les tentatives de connexion</li>
+          <li class="sf-sec">couvrir une règle de sécurité par des tests automatisés</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-media" data-src="assets/img/trace-07.png"
+               data-hint="Capture de l'écran de création de compte du quiz en production, montrant la règle de mot de passe imposée.">
+            <img src="assets/img/trace-07.png" alt="Écran de création de compte du quiz en production : le mot de passe doit faire au moins 10 caractères, lettres et chiffres.">
+            <span class="pt-box" style="--x:29%;--y:55.5%;--w:42%;--h:8.5%"></span>
+            <span class="pt" style="--x:29%;--y:55.5%">1</span>
+            <span class="pt-box" style="--x:29%;--y:64.5%;--w:42%;--h:8.5%"></span>
+            <span class="pt" style="--x:29%;--y:64.5%">2</span>
+            <span class="pt-box" style="--x:29%;--y:22.5%;--w:42%;--h:5%"></span>
+            <span class="pt" style="--x:29%;--y:22.5%">3</span>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 7</span>
+            <span class="trace-title">La politique de mot de passe du quiz, telle qu'elle s'applique en production</span>
+            <span class="legende">
+              <b>Légende :</b> écran de création de compte relevé sur le site en ligne
+              (<code>quiz.auditetqualite.fr/compte</code>) — la face visible de la mise à jour de sécurité de
+              la troisième semaine.
+              <span class="rp">1</span> la règle de mot de passe, à la fois <b>annoncée</b> à l'utilisateur
+              (« 10 caractères minimum, lettres et chiffres ») et <b>imposée</b> par le champ lui-même
+              (<code>minlength="10"</code>, <code>required</code>) ;
+              <span class="rp">2</span> la confirmation obligatoire du mot de passe ;
+              <span class="rp">3</span> la double entrée « Connexion / Créer un compte » : la surface
+              d'authentification ouverte au public, celle qu'il a fallu protéger.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 7 et sa place dans le stage</h3>
+            <p>
+              Le quiz devait passer d'un prototype interne à un site public, accessible par des experts
+              extérieurs à l'entreprise, avec plusieurs comptes administrateurs capables de modifier les
+              questionnaires. Ce changement de statut imposait de traiter la sécurité avant l'ouverture, pas
+              après.
+            </p>
+            <p>
+              La <b>trace 7</b> a été relevée sur le site en ligne, plusieurs semaines après cette mise à
+              jour : ce n'est pas une capture d'un environnement de test, c'est la règle telle qu'elle
+              s'applique aujourd'hui à toute personne qui crée un compte. J'ai choisi de prendre cette trace
+              du côté public plutôt que dans le code, parce que c'est là qu'une politique de sécurité se
+              vérifie vraiment.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-sec">Appliquer une politique de mot de passe</span> — les points
+              <span class="rp">1</span> et <span class="rp">2</span> montrent la règle sous ses deux formes :
+              <em>énoncée</em> dans le libellé du champ, pour que l'utilisateur sache à quoi s'en tenir avant
+              de saisir, et <em>contrainte</em> par l'attribut <code>minlength</code>. Ce double affichage est
+              un choix : une règle qui n'apparaît qu'au moment du refus est vécue comme une brimade. La
+              vérification qui compte reste évidemment celle du serveur — le navigateur ne fait que rendre
+              l'erreur immédiate.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sec">Limiter les tentatives de connexion</span> — la protection contre les
+              attaques par force brute porte sur l'entrée « Connexion » du point <span class="rp">3</span> :
+              au-delà d'un certain nombre d'échecs, les tentatives sont bloquées. C'est la contrepartie logique
+              de l'ouverture du site, car une page de connexion publique est systématiquement sondée. Elle
+              n'est volontairement pas illustrée ici : la démontrer supposerait d'attaquer le site en
+              production, ce que je me suis interdit.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sec">Couvrir une règle de sécurité par des tests automatisés</span> — c'est ce
+              qui donne leur valeur aux deux précédents. Les deux règles ont été écrites <em>avec</em> leurs
+              tests, parce qu'une protection ne se voit pas quand elle fonctionne : sans test, une modification
+              ultérieure peut la neutraliser sans que personne s'en aperçoive. J'ai retrouvé la même logique sur
+              FileManager, où les corrections issues de la revue de code ont systématiquement été accompagnées
+              de tests — le lien avec le <a href="suivi-projet.html#sp-11">savoir-faire qualité</a> est direct.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 8                                                        -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-8" role="tabpanel" aria-labelledby="tab-8" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 8 / 9</span>Contrôler les droits ressource par ressource</h2>
+        <ul class="sf-list">
+          <li class="sf-sec">modéliser un contrôle d'accès (autorisation, refus, héritage)</li>
+          <li class="sf-sec">prévenir l'élévation de privilèges</li>
+          <li class="sf-sec">garantir l'intégrité d'un fichier par empreinte</li>
+        </ul>
+      </div>
+
+      <div class="sp-body">
+        <figure class="trace">
+          <div class="trace-media" data-src="assets/img/trace-08.png"
+               data-hint="Capture de la matrice de permissions de FileManager : onglets Groupes / Utilisateurs, une ligne par sujet, une colonne par droit, cases à cocher.">
+            <img src="assets/img/trace-08.png" alt="Matrice de permissions de FileManager, inspirée de Jenkins.">
+            <span class="pt" style="--x:20%;--y:16%">1</span>
+            <span class="pt" style="--x:66%;--y:44%">2</span>
+            <span class="pt" style="--x:40%;--y:84%">3</span>
+          </div>
+          <figcaption>
+            <span class="trace-num">Trace 8</span>
+            <span class="trace-title">Matrice de permissions de FileManager, inspirée de celle de Jenkins</span>
+            <span class="legende">
+              <b>Légende :</b> écran d'administration des droits, atteint après deux itérations de conception.
+              <span class="rp">1</span> les onglets « Groupes » et « Utilisateurs », qui séparent les deux types
+              de sujets ;
+              <span class="rp">2</span> une ligne par sujet et une colonne par droit, cochés individuellement ;
+              <span class="rp">3</span> les règles implicites appliquées derrière : héritage depuis le dossier
+              parent et priorité absolue au refus.
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="analyse">
+          <div class="bloc">
+            <h3>Ce que montre la trace 8 et sa place dans le stage</h3>
+            <p>
+              FileManager est né d'un besoin simple à énoncer : « une application où plusieurs personnes
+              déposent des fichiers, et où l'administrateur définit dossier par dossier ce que chacun a le droit
+              de faire » — l'équivalent d'un service de partage grand public, mais avec des droits plus lisibles
+              et sans imposer un type de compte aux destinataires.
+            </p>
+            <p>
+              La <b>trace 8</b> montre l'écran de gestion des droits. Le modèle retenu s'inspire de Discord pour
+              sa logique (autorisation explicite, refus explicite, héritage depuis le parent, le refus
+              l'emportant toujours) et de Jenkins pour sa présentation en matrice.
+            </p>
+          </div>
+
+          <div class="bloc">
+            <h3>Les savoir-faire mobilisés</h3>
+            <p class="sfp">
+              <span class="sf sf-sec">Modéliser un contrôle d'accès</span> — les points
+              <span class="rp">2</span> et <span class="rp">3</span> forment un tout : la matrice n'est que
+              l'affichage d'un modèle où chaque droit peut être accordé, refusé ou hérité. La règle
+              « le refus l'emporte » est ce qui rend le système prévisible : un administrateur peut donner
+              largement à un groupe puis retirer précisément à une personne.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sec">Prévenir l'élévation de privilèges</span> — le point
+              <span class="rp">1</span> a demandé des garde-fous ajoutés après coup : empêcher qu'un utilisateur
+              s'attribue des droits qu'il ne possède pas, empêcher les cycles dans les groupes, et rendre
+              cohérent le droit d'édition avec les droits qu'il implique. Un écran de permissions est lui-même
+              une ressource sensible.
+            </p>
+            <p class="sfp">
+              <span class="sf sf-sec">Garantir l'intégrité d'un fichier par empreinte</span> — le même projet
+              m'a amené à traiter le cas où deux personnes modifient le même fichier. La détection repose sur
+              une empreinte <b>SHA-256</b> comparée avant écriture, complétée côté accès réseau par un
+              mécanisme de concurrence optimiste (<em>ETag</em> / <code>If-Match</code>) : on n'écrase que si le
+              fichier est bien celui qu'on croit avoir lu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- SOUS-PAGE 9 — BILAN & ANALYSE                                      -->
+    <!-- ================================================================= -->
+    <article class="subpage" id="sp-bilan" role="tabpanel" aria-labelledby="tab-9" hidden>
+      <div class="sp-head">
+        <h2><span class="num">Sous-page 9 / 9</span>Bilan &amp; analyse des savoir-faire techniques</h2>
+        <p class="resume" style="max-width:none">
+          Un bloc par savoir-faire général : ce à quoi il a servi, d'où vient l'apprentissage, ce qui a été
+          difficile, et une évaluation de mon niveau avant et après le stage.
+        </p>
+      </div>
+
+      <div class="bilan-grid">
+
+        <!-- ---------------- SF A : développement ---------------------- -->
+        <section class="bilan-bloc sf-dev">
+          <h3>Développer une application web complète</h3>
+          <span class="dom">Domaine : développement · Traces 1 et 2</span>
+
+          <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
+          <ul>
+            <li><b>Découper un back-end en modules</b> — back-end Flask du quiz (trace 1), puis architecture en
+              couches de FileManager (Domain / Infrastructure / Serveur / Bureau).</li>
+            <li><b>Externaliser les données hors du code</b> — questionnaires du quiz rendus éditables,
+              condition indispensable à l'interface d'administration.</li>
+            <li><b>Construire une interface réactive</b> — MailRGE en Vue 3 (trace 2), interface web de
+              FileManager en Blazor WebAssembly, client bureau en WPF.</li>
+            <li><b>Développer dans un progiciel existant</b> — module Odoo <code>sale_payment_schedule</code>,
+              qui modifie le rendu d'un devis sans altérer le texte stocké.</li>
+          </ul>
+
+          <h4>Contexte d'apprentissage</h4>
+          <div class="appr">
+            <span class="on">Bases vues en cours</span>
+            <span class="on">Approfondi en stage</span>
+            <span>Travail personnel</span>
+          </div>
+          <p>
+            Les fondamentaux — langages, structuration d'un projet, séparation des responsabilités — viennent de
+            la formation. Vue 3, Blazor, WPF et le développement de modules Odoo ont en revanche été appris
+            pendant le stage, sur le tas.
+          </p>
+
+          <h4>Difficulté</h4>
+          <p>
+            <b>Moyenne.</b> La difficulté n'était pas d'écrire du code mais de <em>reprendre</em> du code
+            existant sans le casser, et de passer d'un écosystème à l'autre (Python, JavaScript, C#) en quelques
+            semaines.
+          </p>
+
+          <div class="niveau">
+            <div class="row avant"><span class="lbl">Avant</span><span class="bar"><i style="--v:45%"></i></span><span class="val">Moyen</span></div>
+            <div class="row"><span class="lbl">Après</span><span class="bar"><i style="--v:80%"></i></span><span class="val">Bon</span></div>
+            <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
+          </div>
+          <p>
+            <b>Justification :</b> avant le stage, je savais produire une application qui fonctionne dans le
+            cadre d'un exercice. Je sais désormais reprendre une base existante, la restructurer et la faire
+            évoluer pendant plusieurs mois sans la rendre illisible — la trace 1 en est la preuve la plus nette.
+            Il me reste à progresser sur les tests d'interface et sur la conception initiale, que j'ai encore
+            tendance à improviser.
+          </p>
+        </section>
+
+        <!-- ---------------- SF B : système / réseau -------------------- -->
+        <section class="bilan-bloc sf-sys">
+          <h3>Déployer et exploiter un service en production</h3>
+          <span class="dom">Domaine : architecture / système / réseau · Traces 3 et 4</span>
+
+          <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
+          <ul>
+            <li><b>Configurer un reverse proxy</b> — Nginx en point d'entrée unique des trois services du VPS
+              (trace 3).</li>
+            <li><b>Publier en HTTPS derrière un nom de domaine</b> — mise en ligne du quiz, puis bascule
+              complète de <code>quizite</code> vers <code>quiz.auditetqualite.fr</code>.</li>
+            <li><b>Conteneuriser avec Docker</b> — Odoo 18 testé en local puis déployé selon la même
+              configuration.</li>
+            <li><b>Diagnostiquer un incident de production</b> — erreurs 502, lenteurs, saturation mémoire,
+              ajout de mémoire virtuelle (trace 4).</li>
+          </ul>
+
+          <h4>Contexte d'apprentissage</h4>
+          <div class="appr">
+            <span>Bases vues en cours</span>
+            <span class="on">Appris pendant le stage</span>
+            <span class="on">Travail personnel</span>
+          </div>
+          <p>
+            C'est le savoir-faire le plus éloigné de ma formation initiale. La notion de serveur et de réseau
+            était connue, mais l'exploitation réelle — un service que quelqu'un utilise et qui doit rester
+            debout — a été entièrement apprise ici, en documentation et en dépannage.
+          </p>
+
+          <h4>Difficulté</h4>
+          <p>
+            <b>Élevée.</b> C'est le domaine où l'erreur coûte le plus cher : une mauvaise manipulation sur le
+            VPS met hors ligne des services utilisés par l'entreprise. J'ai aussi dû accepter de travailler avec
+            une machine sous-dimensionnée plutôt que de demander plus de ressources.
+          </p>
+
+          <div class="niveau">
+            <div class="row avant"><span class="lbl">Avant</span><span class="bar"><i style="--v:20%"></i></span><span class="val">Notions</span></div>
+            <div class="row"><span class="lbl">Après</span><span class="bar"><i style="--v:72%"></i></span><span class="val">Bon</span></div>
+            <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
+          </div>
+          <p>
+            <b>Justification :</b> c'est ma plus forte progression. Je suis passé de « je n'ai jamais mis un
+            site en ligne » à « trois services cohabitent sur un serveur que j'administre et que je dépanne ».
+            Mon niveau reste celui d'un exploitant débutant : je sais faire fonctionner, pas encore concevoir
+            une infrastructure redondée ni superviser proprement.
+          </p>
+        </section>
+
+        <!-- ---------------- SF C : données ---------------------------- -->
+        <section class="bilan-bloc sf-data">
+          <h3>Récupérer, transformer et migrer des données</h3>
+          <span class="dom">Domaine : bases de données / données · Traces 5 et 6</span>
+
+          <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
+          <ul>
+            <li><b>Exporter / importer avec identifiants externes</b> — toute la migration Odoo : contacts,
+              produits, devis, commandes, factures, avoirs, utilisateurs (trace 5).</li>
+            <li><b>Découper un jeu de données trop volumineux</b> — script de découpage du fichier de contacts
+              en une dizaine de morceaux.</li>
+            <li><b>Restaurer une base depuis un dump</b> — reprise complète de la base Enterprise sur
+              l'instance Community.</li>
+            <li><b>Consommer et normaliser des données publiques</b> — API ADEME et SIRENE dans MailRGE
+              (trace 6) ; conversion code postal → ville, latitude, longitude pour le rayon de recherche.</li>
+          </ul>
+
+          <h4>Contexte d'apprentissage</h4>
+          <div class="appr">
+            <span class="on">Bases vues en cours</span>
+            <span class="on">Approfondi en stage</span>
+            <span>Travail personnel</span>
+          </div>
+          <p>
+            Le modèle relationnel, les clés et les jointures viennent des cours de bases de données. Ce que le
+            stage a apporté, c'est la réalité d'une migration : les exports incomplets, les limites d'un
+            progiciel, les doublons et les volumes qui ne passent pas.
+          </p>
+
+          <h4>Difficulté</h4>
+          <p>
+            <b>Élevée.</b> L'export depuis Odoo Enterprise comporte des limites qui compliquent la récupération,
+            le fichier des contacts dépassait ce que le serveur pouvait absorber, et l'oubli d'un identifiant
+            externe casse silencieusement les relations — une erreur qu'on ne voit pas tout de suite.
+          </p>
+
+          <div class="niveau">
+            <div class="row avant"><span class="lbl">Avant</span><span class="bar"><i style="--v:45%"></i></span><span class="val">Moyen</span></div>
+            <div class="row"><span class="lbl">Après</span><span class="bar"><i style="--v:76%"></i></span><span class="val">Bon</span></div>
+            <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
+          </div>
+          <p>
+            <b>Justification :</b> je savais écrire des requêtes et concevoir un schéma ; je sais maintenant
+            déplacer les données réelles d'une entreprise d'un système à un autre, en vérifiant. La leçon
+            principale est méthodologique : on ne déclare pas une migration terminée sur une impression, on la
+            compte.
+          </p>
+        </section>
+
+        <!-- ---------------- SF D : sécurité --------------------------- -->
+        <section class="bilan-bloc sf-sec">
+          <h3>Sécuriser une application et ses accès</h3>
+          <span class="dom">Domaine : sécurité (transverse) · Traces 7 et 8</span>
+
+          <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
+          <ul>
+            <li><b>Politique de mot de passe et anti-brute-force</b> — mise à jour de sécurité du quiz avant
+              son ouverture au public, avec tests dédiés (trace 7).</li>
+            <li><b>Contrôle d'accès par ressource</b> — droits par dossier et par fichier de FileManager,
+              héritage et priorité au refus (trace 8).</li>
+            <li><b>Prévention de l'élévation de privilèges</b> — gardes ajoutées sur l'écran d'administration
+              des droits.</li>
+            <li><b>Intégrité et concurrence</b> — empreinte SHA-256 avant écrasement, ETag / <code>If-Match</code>
+              sur l'accès réseau.</li>
+            <li><b>Transport et authentification</b> — HTTPS/TLS sur tous les services, authentification
+              OAuth pour l'accès à la messagerie Microsoft 365 depuis Odoo.</li>
+          </ul>
+
+          <h4>Contexte d'apprentissage</h4>
+          <div class="appr">
+            <span>Bases vues en cours</span>
+            <span class="on">Appris pendant le stage</span>
+            <span class="on">Travail personnel</span>
+          </div>
+          <p>
+            Les principes (ne jamais faire confiance à l'entrée, moindre privilège) avaient été évoqués en
+            formation, mais toujours de façon théorique. Les mettre en œuvre sur un site réellement exposé, et
+            sur un modèle de droits complet, relève entièrement du stage.
+          </p>
+
+          <h4>Difficulté</h4>
+          <p>
+            <b>Élevée.</b> La sécurité ne se voit pas quand elle fonctionne, ce qui la rend difficile à
+            valider : seuls les tests donnent une certitude. Le point le plus délicat a été le modèle de droits
+            de FileManager, où chaque règle ajoutée ouvre un cas limite (cycles de groupes, droits
+            contradictoires, auto-attribution).
+          </p>
+
+          <div class="niveau">
+            <div class="row avant"><span class="lbl">Avant</span><span class="bar"><i style="--v:18%"></i></span><span class="val">Notions</span></div>
+            <div class="row"><span class="lbl">Après</span><span class="bar"><i style="--v:58%"></i></span><span class="val">Moyen</span></div>
+            <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
+          </div>
+          <p>
+            <b>Justification :</b> je me situe volontairement plus bas que sur les autres savoir-faire. Je sais
+            désormais appliquer les mesures attendues d'une application avant sa mise en ligne et raisonner sur
+            un modèle d'autorisation, mais je n'ai pas encore la culture offensive qui permet de chercher
+            activement les failles de son propre code. C'est l'axe de progression que je retiens en priorité.
+          </p>
+        </section>
+
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="foot">
+    Portfolio BUT 2 — Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
+  </footer>
+</div>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

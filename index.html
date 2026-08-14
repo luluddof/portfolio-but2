@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accueil — Portfolio BUT 2 · Lucas Requena</title>
+<meta name="description" content="Portfolio de stage BUT 2 Informatique — Lucas Requena, stage chez De Niveau (Audit &amp; Qualité).">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="shell">
+
+  <!-- ================= ENTÊTE PERMANENTE (toujours visible) ============= -->
+  <header class="masthead">
+    <div class="ident">
+      <span class="ident-name">Lucas <b>REQUENA</b></span>
+      <span class="ident-line">
+        <a href="mailto:lucas.requena.foch@gmail.com">lucas.requena.foch@gmail.com</a>
+        <span class="sep">•</span>
+        <span>BUT&nbsp;Informatique — 2<sup>e</sup> année</span>
+        <span class="sep">•</span>
+        <span>Stage chez De&nbsp;Niveau — <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
+      </span>
+    </div>
+    <nav class="mainnav" aria-label="Navigation principale">
+      <a href="index.html" class="is-current" aria-current="page">Accueil</a>
+      <a href="technique.html">Technique</a>
+      <a href="suivi-projet.html">Suivi de projet</a>
+      <a href="integration.html">Intégration en entreprise</a>
+    </nav>
+  </header>
+
+  <main class="home">
+
+    <!-- ================= INTRODUCTION ================================== -->
+    <section class="card hero col-7">
+      <span class="baseline">Portfolio de stage · BUT 2 Informatique · 2026</span>
+      <h1>Quatre outils internes conçus, développés et <span class="acc">mis en production</span> pour une TPE</h1>
+      <p class="lead">
+        Ce site présente le travail réalisé pendant mon stage de deuxième année de BUT Informatique,
+        de mai à août 2026, au sein de la société <b>De Niveau</b>, qui exerce sous la marque
+        <b>Audit&nbsp;&amp;&nbsp;Qualité</b>.
+      </p>
+      <p>Il poursuit trois objectifs :</p>
+      <ul class="tight">
+        <li><b>replacer le travail dans son contexte</b> — l'entreprise, son fonctionnement et les
+            problèmes concrets à l'origine des projets qui m'ont été confiés&nbsp;;</li>
+        <li><b>démontrer des savoir-faire par la preuve</b> — chaque compétence annoncée est adossée à une
+            <b>trace</b> issue du travail réel (capture, extrait de code, schéma, historique de dépôt),
+            numérotée et commentée&nbsp;;</li>
+        <li><b>porter un regard critique</b> — chaque page se termine par un bilan qui évalue mon niveau
+            avant et après le stage, et qui dit d'où vient chaque apprentissage.</li>
+      </ul>
+      <p>
+        Les trois autres pages traitent respectivement de la dimension
+        <a href="technique.html"><b>technique</b></a>, du
+        <a href="suivi-projet.html"><b>suivi de projet</b></a> et de l'
+        <a href="integration.html"><b>intégration en entreprise</b></a>.
+        Les savoir-faire détaillés dans ces pages apparaissent ci-dessous <b>en couleur</b>&nbsp;: la
+        couleur est conservée dans tout le site pour identifier d'un coup d'œil le savoir-faire dont on parle.
+      </p>
+    </section>
+
+    <!-- ================= ILLUSTRATION : l'écosystème mis en place ======= -->
+    <section class="card col-5">
+      <h3>Illustration — Ce qui tourne aujourd'hui</h3>
+      <div class="figure-box">
+        <svg viewBox="0 0 660 420" role="img" aria-label="Schéma : deux applications sur le poste de travail, trois services hébergés sur un VPS unique derrière Nginx, et les services externes appelés.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#7a8290"/>
+            </marker>
+            <style>
+              .bx  { fill:#ffffff; stroke:#dbe2cf; stroke-width:1.5; }
+              .grp { fill:#f7f9f3; stroke:#c2d0a8; stroke-width:1.5; stroke-dasharray:5 4; }
+              .t   { fill:#1b2030; font:600 12.5px ui-sans-serif,system-ui,"Segoe UI",sans-serif; }
+              .s   { fill:#7a8290; font:400 10.5px ui-sans-serif,system-ui,"Segoe UI",sans-serif; }
+              .g   { fill:#5c7a10; font:700 10.5px ui-sans-serif,system-ui,"Segoe UI",sans-serif; letter-spacing:.08em; }
+              .ln  { stroke:#7a8290; stroke-width:1.4; fill:none; marker-end:url(#ar); }
+              .lime{ fill:#c6fd68; stroke:#5c7a10; stroke-width:1.5; }
+            </style>
+          </defs>
+
+          <!-- Poste de travail -->
+          <rect class="grp" x="8" y="24" width="196" height="150" rx="10"/>
+          <text class="g" x="20" y="44">POSTE WINDOWS</text>
+          <rect class="bx" x="20" y="54" width="172" height="46" rx="8"/>
+          <text class="t" x="32" y="74">MailRGE</text>
+          <text class="s" x="32" y="90">Node.js + Vue 3 — hors ligne</text>
+          <rect class="bx" x="20" y="110" width="172" height="46" rx="8"/>
+          <text class="t" x="32" y="130">FileManager Desktop</text>
+          <text class="s" x="32" y="146">Client WPF (.NET 8)</text>
+
+          <!-- VPS -->
+          <rect class="grp" x="238" y="8" width="414" height="256" rx="10"/>
+          <text class="g" x="252" y="28">VPS GANDI CLOUD</text>
+          <text class="s" x="252" y="44">Ubuntu 24.04 · 1 vCPU · ~945 Mo de RAM · 3 services mutualisés</text>
+
+          <rect class="lime" x="252" y="56" width="76" height="192" rx="8"/>
+          <text class="t" x="290" y="140" text-anchor="middle">Nginx</text>
+          <text class="s" x="290" y="156" text-anchor="middle">TLS 443</text>
+          <text class="s" x="290" y="170" text-anchor="middle">proxy</text>
+
+          <rect class="bx" x="352" y="56" width="286" height="56" rx="8"/>
+          <text class="t" x="366" y="78">quiz.auditetqualite.fr</text>
+          <text class="s" x="366" y="96">Quiz ITE — Flask (Python)</text>
+
+          <rect class="bx" x="352" y="124" width="286" height="56" rx="8"/>
+          <text class="t" x="366" y="146">crmaq.auditetqualite.fr</text>
+          <text class="s" x="366" y="164">Odoo 18 Community — Docker</text>
+
+          <rect class="bx" x="352" y="192" width="286" height="56" rx="8"/>
+          <text class="t" x="366" y="214">FileManager Web</text>
+          <text class="s" x="366" y="232">ASP.NET Core + Blazor WASM</text>
+
+          <path class="ln" d="M204 100 L246 100"/>
+          <path class="ln" d="M328 84 L348 84"/>
+          <path class="ln" d="M328 152 L348 152"/>
+          <path class="ln" d="M328 220 L348 220"/>
+
+          <!-- Services externes -->
+          <rect class="grp" x="8" y="300" width="316" height="104" rx="10"/>
+          <text class="g" x="22" y="322">DONNÉES PUBLIQUES</text>
+          <text class="t" x="22" y="346">API ADEME (qualifications RGE)</text>
+          <text class="t" x="22" y="368">API SIRENE (entreprises, code NAF)</text>
+          <text class="s" x="22" y="388">Sources gratuites — aucun abonnement</text>
+
+          <rect class="grp" x="344" y="300" width="308" height="104" rx="10"/>
+          <text class="g" x="358" y="322">MESSAGERIE</text>
+          <text class="t" x="358" y="346">SMTP no-reply@auditetqualite.fr</text>
+          <text class="t" x="358" y="368">IMAP / OAuth — Microsoft 365</text>
+          <text class="s" x="358" y="388">Envoi des résultats · catchall Odoo</text>
+
+          <path class="ln" d="M106 174 L106 296"/>
+          <path class="ln" d="M498 264 L498 296"/>
+        </svg>
+        <p class="cap">
+          Les quatre projets du stage&nbsp;: un poste de travail pour les outils utilisés en interne,
+          un serveur unique — volontairement modeste — pour tout ce qui doit être joignable en ligne.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= CONTEXTE ENTREPRISE ========================== -->
+    <section class="card col-4">
+      <h3>Contexte — L'entreprise</h3>
+      <p>
+        <b>De Niveau</b> est une <b>SAS non employeuse</b> : elle n'a aucun salarié, son dirigeant en est le
+        seul opérateur. Elle exerce deux activités : le <b>conseil en rénovation énergétique</b>
+        (audits, accompagnement des particuliers, contrôle de la qualité des travaux d'isolation) et
+        l'<b>édition de logiciels</b> destinés à ce même métier.
+      </p>
+      <dl class="kv">
+        <dt>Personnes impliquées</dt>
+        <dd>
+          <b>Cédric Trefouel</b>, dirigeant et maître de stage : exprime les besoins, arbitre les priorités,
+          valide chaque livrable et joue le rôle d'utilisateur final.<br>
+          <b>Moi</b> : seul développeur, du cadrage à la mise en production.
+        </dd>
+      </dl>
+      <h3 style="margin-top:12px">Moyens de travail</h3>
+      <ul class="tight">
+        <li>Un poste Windows, un <b>unique VPS Gandi Cloud</b> (Ubuntu 24.04, 1 vCPU, ~945 Mo de RAM) qui héberge
+            l'ensemble des services&nbsp;;</li>
+        <li>Le nom de domaine <code>auditetqualite.fr</code> et ses sous-domaines&nbsp;;</li>
+        <li>Des dépôts <b>GitHub privés</b>, un tenant <b>Microsoft 365</b> pour la messagerie&nbsp;;</li>
+        <li>Des éditeurs assistés par IA (<b>Cursor</b> puis <b>Claude Code</b>) utilisés comme outils de travail.</li>
+      </ul>
+    </section>
+
+    <!-- ================= CONTEXTE SUJET : existant & problèmes ========= -->
+    <section class="card col-4">
+      <h3>Contexte — L'existant et ses problèmes</h3>
+      <ul class="tight">
+        <li><b>Le quiz d'évaluation ITE</b> existait, mais son contenu était <b>figé dans le code</b> :
+            aucune modification sans développeur, aucun envoi de résultat, aucun hébergement pérenne.</li>
+        <li><b>La prospection des entreprises RGE</b> se faisait à la main : identifier les entreprises
+            qualifiées autour d'un chantier puis les contacter une par une représente un temps considérable.</li>
+        <li><b>La gestion de l'entreprise</b> reposait sur <b>Odoo Enterprise</b>, propriétaire et facturé à
+            l'utilisateur : plus de <b>100&nbsp;€/mois</b> pour deux comptes, et un coût qui augmente
+            mécaniquement à chaque personne ajoutée.</li>
+        <li><b>Les échanges de fichiers</b> passaient par des services grand public, sans droits fins par
+            dossier et en imposant un type de compte aux destinataires.</li>
+      </ul>
+    </section>
+
+    <!-- ================= CONTEXTE SUJET : sujet, enjeux, objectifs ===== -->
+    <section class="card col-4">
+      <h3>Contexte — Le sujet, ses enjeux</h3>
+      <p>
+        <b>Sujet du stage :</b> concevoir, développer et mettre en production les outils numériques internes
+        de l'entreprise, avec pour finalité commune <b>d'améliorer la qualité et la performance des
+        travaux</b>. Quatre projets en sont issus : <b>le quiz ITE</b>, <b>MailRGE</b>,
+        <b>la migration Odoo</b> et <b>FileManager</b>.
+      </p>
+      <p><b>Enjeux et objectifs :</b></p>
+      <ul class="tight">
+        <li><b>Réduire les coûts fixes</b> en remplaçant des abonnements propriétaires par des solutions
+            libres auto-hébergées&nbsp;;</li>
+        <li><b>Automatiser</b> ce qui était fait manuellement (prospection, envoi de résultats, contrats)&nbsp;;</li>
+        <li><b>Rendre les outils autonomes</b> : utilisables par une personne non développeuse, sans terminal
+            ni intervention sur le code&nbsp;;</li>
+        <li><b>Tenir la production</b> sur un serveur unique et très contraint, sans interrompre les services
+            déjà en ligne.</li>
+      </ul>
+    </section>
+
+    <!-- ================= SAVOIR-FAIRE GÉNÉRAUX (synthèse + liens) ====== -->
+    <section class="card col-12">
+      <h3>Synthèse — Les savoir-faire généraux mis en jeu par le sujet</h3>
+      <p>
+        Dix savoir-faire généraux structurent ce portfolio. Chacun est <b>détaillé, illustré par deux traces
+        et évalué</b> dans l'une des trois pages suivantes : cliquez sur un savoir-faire pour rejoindre
+        directement son bilan.
+      </p>
+
+      <p style="margin:12px 0 6px"><span class="tag">Page&nbsp;Technique</span> — <em>faire fonctionner et tenir des systèmes réels</em></p>
+      <div class="sf-grid">
+        <a class="sf-card sf-dev" href="technique.html#sp-bilan">
+          <b>Développer une application web complète</b>
+          <span>Du back-end modulaire (Flask, ASP.NET Core) à l'interface réactive (Vue 3, Blazor, WPF).</span>
+          <em>Domaine : développement · Traces 1 et 2</em>
+        </a>
+        <a class="sf-card sf-sys" href="technique.html#sp-bilan">
+          <b>Déployer et exploiter un service en production</b>
+          <span>Nginx, HTTPS, Docker, cohabitation de trois services et diagnostic d'incidents réels.</span>
+          <em>Domaine : architecture / système / réseau · Traces 3 et 4</em>
+        </a>
+        <a class="sf-card sf-data" href="technique.html#sp-bilan">
+          <b>Récupérer, transformer et migrer des données</b>
+          <span>Export CSV, identifiants externes, dump PostgreSQL, API publiques et normalisation.</span>
+          <em>Domaine : bases de données / données · Traces 5 et 6</em>
+        </a>
+        <a class="sf-card sf-sec" href="technique.html#sp-bilan">
+          <b>Sécuriser une application et ses accès</b>
+          <span>Politique de mot de passe, anti-brute-force, contrôle d'accès par ressource, intégrité SHA-256.</span>
+          <em>Domaine : sécurité · Traces 7 et 8</em>
+        </a>
+      </div>
+
+      <p style="margin:14px 0 6px"><span class="tag">Page&nbsp;Suivi&nbsp;de&nbsp;projet</span> — <em>conduire le travail, pas seulement l'écrire</em></p>
+      <div class="sf-grid">
+        <a class="sf-card sf-cadre" href="suivi-projet.html#sp-bilan">
+          <b>Cadrer un besoin et le découper en incréments</b>
+          <span>Transformer une demande floue en objectif vérifiable, puis en paliers livrables.</span>
+          <em>Traces 9 et 10</em>
+        </a>
+        <a class="sf-card sf-qual" href="suivi-projet.html#sp-bilan">
+          <b>Garantir la qualité et la maintenabilité du code</b>
+          <span>Refactoring, tests automatisés, revue de code, recherche systématique de la cause racine.</span>
+          <em>Traces 11 et 12</em>
+        </a>
+        <a class="sf-card sf-git" href="suivi-projet.html#sp-bilan">
+          <b>Versionner, documenter et transmettre</b>
+          <span>Historique Git lisible, README, licence, continuité du projet lors d'un changement d'outil.</span>
+          <em>Traces 13 et 14</em>
+        </a>
+      </div>
+
+      <p style="margin:14px 0 6px"><span class="tag">Page&nbsp;Intégration&nbsp;en&nbsp;entreprise</span> — <em>produire ce dont l'entreprise a réellement besoin</em></p>
+      <div class="sf-grid">
+        <a class="sf-card sf-metier" href="integration.html#sp-bilan">
+          <b>Recueillir un besoin métier et le traduire</b>
+          <span>Adopter le vocabulaire du client, reproduire ses documents, valider par itérations.</span>
+          <em>Traces 15 et 16</em>
+        </a>
+        <a class="sf-card sf-eco" href="integration.html#sp-bilan">
+          <b>Intégrer les contraintes économiques d'une TPE</b>
+          <span>Chiffrer avant de décider, préférer le gratuit à qualité égale, valoriser une production interne.</span>
+          <em>Traces 17 et 18</em>
+        </a>
+        <a class="sf-card sf-user" href="integration.html#sp-bilan">
+          <b>Rendre un outil autonome pour ses utilisateurs</b>
+          <span>Administration sans code, comptes et droits, suppression de tout prérequis technique.</span>
+          <em>Traces 19 et 20</em>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    Portfolio BUT 2 — Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
+  </footer>
+</div>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

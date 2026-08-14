@@ -1,0 +1,875 @@
+/* =========================================================================
+   Portfolio BUT 2 — Lucas Requena
+   Charte graphique alignée sur auditetqualite.fr :
+     --primary   #C6FD68  vert citron    (aplat, jamais du texte)
+     --secondary #212639  bleu nuit
+     --o-color-5 #07130B  noir vert      (texte sur aplat citron)
+     --o-color-3 #A0C4F2  bleu clair
+     --o-color-4 #F2F2F2  gris clair
+     --body      white
+   ========================================================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Marque */
+  --lime:      #c6fd68;
+  --lime-soft: #eafdc9;
+  --lime-ink:  #07130b;   /* texte posé sur un aplat citron */
+  --lime-deep: #5c7a10;   /* déclinaison lisible en texte sur blanc */
+  --navy:      #212639;
+  --navy-2:    #2e3550;
+  --sky:       #a0c4f2;
+
+  /* Fond & surfaces */
+  --bg:        #ffffff;
+  --bg-2:      #f7f9f3;
+  --panel:     #ffffff;
+  --panel-2:   #f4f7ec;
+  --line:      #e3e8da;
+  --line-soft: #eef1e7;
+
+  /* Texte */
+  --txt:       #1b2030;
+  --txt-soft:  #474f63;
+  --txt-mute:  #7a8290;
+
+  /* Accent d'interface */
+  --acc:       var(--lime-deep);
+  --acc-fill:  var(--lime);
+  --acc-glow:  rgba(198, 253, 104, .45);
+
+  /* Couleurs des savoir-faire généraux — lisibles sur blanc */
+  --sf-dev:    #2159a8;   /* Technique  — développement            */
+  --sf-sys:    #5c7a10;   /* Technique  — système / réseau         */
+  --sf-data:   #6b3fa0;   /* Technique  — données / BdD            */
+  --sf-sec:    #b3271b;   /* Technique  — sécurité                 */
+  --sf-cadre:  #0e7c72;   /* Suivi      — cadrage                  */
+  --sf-qual:   #3f7d1f;   /* Suivi      — qualité du code          */
+  --sf-git:    #a83267;   /* Suivi      — versionnement            */
+  --sf-metier: #a85c14;   /* Intégration— besoin métier            */
+  --sf-eco:    #10697f;   /* Intégration— contraintes économiques  */
+  --sf-user:   #5b46a8;   /* Intégration— autonomie utilisateurs   */
+
+  --r:   14px;
+  --r-s: 9px;
+  --shadow:   0 1px 2px rgba(27, 32, 48, .05), 0 6px 20px rgba(27, 32, 48, .06);
+  --shadow-s: 0 1px 2px rgba(27, 32, 48, .06);
+
+  --font: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--txt);
+  background:
+    radial-gradient(760px 420px at 88% -8%, rgba(198, 253, 104, .30), transparent 62%),
+    radial-gradient(620px 360px at 2% 102%, rgba(160, 196, 242, .22), transparent 60%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+a { color: var(--sf-dev); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--lime); color: var(--lime-ink); }
+
+* { scrollbar-width: thin; scrollbar-color: #c8d0bb transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: #c8d0bb; border-radius: 99px; }
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* =========================================================================
+   1. Coquille de page
+   ========================================================================= */
+
+.shell { display: flex; flex-direction: column; min-height: 100dvh; }
+
+/* ---- Entête permanente (nom, prénom, mail : toujours visible) ---------- */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding: 11px clamp(14px, 3vw, 34px);
+  background: var(--navy);
+  border-bottom: 3px solid var(--lime);
+  box-shadow: 0 2px 14px rgba(27, 32, 48, .12);
+}
+
+.ident { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+
+.ident-name {
+  font-size: 1.04rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: #fff;
+}
+.ident-name b { font-weight: 800; color: var(--lime); }
+
+.ident-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  font-size: .76rem;
+  color: #a8b0c4;
+}
+.ident-line a { color: #d7dee9; }
+.ident-line a:hover { color: var(--lime); }
+.ident-line .sep { color: #545c73; }
+
+/* ---- Navigation principale (4 pages) ---------------------------------- */
+.mainnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 99px;
+}
+.mainnav a {
+  padding: 6px 15px;
+  border-radius: 99px;
+  font-size: .84rem;
+  font-weight: 500;
+  color: #ccd3e0;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.mainnav a:hover { background: rgba(255, 255, 255, .12); color: #fff; text-decoration: none; }
+.mainnav a.is-current {
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-weight: 700;
+}
+
+/* ---- Zone principale --------------------------------------------------- */
+main {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 18px clamp(14px, 3vw, 34px) 24px;
+}
+
+.foot {
+  padding: 12px clamp(14px, 3vw, 34px) 20px;
+  font-size: .72rem;
+  color: var(--txt-mute);
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+/* =========================================================================
+   2. Éléments communs
+   ========================================================================= */
+
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 700; }
+
+.page-title {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  letter-spacing: -.015em;
+  color: var(--navy);
+}
+.page-title .dot { color: var(--lime-deep); }
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-s);
+}
+.card > h3 {
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+  color: var(--lime-deep);
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid var(--lime);
+  display: inline-block;
+}
+.card p { margin: 0 0 9px; color: var(--txt-soft); }
+.card p:last-child { margin-bottom: 0; }
+.card ul + p, .card dl + h3 { margin-top: 11px; }
+.card b, .card strong { color: var(--txt); }
+
+.lead { font-size: 1.03rem; color: var(--txt-soft); }
+
+.kv { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: .88rem; }
+.kv dt { color: var(--txt-mute); white-space: nowrap; }
+.kv dd { margin: 0; color: var(--txt-soft); }
+
+ul.tight { margin: 0; padding-left: 1.05em; color: var(--txt-soft); }
+ul.tight li { margin-bottom: 5px; }
+ul.tight li::marker { color: var(--lime-deep); }
+ul.tight li:last-child { margin-bottom: 0; }
+
+code, .mono { font-family: var(--mono); font-size: .86em; }
+p code, li code, td code {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+  color: #3a4256;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 99px;
+  background: var(--navy);
+  color: #fff;
+  font-size: .71rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+}
+
+/* =========================================================================
+   3. Marquage des savoir-faire (couleur = savoir-faire général associé)
+   ========================================================================= */
+
+.sf {
+  --c: var(--lime-deep);
+  color: var(--c);
+  font-weight: 600;
+  box-shadow: inset 0 -.42em 0 color-mix(in srgb, var(--c) 13%, transparent);
+}
+.sf-dev    { --c: var(--sf-dev); }
+.sf-sys    { --c: var(--sf-sys); }
+.sf-data   { --c: var(--sf-data); }
+.sf-sec    { --c: var(--sf-sec); }
+.sf-cadre  { --c: var(--sf-cadre); }
+.sf-qual   { --c: var(--sf-qual); }
+.sf-git    { --c: var(--sf-git); }
+.sf-metier { --c: var(--sf-metier); }
+.sf-eco    { --c: var(--sf-eco); }
+.sf-user   { --c: var(--sf-user); }
+
+/* Liste colorée des savoir-faire élémentaires en tête de sous-page */
+.sf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sf-list li {
+  --c: var(--lime-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px 4px 10px;
+  border-radius: 99px;
+  font-size: .79rem;
+  font-weight: 600;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 8%, #fff);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+}
+.sf-list li::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c);
+  flex: 0 0 auto;
+}
+.sf-list li.sf-dev    { --c: var(--sf-dev); }
+.sf-list li.sf-sys    { --c: var(--sf-sys); }
+.sf-list li.sf-data   { --c: var(--sf-data); }
+.sf-list li.sf-sec    { --c: var(--sf-sec); }
+.sf-list li.sf-cadre  { --c: var(--sf-cadre); }
+.sf-list li.sf-qual   { --c: var(--sf-qual); }
+.sf-list li.sf-git    { --c: var(--sf-git); }
+.sf-list li.sf-metier { --c: var(--sf-metier); }
+.sf-list li.sf-eco    { --c: var(--sf-eco); }
+.sf-list li.sf-user   { --c: var(--sf-user); }
+
+/* =========================================================================
+   4. Page d'accueil
+   ========================================================================= */
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 14px;
+}
+.home .col-7  { grid-column: span 7; }
+.home .col-5  { grid-column: span 5; }
+.home .col-4  { grid-column: span 4; }
+.home .col-12 { grid-column: span 12; }
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff 60%, var(--lime-soft));
+  border-color: color-mix(in srgb, var(--lime) 55%, var(--line));
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -110px -130px auto;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: var(--acc-glow);
+  opacity: .55;
+  filter: blur(26px);
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+.hero h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: -.025em;
+  margin-bottom: 9px;
+  color: var(--navy);
+}
+.hero h1 .acc {
+  color: var(--navy);
+  box-shadow: inset 0 -.4em 0 var(--lime);
+}
+.hero .baseline {
+  display: inline-block;
+  margin-bottom: 13px;
+  padding: 4px 13px;
+  border-radius: 99px;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+/* Grille des savoir-faire généraux (synthèse + liens vers les 3 pages) */
+.sf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 10px;
+}
+.sf-card {
+  --c: var(--lime-deep);
+  display: block;
+  padding: 12px 14px;
+  border-radius: var(--r-s);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--c);
+  color: var(--txt-soft);
+  box-shadow: var(--shadow-s);
+  transition: transform .14s, box-shadow .14s, background .14s;
+}
+.sf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  background: color-mix(in srgb, var(--c) 5%, #fff);
+  text-decoration: none;
+}
+.sf-card b { display: block; color: var(--c); font-size: .93rem; margin-bottom: 3px; }
+.sf-card span { font-size: .8rem; display: block; }
+.sf-card em { font-style: normal; color: var(--txt-mute); font-size: .74rem; }
+.sf-card.sf-dev    { --c: var(--sf-dev); }
+.sf-card.sf-sys    { --c: var(--sf-sys); }
+.sf-card.sf-data   { --c: var(--sf-data); }
+.sf-card.sf-sec    { --c: var(--sf-sec); }
+.sf-card.sf-cadre  { --c: var(--sf-cadre); }
+.sf-card.sf-qual   { --c: var(--sf-qual); }
+.sf-card.sf-git    { --c: var(--sf-git); }
+.sf-card.sf-metier { --c: var(--sf-metier); }
+.sf-card.sf-eco    { --c: var(--sf-eco); }
+.sf-card.sf-user   { --c: var(--sf-user); }
+
+/* Illustration SVG (schéma de l'écosystème) */
+.figure-box { display: flex; flex-direction: column; gap: 8px; height: 100%; }
+.figure-box svg { width: 100%; height: auto; display: block; }
+.figure-box .cap { font-size: .74rem; color: var(--txt-mute); }
+
+/* =========================================================================
+   5. Pages principales à sous-pages
+   ========================================================================= */
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 20px;
+  margin-bottom: 12px;
+}
+.page-head .resume {
+  flex: 1 1 460px;
+  max-width: 900px;
+  font-size: .89rem;
+  color: var(--txt-soft);
+}
+
+/* ---- Navigation entre sous-pages (distincte de la nav principale) ------ */
+.subnav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  margin-bottom: 16px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  box-shadow: var(--shadow-s);
+}
+.subnav-scroll {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  flex: 1 1 auto;
+  scrollbar-width: none;
+  padding-bottom: 1px;
+}
+.subnav-scroll::-webkit-scrollbar { display: none; }
+
+.subnav button.sp-tab {
+  --c: var(--lime-deep);
+  flex: 0 0 auto;
+  padding: 5px 14px;
+  border-radius: 99px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--txt-mute);
+  font: inherit;
+  font-size: .79rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .14s, color .14s, border-color .14s;
+}
+.subnav button.sp-tab:hover { background: #fff; color: var(--txt); }
+.subnav button.sp-tab[aria-selected="true"] {
+  background: var(--c);
+  border-color: var(--c);
+  color: #fff;
+  font-weight: 700;
+}
+.subnav button.sp-tab.t-dev    { --c: var(--sf-dev); }
+.subnav button.sp-tab.t-sys    { --c: var(--sf-sys); }
+.subnav button.sp-tab.t-data   { --c: var(--sf-data); }
+.subnav button.sp-tab.t-sec    { --c: var(--sf-sec); }
+.subnav button.sp-tab.t-cadre  { --c: var(--sf-cadre); }
+.subnav button.sp-tab.t-qual   { --c: var(--sf-qual); }
+.subnav button.sp-tab.t-git    { --c: var(--sf-git); }
+.subnav button.sp-tab.t-metier { --c: var(--sf-metier); }
+.subnav button.sp-tab.t-eco    { --c: var(--sf-eco); }
+.subnav button.sp-tab.t-user   { --c: var(--sf-user); }
+.subnav button.sp-tab.t-bilan[aria-selected="true"] {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--lime-ink);
+}
+
+.subnav .arrows { display: flex; gap: 5px; flex: 0 0 auto; }
+.subnav .arrows button {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--txt-soft);
+  font: inherit;
+  font-size: .9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .14s, color .14s, border-color .14s;
+}
+.subnav .arrows button:hover { background: var(--lime); color: var(--lime-ink); border-color: var(--lime); }
+.subnav .arrows button:disabled { opacity: .35; cursor: default; }
+.subnav .arrows button:disabled:hover { background: #fff; color: var(--txt-soft); border-color: var(--line); }
+
+/* ---- Sous-page --------------------------------------------------------- */
+.subpage { display: none; }
+.subpage.is-active { display: block; animation: fade .22s ease both; }
+@keyframes fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+.sp-head { margin-bottom: 13px; }
+.sp-head h2 {
+  font-size: 1.25rem;
+  letter-spacing: -.015em;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+.sp-head h2 .num {
+  font-family: var(--mono);
+  font-size: .76rem;
+  font-weight: 600;
+  color: var(--txt-mute);
+  margin-right: 9px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  border-radius: 5px;
+  vertical-align: middle;
+}
+
+/* Disposition : trace à gauche, analyse à droite */
+.sp-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+/* =========================================================================
+   6. Traces
+   ========================================================================= */
+
+.trace {
+  margin: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.trace-media {
+  position: relative;
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--line);
+  min-height: 120px;
+}
+.trace-media > img { display: block; width: 100%; height: auto; }
+
+/* Point remarquable : pastille numérotée posée sur la trace */
+.pt {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transform: translate(-50%, -50%);
+  width: 25px; height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-size: .77rem;
+  font-weight: 800;
+  border: 2px solid var(--navy);
+  box-shadow: 0 2px 8px rgba(27, 32, 48, .35);
+  z-index: 3;
+}
+/* Cadre entourant une zone remarquable de la trace */
+.pt-box {
+  position: absolute;
+  left: var(--x, 10%);
+  top: var(--y, 10%);
+  width: var(--w, 20%);
+  height: var(--h, 12%);
+  border: 2.5px solid var(--lime);
+  outline: 1px solid var(--navy);
+  border-radius: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Substitut affiché tant que la capture n'est pas déposée */
+.trace-media.is-missing > img { display: none; }
+.trace-media.is-missing .pt,
+.trace-media.is-missing .pt-box { display: none; }
+.ph {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 22px;
+  text-align: center;
+  color: var(--txt-mute);
+  background: repeating-linear-gradient(45deg, #fff 0 10px, var(--panel-2) 10px 20px);
+  border: 1px dashed #b9c4a6;
+  margin: 10px;
+  border-radius: var(--r-s);
+}
+.ph .ph-t { color: var(--lime-deep); font-weight: 800; font-size: .83rem; letter-spacing: .05em; }
+.ph .ph-p { font-family: var(--mono); font-size: .74rem; color: var(--txt-soft); }
+.ph .ph-d { font-size: .78rem; }
+
+figcaption {
+  padding: 12px 14px;
+  font-size: .81rem;
+  color: var(--txt-soft);
+  background: var(--panel-2);
+}
+figcaption .trace-num {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 5px;
+  background: var(--navy);
+  color: var(--lime);
+  font-weight: 800;
+  font-size: .73rem;
+  letter-spacing: .04em;
+  margin-right: 7px;
+}
+figcaption .trace-title { font-weight: 700; color: var(--navy); }
+figcaption .legende {
+  display: block;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: .78rem;
+  color: var(--txt-mute);
+}
+figcaption .legende b { color: var(--txt-soft); }
+.rp {
+  display: inline-grid;
+  place-items: center;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--lime-ink);
+  font-size: .67rem;
+  font-weight: 800;
+  border: 1px solid var(--navy);
+  vertical-align: -3px;
+  margin: 0 2px;
+}
+
+/* ---- Traces construites en HTML (schémas, tableaux, extraits) ---------- */
+.trace-html { padding: 14px; }
+
+.blocks { display: flex; flex-direction: column; gap: 8px; }
+.blk {
+  --c: var(--txt-mute);
+  position: relative;
+  padding: 10px 13px;
+  border-radius: var(--r-s);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--c);
+  font-size: .82rem;
+  color: var(--txt-soft);
+  padding-right: 42px;
+}
+.blk b { color: var(--c); }
+.blk .sub { display: block; color: var(--txt-mute); font-size: .76rem; margin-top: 2px; }
+.blk .pt-inline { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); }
+
+.tree { font-family: var(--mono); font-size: .78rem; color: var(--txt-soft); margin: 0; white-space: pre; overflow-x: auto; }
+
+.ttab { width: 100%; border-collapse: collapse; font-size: .8rem; }
+.ttab th, .ttab td { padding: 8px 9px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.ttab thead th {
+  color: var(--lime-ink);
+  background: var(--lime);
+  font-size: .71rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  border-bottom: 0;
+}
+.ttab thead th:first-child { border-top-left-radius: var(--r-s); }
+.ttab thead th:last-child  { border-top-right-radius: var(--r-s); }
+.ttab tbody tr:nth-child(even) { background: var(--bg-2); }
+.ttab tbody tr:last-child td { border-bottom: 0; }
+.ttab td { color: var(--txt-soft); }
+.ttab .num { font-family: var(--mono); }
+.ttab .ok  { color: var(--sf-qual); }
+.ttab .no  { color: var(--sf-sec); }
+
+pre.codeblk {
+  margin: 0;
+  padding: 13px 14px;
+  background: var(--navy);
+  border-radius: var(--r-s);
+  font-family: var(--mono);
+  font-size: .755rem;
+  line-height: 1.65;
+  color: #dbe1ee;
+  overflow-x: auto;
+  white-space: pre;
+}
+pre.codeblk .cm { color: #8f98b0; }
+pre.codeblk .hl { color: var(--lime); }
+pre.codeblk .ad { color: #b7f08a; }
+pre.codeblk .rm { color: #ff9a8f; }
+pre.codeblk .st { color: var(--sky); }
+
+.quote {
+  margin: 0;
+  padding: 12px 15px;
+  border-radius: var(--r-s);
+  background: var(--lime-soft);
+  border-left: 4px solid var(--lime-deep);
+  font-size: .85rem;
+  color: var(--txt);
+  font-style: italic;
+}
+.quote cite { display: block; margin-top: 6px; font-style: normal; font-size: .74rem; color: var(--txt-mute); }
+
+/* =========================================================================
+   7. Colonne d'analyse
+   ========================================================================= */
+
+.analyse { display: flex; flex-direction: column; gap: 12px; }
+
+.bloc {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-s);
+}
+.bloc > h3 {
+  font-size: .71rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--lime-deep);
+  margin-bottom: 9px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--lime);
+  display: inline-block;
+}
+.bloc p { margin: 0 0 8px; font-size: .855rem; color: var(--txt-soft); }
+.bloc p:last-child { margin-bottom: 0; }
+.bloc .sfp { margin-top: 10px; }
+.bloc .sfp:first-of-type { margin-top: 0; }
+
+/* =========================================================================
+   8. Sous-page « bilan & analyse »
+   ========================================================================= */
+
+.bilan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.bilan-bloc {
+  --c: var(--lime-deep);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--c);
+  border-radius: var(--r);
+  padding: 15px 17px;
+  box-shadow: var(--shadow-s);
+}
+.bilan-bloc.sf-dev    { --c: var(--sf-dev); }
+.bilan-bloc.sf-sys    { --c: var(--sf-sys); }
+.bilan-bloc.sf-data   { --c: var(--sf-data); }
+.bilan-bloc.sf-sec    { --c: var(--sf-sec); }
+.bilan-bloc.sf-cadre  { --c: var(--sf-cadre); }
+.bilan-bloc.sf-qual   { --c: var(--sf-qual); }
+.bilan-bloc.sf-git    { --c: var(--sf-git); }
+.bilan-bloc.sf-metier { --c: var(--sf-metier); }
+.bilan-bloc.sf-eco    { --c: var(--sf-eco); }
+.bilan-bloc.sf-user   { --c: var(--sf-user); }
+
+.bilan-bloc > h3 { color: var(--c); font-size: 1.02rem; margin-bottom: 3px; }
+.bilan-bloc .dom {
+  display: inline-block;
+  font-size: .69rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--txt-mute);
+  margin-bottom: 10px;
+}
+.bilan-bloc h4 {
+  font-size: .68rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--txt-mute);
+  margin: 13px 0 6px;
+}
+.bilan-bloc p, .bilan-bloc li { font-size: .83rem; color: var(--txt-soft); }
+.bilan-bloc p { margin: 0 0 7px; }
+.bilan-bloc ul { margin: 0; padding-left: 1.05em; }
+.bilan-bloc ul li { margin-bottom: 5px; }
+.bilan-bloc ul li::marker { color: var(--c); }
+.bilan-bloc b { color: var(--txt); }
+
+/* Contexte d'apprentissage */
+.appr { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+.appr span {
+  font-size: .7rem;
+  padding: 2px 9px;
+  border-radius: 99px;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  color: var(--txt-mute);
+}
+.appr span.on {
+  color: #fff;
+  background: var(--c);
+  border-color: var(--c);
+  font-weight: 600;
+}
+
+/* Jauge avant / après */
+.niveau { margin-top: 10px; }
+.niveau .row {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 5px;
+  font-size: .76rem;
+}
+.niveau .row .lbl { color: var(--txt-mute); }
+.niveau .bar {
+  height: 9px;
+  border-radius: 99px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.niveau .bar i {
+  display: block;
+  height: 100%;
+  width: var(--v, 0%);
+  border-radius: 99px;
+  background: var(--c);
+}
+.niveau .row.avant .bar i { background: #c3cad6; }
+.niveau .val { color: var(--txt); font-weight: 700; }
+.niveau .row.avant .val { color: var(--txt-mute); font-weight: 500; }
+.niveau .echelle { font-size: .68rem; color: var(--txt-mute); margin-top: 4px; }
+
+/* =========================================================================
+   9. Adaptations écran
+   ========================================================================= */
+
+@media (max-width: 1180px) {
+  .home .col-7, .home .col-5 { grid-column: span 12; }
+  .home .col-4 { grid-column: span 6; }
+  .sp-body { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 14.5px; }
+  .home .col-4 { grid-column: span 12; }
+  .masthead { padding: 9px 14px; }
+  .mainnav { width: 100%; justify-content: center; }
+  .subnav { border-radius: var(--r); }
+  .subnav .arrows { display: none; }
+}
+
+/* =========================================================================
+   10. Impression : toutes les sous-pages déroulées
+   ========================================================================= */
+
+@media print {
+  body { background: #fff; }
+  .masthead { position: static; background: #fff; border-bottom: 3px solid var(--lime); }
+  .ident-name, .ident-line, .ident-line a { color: #000; }
+  .ident-name b { color: var(--lime-deep); }
+  .subnav, .mainnav { display: none; }
+  .subpage { display: block !important; page-break-after: always; }
+  .card, .bloc, .trace, .bilan-bloc { box-shadow: none; }
+}

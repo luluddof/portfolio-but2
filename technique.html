@@ -745,22 +745,28 @@
       <div class="sp-body">
         <figure class="trace">
           <div class="trace-media" data-src="assets/img/trace-08.png"
-               data-hint="Capture de la matrice de permissions de FileManager : onglets Groupes / Utilisateurs, une ligne par sujet, une colonne par droit, cases à cocher.">
-            <img src="assets/img/trace-08.png" alt="Matrice de permissions de FileManager, inspirée de Jenkins.">
-            <span class="pt" style="--x:20%;--y:16%">1</span>
-            <span class="pt" style="--x:66%;--y:44%">2</span>
-            <span class="pt" style="--x:40%;--y:84%">3</span>
+               data-hint="Deux captures de la matrice de permissions de FileManager en fonctionnement : onglet Groupes et onglet Utilisateurs, pour le dossier « Dossiers partagés ».">
+            <img src="assets/img/trace-08.png" alt="Matrice de permissions de FileManager, onglets Groupes et Utilisateurs, sept colonnes de droits, cellules Autoriser (vert) / Refuser (rouge) / Neutre.">
+            <span class="pt-box" style="--x:1.5%;--y:6.5%;--w:33%;--h:4.2%"></span>
+            <span class="pt" style="--x:1.5%;--y:6.5%">1</span>
+            <span class="pt-box" style="--x:26%;--y:16%;--w:73%;--h:6%"></span>
+            <span class="pt" style="--x:26%;--y:16%">2</span>
+            <span class="pt-box" style="--x:63%;--y:24.5%;--w:9%;--h:4.5%"></span>
+            <span class="pt" style="--x:63%;--y:24.5%">3</span>
           </div>
           <figcaption>
             <span class="trace-num">Trace 8</span>
-            <span class="trace-title">Matrice de permissions de FileManager, inspirée de celle de Jenkins</span>
+            <span class="trace-title">La matrice de permissions de FileManager en fonctionnement, façon Jenkins</span>
             <span class="legende">
-              <b>Légende :</b> écran d'administration des droits, atteint après deux itérations de conception.
-              <span class="rp">1</span> les onglets « Groupes » et « Utilisateurs », qui séparent les deux types
-              de sujets ;
-              <span class="rp">2</span> une ligne par sujet et une colonne par droit, cochés individuellement ;
-              <span class="rp">3</span> les règles implicites appliquées derrière : héritage depuis le dossier
-              parent et priorité absolue au refus.
+              <b>Légende :</b> écran de gestion des droits du dossier « Dossiers partagés », capturé sur
+              l'application réellement lancée.
+              <span class="rp">1</span> les onglets <b>Groupes</b> / <b>Utilisateurs</b>, qui séparent les deux
+              types de sujets ;
+              <span class="rp">2</span> une ligne par sujet, sept colonnes de droits (Voir, Télécharger,
+              Déposer, +Dossier, Renommer, Supprimer, Gérer droits) ;
+              <span class="rp">3</span> les trois états d'une cellule — <b>Autoriser</b> (vert),
+              <b>Refuser</b> (rouge, prioritaire) et <b>Neutre</b> (hérité du parent) — ici le refus explicite
+              de « Supprimer » au groupe Commercial.
             </span>
           </figcaption>
         </figure>
@@ -775,9 +781,12 @@
               et sans imposer un type de compte aux destinataires.
             </p>
             <p>
-              La <b>trace 8</b> montre l'écran de gestion des droits. Le modèle retenu s'inspire de Discord pour
-              sa logique (autorisation explicite, refus explicite, héritage depuis le parent, le refus
-              l'emportant toujours) et de Jenkins pour sa présentation en matrice.
+              La <b>trace 8</b> montre l'écran de gestion des droits, capturé sur l'application en
+              fonctionnement. Le modèle retenu s'inspire de Discord pour sa logique (autorisation explicite,
+              refus explicite, héritage depuis le parent, le refus l'emportant toujours) et de Jenkins pour sa
+              présentation en matrice. On y lit directement la mécanique : le groupe Direction obtient presque
+              tous les droits, tandis que le groupe Commercial se voit <em>explicitement</em> refuser la
+              suppression — un refus qui l'emportera même si un autre droit le lui accordait par héritage.
             </p>
           </div>
 

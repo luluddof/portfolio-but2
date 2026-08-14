@@ -696,7 +696,7 @@ figcaption .legende b { color: var(--txt-soft); }
 }
 .blk b { color: var(--c); }
 .blk .sub { display: block; color: var(--txt-mute); font-size: .76rem; margin-top: 2px; }
-.blk .pt-inline { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); }
+.blk .pt-inline { position: absolute; left: auto; right: 12px; top: 50%; transform: translateY(-50%); }
 
 .tree { font-family: var(--mono); font-size: .78rem; color: var(--txt-soft); margin: 0; white-space: pre; overflow-x: auto; }
 

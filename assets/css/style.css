@@ -499,6 +499,20 @@ p code, li code, td code {
 /* ---- Sous-page --------------------------------------------------------- */
 .subpage { display: none; }
 .subpage.is-active { display: block; animation: fade .22s ease both; }
+
+/* Couleur d'accent de la sous-page = couleur du savoir-faire traité.
+   Elle colore les points remarquables et les repères de la légende, pour que
+   la trace, ses annotations et son texte parlent tous la même couleur. */
+.pc-dev    { --pc: var(--sf-dev); }
+.pc-sys    { --pc: var(--sf-sys); }
+.pc-data   { --pc: var(--sf-data); }
+.pc-sec    { --pc: var(--sf-sec); }
+.pc-cadre  { --pc: var(--sf-cadre); }
+.pc-qual   { --pc: var(--sf-qual); }
+.pc-git    { --pc: var(--sf-git); }
+.pc-metier { --pc: var(--sf-metier); }
+.pc-eco    { --pc: var(--sf-eco); }
+.pc-user   { --pc: var(--sf-user); }
 @keyframes fade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
 .sp-head { margin-bottom: 13px; }
@@ -559,12 +573,12 @@ p code, li code, td code {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--lime-ink);
+  background: var(--pc, var(--lime));
+  color: #fff;
   font-size: .77rem;
   font-weight: 800;
-  border: 2px solid var(--navy);
-  box-shadow: 0 2px 8px rgba(27, 32, 48, .35);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1.5px rgba(15, 20, 34, .55), 0 2px 8px rgba(27, 32, 48, .45);
   z-index: 3;
 }
 /* Cadre entourant une zone remarquable de la trace */
@@ -574,8 +588,8 @@ p code, li code, td code {
   top: var(--y, 10%);
   width: var(--w, 20%);
   height: var(--h, 12%);
-  border: 2.5px solid var(--lime);
-  outline: 1px solid var(--navy);
+  border: 2.5px solid var(--pc, var(--lime));
+  outline: 1.5px solid rgba(15, 20, 34, .5);
   border-radius: 6px;
   z-index: 2;
   pointer-events: none;
@@ -633,11 +647,11 @@ figcaption .legende b { color: var(--txt-soft); }
   place-items: center;
   width: 17px; height: 17px;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--lime-ink);
+  background: var(--pc, var(--lime));
+  color: #fff;
   font-size: .67rem;
   font-weight: 800;
-  border: 1px solid var(--navy);
+  border: 1px solid rgba(15, 20, 34, .25);
   vertical-align: -3px;
   margin: 0 2px;
 }

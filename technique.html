@@ -378,22 +378,55 @@
 
       <div class="sp-body">
         <figure class="trace">
-          <div class="trace-media" data-src="assets/img/trace-04.png"
-               data-hint="Capture du diagnostic : journal Nginx montrant l'erreur 502 / upstream, et sortie de « free -h » avant et après l'ajout de mémoire virtuelle.">
-            <img src="assets/img/trace-04.png" alt="Journal Nginx affichant une erreur 502 et état de la mémoire du serveur.">
-            <span class="pt" style="--x:26%;--y:22%">1</span>
-            <span class="pt" style="--x:26%;--y:62%">2</span>
-            <span class="pt" style="--x:72%;--y:82%">3</span>
+          <div class="trace-html">
+            <table class="ttab">
+              <thead>
+                <tr><th style="width:20%">Étape</th><th style="width:40%">Observation</th><th>Ce que j'en ai déduit</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>1. Symptôme</b> <span class="rp">1</span></td>
+                  <td class="no"><code>502 Bad Gateway</code>, <em>Internal Server Error</em>, chargements de 30–60 s</td>
+                  <td>Nginx n'obtient pas de réponse du service — mais rien sur la <em>raison</em></td>
+                </tr>
+                <tr>
+                  <td><b>2. Écarter</b></td>
+                  <td>Reproductible en local ? <b>Non.</b> Uniquement sur le serveur chargé</td>
+                  <td>Le problème vient de la production sous charge, pas du code applicatif</td>
+                </tr>
+                <tr>
+                  <td><b>3. Corréler</b> <span class="rp">2</span></td>
+                  <td>État de la mémoire vive à l'instant de l'erreur (<code>free&nbsp;-h</code>)</td>
+                  <td class="no">RAM (~945&nbsp;Mo) saturée par Odoo → le processus est tué / ne répond plus</td>
+                </tr>
+                <tr>
+                  <td><b>4. Corriger</b> <span class="rp">3</span></td>
+                  <td class="ok">Ajout de <b>mémoire virtuelle (swap)</b> pour absorber les pics</td>
+                  <td class="ok">Plus de coupures ; temps de réponse redevenus normaux</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="blocks" style="margin-top:12px">
+              <div class="blk" style="--c:var(--sf-sec)">
+                <b>Avant</b> — RAM physique ~945 Mo, aucun swap
+                <span class="sub">Aux pics d'Odoo, la mémoire se sature : le noyau interrompt le processus, Nginx renvoie 502.</span>
+              </div>
+              <div class="blk" style="--c:var(--sf-qual)">
+                <b>Après</b> — ~945 Mo de RAM + fichier d'échange (swap)
+                <span class="sub">Les pics débordent sur le disque au lieu de tuer le service. Lent, mais stable — le bon compromis pour le budget serveur.</span>
+              </div>
+            </div>
           </div>
           <figcaption>
             <span class="trace-num">Trace 4</span>
-            <span class="trace-title">Diagnostic des erreurs 502 Bad Gateway et des lenteurs d'Odoo</span>
+            <span class="trace-title">La chaîne de diagnostic des 502 : du symptôme à la cause mémoire</span>
             <span class="legende">
-              <b>Légende :</b> relevé effectué pendant la mise en production d'Odoo, en quatrième semaine.
-              <span class="rp">1</span> l'erreur 502 renvoyée par Nginx : le service applicatif ne répond plus ;
-              <span class="rp">2</span> l'état de la mémoire vive au même instant, qui donne la vraie cause ;
-              <span class="rp">3</span> la mémoire virtuelle ajoutée pour absorber les pics, et le retour à des
-              temps de réponse normaux.
+              <b>Légende :</b> reconstitution du raisonnement suivi pendant la mise en production d'Odoo
+              (semaine 4), présentée comme les autres schémas du portfolio — les journaux Nginx d'alors n'étant
+              plus disponibles, c'est la démarche qui est tracée, pas une capture d'écran.
+              <span class="rp">1</span> le symptôme visible (la 502), qui ne dit rien de la cause ;
+              <span class="rp">2</span> la corrélation avec l'état mémoire, qui révèle la vraie cause ;
+              <span class="rp">3</span> la correction — la mémoire virtuelle — et son compromis assumé.
             </span>
           </figcaption>
         </figure>
@@ -408,9 +441,9 @@
               serveur de production, chargé.
             </p>
             <p>
-              La <b>trace 4</b> est le relevé qui a permis de trancher. Elle occupe une place charnière dans le
-              stage : c'est le moment où la migration Odoo est passée de « ça marche sur ma machine » à un
-              service réellement utilisable par le dirigeant au quotidien.
+              La <b>trace 4</b> reconstitue la chaîne de diagnostic qui a permis de trancher. Elle occupe une
+              place charnière dans le stage : c'est le moment où la migration Odoo est passée de « ça marche sur
+              ma machine » à un service réellement utilisable par le dirigeant au quotidien.
             </p>
           </div>
 

@@ -1,7 +1,7 @@
 # Portfolio BUT 2 — Lucas Requena
 
 Portfolio de stage (2ᵉ année de BUT Informatique), réalisé chez **De Niveau**
-(marque *Audit & Qualité*), mai – août 2026.
+(marque *Audit & Qualité*), mai – juillet 2026.
 
 Site statique, sans dépendance ni build : ouvrez `index.html`.
 

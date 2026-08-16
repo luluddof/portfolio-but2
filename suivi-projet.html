@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Suivi de projet — Portfolio BUT 2 · Lucas Requena</title>
+<title>Suivi de projet : Portfolio BUT 2 · Lucas Requena</title>
 <meta name="description" content="Savoir-faire de conduite de projet : cadrage et découpage en paliers, qualité du code, versionnement et transmission.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -16,9 +16,9 @@
       <span class="ident-line">
         <a href="mailto:lucas.requena.foch@gmail.com">lucas.requena.foch@gmail.com</a>
         <span class="sep">•</span>
-        <span>BUT&nbsp;Informatique — 2<sup>e</sup> année</span>
+        <span>BUT&nbsp;Informatique : 2<sup>e</sup> année</span>
         <span class="sep">•</span>
-        <span>Stage chez De&nbsp;Niveau — <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
+        <span>Stage chez De&nbsp;Niveau : <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
       </span>
     </div>
     <nav class="mainnav" aria-label="Navigation principale">
@@ -53,7 +53,7 @@
         <button type="button" class="sp-tab t-qual"  role="tab" id="tab-12" aria-controls="sp-12" aria-selected="false">12 · Revue de code</button>
         <button type="button" class="sp-tab t-git"   role="tab" id="tab-13" aria-controls="sp-13" aria-selected="false">13 · Historique &amp; README</button>
         <button type="button" class="sp-tab t-git"   role="tab" id="tab-14" aria-controls="sp-14" aria-selected="false">14 · Passage de relais</button>
-        <button type="button" class="sp-tab t-bilan" role="tab" id="tab-b"  aria-controls="sp-bilan" aria-selected="false">★ Bilan &amp; analyse</button>
+        <button type="button" class="sp-tab t-bilan" role="tab" id="tab-b"  aria-controls="sp-bilan" aria-selected="false">Bilan &amp; analyse</button>
       </div>
       <div class="arrows">
         <button type="button" data-nav="next" aria-label="Sous-page suivante">›</button>
@@ -115,7 +115,7 @@
             <span class="legende">
               <b>Légende :</b> chaque ligne correspond à un incrément réellement livré et enregistré dans le
               dépôt ; la colonne de droite est le critère qui permettait de déclarer le palier terminé.
-              <span class="rp n1">1</span> le premier palier est volontairement minimal — voir le dossier suffit ;
+              <span class="rp n1">1</span> le premier palier est volontairement minimal : voir le dossier suffit ;
               <span class="rp n2">2</span> la gestion de la concurrence est traitée <em>après</em> l'écriture, pas
               en même temps ; <span class="rp n3">3</span> une passe de correction distincte, après relecture.
             </span>
@@ -129,12 +129,12 @@
               L'objectif de FileManager avait été reprécisé par le dirigeant : « faire comme un service de
               partage de fichiers, mais avec une gestion des permissions plus simple, et qui accepte toutes les
               adresses mail ». Techniquement, cela imposait que le dossier partagé se monte comme un lecteur
-              réseau — une fonctionnalité trop large pour être écrite d'un bloc.
+              réseau : une fonctionnalité trop large pour être écrite d'un bloc.
             </p>
             <p>
               La <b>trace 9</b> montre comment je l'ai découpée : quatre paliers, chacun utilisable et
               vérifiable en fin de journée. La même méthode avait déjà servi quelques jours plus tôt sur la
-              gestion des conflits de fichiers, découpée en deux étapes — d'abord des erreurs explicites, puis la
+              gestion des conflits de fichiers, découpée en deux étapes : d'abord des erreurs explicites, puis la
               détection par empreinte.
             </p>
           </div>
@@ -142,21 +142,21 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-cadre">Découper une fonctionnalité en paliers livrables</span> — le point
+              <span class="sf sf-cadre">Découper une fonctionnalité en paliers livrables</span> : le point
               <span class="rp n1">1</span> illustre la règle que j'applique désormais : le premier palier doit être
               le plus petit incrément qui a une valeur observable. Monter le dossier en lecture seule ne sert à
-              rien fonctionnellement, mais valide toute la chaîne — authentification, routage, arborescence —
+              rien fonctionnellement, mais valide toute la chaîne (authentification, routage, arborescence)
               avant d'ajouter quoi que ce soit.
             </p>
             <p class="sfp">
-              <span class="sf sf-cadre">Valider un palier avant de passer au suivant</span> — la colonne de
+              <span class="sf sf-cadre">Valider un palier avant de passer au suivant</span> : la colonne de
               droite du tableau est la partie la plus importante. Chaque palier avait son critère d'acceptation
               écrit <em>avant</em> d'être développé. Le point <span class="rp n2">2</span> en est la conséquence
               directe : traiter la concurrence en même temps que l'écriture aurait rendu impossible d'identifier
               l'origine d'un dysfonctionnement.
             </p>
             <p class="sfp">
-              <span class="sf sf-cadre">Analyser un problème avant d'écrire du code</span> — sur la gestion des
+              <span class="sf sf-cadre">Analyser un problème avant d'écrire du code</span> : sur la gestion des
               conflits, la consigne reçue était explicite : analyser le problème et proposer des solutions
               <em>sans coder</em>, puis découper en versions successives. Cette contrainte m'a fait gagner du
               temps. Le point <span class="rp n3">3</span> montre que le découpage ne dispense pas d'une passe de
@@ -206,7 +206,7 @@
                 <tr>
                   <td>Modules nécessaires <span class="rp n2">2</span></td>
                   <td>Contacts, Ventes, Facturation, Site web</td>
-                  <td class="ok">Tous disponibles en version libre — vérifié</td>
+                  <td class="ok">Tous disponibles en version libre : vérifié</td>
                 </tr>
                 <tr>
                   <td>Hébergement</td>
@@ -215,7 +215,7 @@
                 </tr>
                 <tr>
                   <td>Fonctions absentes</td>
-                  <td>—</td>
+                  <td>Aucune</td>
                   <td class="no">Quelques modules propriétaires à recréer <span class="rp n3">3</span></td>
                 </tr>
               </tbody>
@@ -245,8 +245,8 @@
           <div class="bloc">
             <h3>Ce que montre la trace 10 et sa place dans le stage</h3>
             <p>
-              Migrer l'ERP d'une entreprise n'est pas une décision technique : c'est un engagement sur ses
-              données comptables et commerciales. La deuxième semaine de stage a donc été consacrée
+              Migrer l'ERP, c'est toucher aux factures et à la compta. Cédric ne voulait pas d'à-peu-près.
+              La deuxième semaine de stage a donc été consacrée
               exclusivement au cadrage, sans écrire une ligne de code de migration.
             </p>
             <p>
@@ -259,13 +259,13 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-cadre">Comparer des solutions sur des critères explicites</span> — le point
+              <span class="sf sf-cadre">Comparer des solutions sur des critères explicites</span> : le point
               <span class="rp n1">1</span> est l'argument central, mais il ne suffisait pas : j'ai dû expliciter
               aussi ce que l'entreprise <em>perdrait</em>. Un comparatif qui ne présente que des avantages n'est
               pas un comparatif, c'est une justification après coup.
             </p>
             <p class="sfp">
-              <span class="sf sf-cadre">Vérifier la faisabilité avant de s'engager</span> — le point
+              <span class="sf sf-cadre">Vérifier la faisabilité avant de s'engager</span> : le point
               <span class="rp n2">2</span> a été le vrai travail de la semaine : vérifier module par module que ce
               qui est utilisé au quotidien existe bien en version libre, puis monter une instance de test en
               local pour le constater plutôt que de le lire. Le point <span class="rp n3">3</span> est le résultat
@@ -273,7 +273,7 @@
               après (voir <a href="integration.html#sp-17">trace 17</a>).
             </p>
             <p class="sfp">
-              <span class="sf sf-cadre">Planifier l'ordre des opérations</span> — le bloc final fixe la séquence
+              <span class="sf sf-cadre">Planifier l'ordre des opérations</span> : le bloc final fixe la séquence
               de migration. Cet ordre n'est pas arbitraire : les devis référencent des contacts et des produits,
               les factures référencent des devis. Le déterminer à l'avance évite de découvrir en pleine
               migration qu'une table dépend d'une autre non encore importée.
@@ -346,7 +346,7 @@
               <span class="rp n1">1</span> la séparation en modules, détaillée en
               <a href="technique.html#sp-1">trace 1</a> ;
               <span class="rp n2">2</span> l'apparition d'une suite de tests, jusque-là inexistante ;
-              <span class="rp n3">3</span> la correction la plus importante — une perte de données réelle en
+              <span class="rp n3">3</span> la correction la plus importante : une perte de données réelle en
               production, corrigée à la racine.
             </span>
           </figcaption>
@@ -371,21 +371,21 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-qual">Refactorer un code monolithique</span> — au point
+              <span class="sf sf-qual">Refactorer un code monolithique</span> : au point
               <span class="rp n1">1</span>, la restructuration n'a apporté aucune fonctionnalité nouvelle, ce qui
               la rend difficile à justifier sur le moment. Elle s'est pourtant payée dès la semaine suivante :
               minuteur, statistiques par quiz, mail de fin personnalisé et affichage mobile ont tous été ajoutés
               sur cette base, sans conflit entre eux.
             </p>
             <p class="sfp">
-              <span class="sf sf-qual">Écrire des tests automatisés</span> — le point <span class="rp n2">2</span>
+              <span class="sf sf-qual">Écrire des tests automatisés</span> : le point <span class="rp n2">2</span>
               correspond à la mise à jour de sécurité décrite en
               <a href="technique.html#sp-7">trace 7</a>. J'ai retenu une règle simple : ce qui protège
               l'application doit être testé, parce que c'est précisément ce que personne ne pense à vérifier
               manuellement avant une mise en ligne.
             </p>
             <p class="sfp">
-              <span class="sf sf-qual">Protéger les données contre une opération destructrice</span> — le point
+              <span class="sf sf-qual">Protéger les données contre une opération destructrice</span> : le point
               <span class="rp n3">3</span> est ma principale leçon de qualité du stage. Une procédure de
               déploiement qui supprime est une bombe à retardement, même si elle fonctionne cent fois. Corriger
               le symptôme aurait pris cinq minutes ; corriger la logique de synchronisation a pris une
@@ -426,8 +426,8 @@
             <span class="trace-title">Revue de code de MailRGE : constats classés par gravité et localisés</span>
             <span class="legende">
               <b>Légende :</b> rapport de revue exécutée sur le code réel de MailRGE (branche <code>main</code>).
-              <span class="rp n1">1</span> la répartition des <b>7 constats</b> par gravité — 1 élevé, 3 moyens,
-              3 faibles ; <span class="rp n2">2</span> le constat le plus grave, traité en priorité — l'endpoint d'envoi
+              <span class="rp n1">1</span> la répartition des <b>7 constats</b> par gravité : 1 élevé, 3 moyens,
+              3 faibles ; <span class="rp n2">2</span> le constat le plus grave, traité en priorité : l'endpoint d'envoi
               sans authentification ni plafond de destinataires ;
               <span class="rp n3">3</span> l'emplacement exact de chaque constat, jusqu'au numéro de ligne, pour
               pouvoir corriger sans le chercher.
@@ -441,7 +441,7 @@
             <p>
               Travailler seul prive du regard extérieur qui, en équipe, arrête les mauvaises idées. J'ai donc
               pris l'habitude de faire relire systématiquement le code d'une fonctionnalité avant de la
-              considérer terminée — ce qui a été fait sur MailRGE après l'ajout du découpage des listes, et sur
+              considérer terminée : ce qui a été fait sur MailRGE après l'ajout du découpage des listes, et sur
               FileManager après le premier palier du montage réseau.
             </p>
             <p>
@@ -454,13 +454,13 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-qual">Soumettre son code à une revue et en traiter les retours</span> — au
+              <span class="sf sf-qual">Soumettre son code à une revue et en traiter les retours</span> : au
               point <span class="rp n1">1</span>, la difficulté est de trier : tous les points relevés ne se valent
               pas. J'ai priorisé au point <span class="rp n2">2</span> ceux qui touchaient à la fiabilité des envois
-              — un mail parti à tort ne se rattrape pas — avant les remarques de lisibilité.
+              (un mail parti à tort ne se rattrape pas), avant les remarques de lisibilité.
             </p>
             <p class="sfp">
-              <span class="sf sf-qual">Traiter la cause racine plutôt que le contournement</span> — c'est
+              <span class="sf sf-qual">Traiter la cause racine plutôt que le contournement</span> : c'est
               l'exigence que mon maître de stage a formulée le plus clairement, à propos d'un tout autre
               incident : la page Contacts de l'Odoo migré était devenue inaccessible, et il a explicitement
               refusé un contournement minimal en demandant d'en chercher l'origine, au motif qu'il s'agissait
@@ -468,11 +468,11 @@
               destructive du quiz (<a href="#sp-11">trace 11</a>).
             </p>
             <p class="sfp">
-              <span class="sf sf-qual">Corriger sans introduire de régression</span> — le point
+              <span class="sf sf-qual">Corriger sans introduire de régression</span> : le point
               <span class="rp n3">3</span> localise chaque constat jusqu'à la ligne, ce qui rend la correction
               ciblée plutôt qu'approximative. Mais une passe de correction reste risquée : sur MailRGE, chaque
               correctif a été vérifié sur un jeu de recherche réel ; sur le module de messagerie d'Odoo, j'ai dû
-              revérifier plus tard que les envois partaient toujours après une modification — une régression qui
+              revérifier plus tard que les envois partaient toujours après une modification : une régression qui
               n'aurait pas été détectée autrement.
             </p>
           </div>
@@ -535,15 +535,15 @@ sale_payment_schedule/
             </p>
             <p>
               La <b>trace 13</b> en montre l'historique et l'organisation. Elle illustre une exigence à laquelle
-              je me suis tenu : l'historique de versions n'est pas une sauvegarde, c'est un document qui doit se
-              lire.
+              je me suis tenu : un historique Git, je dois pouvoir le relire trois semaines plus tard
+              et comprendre pourquoi j'ai changé ça.
             </p>
           </div>
 
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-git">Tenir un historique lisible</span> — les points <span class="rp n1">1</span>
+              <span class="sf sf-git">Tenir un historique lisible</span> : les points <span class="rp n1">1</span>
               et <span class="rp n2">2</span> traduisent deux règles complémentaires : un commit correspond à une
               intention unique, et son message dit ce qui change, pas ce qui a été touché. Le changement de
               licence isolé permet de répondre plus tard à la question « depuis quand ce module est-il
@@ -551,14 +551,14 @@ sale_payment_schedule/
               chaque palier est identifiable dans l'historique.
             </p>
             <p class="sfp">
-              <span class="sf sf-git">Documenter un livrable pour son futur lecteur</span> — au point
+              <span class="sf sf-git">Documenter un livrable pour son futur lecteur</span> : au point
               <span class="rp n3">3</span>, le README explique le fonctionnement du module : on écrit une balise de
               pourcentage dans les notes d'un devis, et le PDF affiche le montant correspondant sans modifier le
               texte enregistré. Sans cette explication, un utilisateur découvrant une balise dans un devis la
               prendrait pour une coquille.
             </p>
             <p class="sfp">
-              <span class="sf sf-git">Organiser un dépôt et son mode de publication</span> — dépôt privé,
+              <span class="sf sf-git">Organiser un dépôt et son mode de publication</span> : dépôt privé,
               fichier de manifeste renseigné, licence explicite. La motivation de ce choix de licence est
               détaillée en <a href="integration.html#sp-17">trace 17</a> : elle est commerciale avant d'être
               technique, ce qui est justement la raison pour laquelle elle devait être tracée.
@@ -626,10 +626,10 @@ sale_payment_schedule/
           <div class="bloc">
             <h3>Ce que montre la trace 14 et sa place dans le stage</h3>
             <p>
-              Les assistants de développement font partie de mes outils de travail : Cursor d'abord, puis Claude
-              Code à partir de la quatrième semaine pour les tâches les plus complexes. Le changement est
-              intervenu <b>au milieu</b> de la migration Odoo, c'est-à-dire au pire moment possible : un
-              chantier à moitié fait, dont l'essentiel du raisonnement n'existait que dans l'historique de
+              J'écris surtout sous <b>Visual Studio Code</b>. Cursor, puis Claude Code à partir de la
+              quatrième semaine, m'ont servi de temps en temps sur les passages les plus denses. Le changement
+              d'assistant est intervenu <b>au milieu</b> de la migration Odoo, au mauvais moment : un
+              chantier à moitié fait, dont une partie du raisonnement n'existait que dans l'historique de
               conversation.
             </p>
             <p>
@@ -641,20 +641,20 @@ sale_payment_schedule/
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-git">Synthétiser l'état d'un projet pour le transmettre</span> — le point
+              <span class="sf sf-git">Synthétiser l'état d'un projet pour le transmettre</span> : le point
               <span class="rp n1">1</span> est la demande, le point <span class="rp n2">2</span> son contenu. Écrire
               cette synthèse m'a obligé à distinguer ce que je savais de ce que j'avais seulement supposé. C'est
               un exercice qui ressemble beaucoup à la rédaction d'un rapport hebdomadaire, et qui a la même
               vertu : on découvre les zones floues en les écrivant.
             </p>
             <p class="sfp">
-              <span class="sf sf-git">Conserver les décisions techniques par écrit</span> — les règles de
+              <span class="sf sf-git">Conserver les décisions techniques par écrit</span> : les règles de
               migration (toujours mapper l'ID externe, découper les gros fichiers, viser une migration complète
               sans retouche après coup) ne figuraient nulle part avant cette synthèse. Elles ont été formulées à
               cette occasion et m'ont resservi pour toutes les tables suivantes.
             </p>
             <p class="sfp">
-              <span class="sf sf-git">Changer d'outil sans perdre le contexte</span> — le point
+              <span class="sf sf-git">Changer d'outil sans perdre le contexte</span> : le point
               <span class="rp n3">3</span> mesure le résultat : la migration a repris sans temps mort et le
               contexte serveur est resté exploitable jusqu'au déploiement de FileManager, trois semaines plus
               tard. J'en retiens aussi qu'un contexte transmis doit s'accompagner de ses limites, d'où la
@@ -686,13 +686,13 @@ sale_payment_schedule/
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Découper en paliers livrables</b> — montage réseau de FileManager en quatre paliers
+            <li><b>Découper en paliers livrables</b> : montage réseau de FileManager en quatre paliers
               (trace 9), gestion des conflits de fichiers en deux étapes.</li>
-            <li><b>Analyser avant de coder</b> — étude des solutions de conflit demandée explicitement sans
+            <li><b>Analyser avant de coder</b> : étude des solutions de conflit demandée explicitement sans
               écrire de code.</li>
-            <li><b>Comparer et chiffrer avant de décider</b> — cadrage Odoo Community / Enterprise
+            <li><b>Comparer et chiffrer avant de décider</b> : cadrage Odoo Community / Enterprise
               (trace 10), étude des normes de facturation électronique française.</li>
-            <li><b>Planifier un ordre d'opérations</b> — séquence de migration des tables Odoo, cohabitation
+            <li><b>Planifier un ordre d'opérations</b> : séquence de migration des tables Odoo, cohabitation
               progressive des services sur le VPS.</li>
           </ul>
 
@@ -721,9 +721,9 @@ sale_payment_schedule/
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> en début de stage, je commençais un développement dès que j'avais compris la
+            En début de stage, je commençais un développement dès que j'avais compris la
             demande. Je produis maintenant systématiquement un découpage et des critères de fin avant de coder,
-            et je constate concrètement le gain — les paliers de la trace 9 ont tous été livrés sans reprise. Il
+            et je constate concrètement le gain : les paliers de la trace 9 ont tous été livrés sans reprise. Il
             me manque encore l'estimation : je sais découper, je sais mal prévoir combien de temps chaque partie
             prendra.
           </p>
@@ -736,13 +736,13 @@ sale_payment_schedule/
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Refactorer un code monolithique</b> — back-end et front-end du quiz (trace 11), architecture
+            <li><b>Refactorer un code monolithique</b> : back-end et front-end du quiz (trace 11), architecture
               en couches de FileManager.</li>
-            <li><b>Écrire des tests automatisés</b> — règles de sécurité du quiz, correctifs de FileManager
+            <li><b>Écrire des tests automatisés</b> : règles de sécurité du quiz, correctifs de FileManager
               après revue.</li>
-            <li><b>Faire relire son code</b> — revue systématique de MailRGE et de FileManager avant de
+            <li><b>Faire relire son code</b> : revue systématique de MailRGE et de FileManager avant de
               considérer une fonctionnalité terminée (trace 12).</li>
-            <li><b>Chercher la cause racine</b> — page Contacts inaccessible après migration, synchronisation
+            <li><b>Chercher la cause racine</b> : page Contacts inaccessible après migration, synchronisation
               destructive du quiz, erreurs 502 en production.</li>
           </ul>
 
@@ -755,7 +755,7 @@ sale_payment_schedule/
           <p>
             Les tests et la lisibilité du code font partie de la formation. Ce que le stage a ajouté, c'est
             l'exigence de niveau : à plusieurs reprises, un travail que je considérais comme fini a été renvoyé
-            avec une demande de certitude — « cherche l'origine, pas le minimum ». Cette exigence a plus
+            avec une demande de certitude : « cherche l'origine, pas le minimum ». Cette exigence a plus
             transformé ma façon de travailler que n'importe quel outil.
           </p>
 
@@ -771,7 +771,7 @@ sale_payment_schedule/
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> je sais aujourd'hui reprendre un code existant, le restructurer, le couvrir
+            Je sais aujourd'hui reprendre un code existant, le restructurer, le couvrir
             de tests sur ses parties sensibles et le faire relire avant de le déclarer terminé. Surtout, j'ai
             changé de critère de fin : « ça fonctionne » ne suffit plus, je cherche à pouvoir expliquer
             <em>pourquoi</em> ça fonctionne. Ma limite reste la couverture de tests, encore concentrée sur la
@@ -786,11 +786,11 @@ sale_payment_schedule/
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Tenir un historique lisible</b> — un commit = une intention, sur les quatre projets
+            <li><b>Tenir un historique lisible</b> : un commit = une intention, sur les quatre projets
               (trace 13).</li>
-            <li><b>Documenter un livrable</b> — README du module Odoo et de FileManager, rédigés avec le code.</li>
-            <li><b>Organiser un dépôt et sa publication</b> — dépôts privés, manifeste, licence explicite.</li>
-            <li><b>Transmettre un contexte de travail</b> — synthèse écrite lors du changement d'outil en pleine
+            <li><b>Documenter un livrable</b> : README du module Odoo et de FileManager, rédigés avec le code.</li>
+            <li><b>Organiser un dépôt et sa publication</b> : dépôts privés, manifeste, licence explicite.</li>
+            <li><b>Transmettre un contexte de travail</b> : synthèse écrite lors du changement d'outil en pleine
               migration Odoo (trace 14).</li>
           </ul>
 
@@ -809,7 +809,7 @@ sale_payment_schedule/
           <h4>Difficulté</h4>
           <p>
             <b>Faible à moyenne.</b> Les commandes ne posent pas de problème ; ce qui en pose, c'est la
-            régularité — écrire un README au bon moment, isoler un changement de licence dans son propre commit,
+            régularité : écrire un README au bon moment, isoler un changement de licence dans son propre commit,
             documenter une décision avant de l'oublier.
           </p>
 
@@ -819,10 +819,10 @@ sale_payment_schedule/
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> je suis passé d'un usage défensif de Git à un usage documentaire. La
+            Je suis passé d'un usage défensif de Git à un usage documentaire. La
             progression la plus nette porte sur la transmission : la trace 14 montre que je sais désormais
             produire une synthèse d'état exploitable par quelqu'un d'autre, ce que je n'avais jamais eu à faire.
-            Il me reste à travailler les pratiques d'équipe — branches, demandes de fusion, relecture croisée —
+            Il me reste à travailler les pratiques d'équipe (branches, demandes de fusion, relecture croisée),
             que mon contexte de développeur unique ne m'a pas permis d'exercer.
           </p>
         </section>
@@ -833,7 +833,7 @@ sale_payment_schedule/
   </main>
 
   <footer class="foot">
-    Portfolio BUT 2 — Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
+    Portfolio BUT 2 : Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
   </footer>
 </div>
 <script src="assets/js/portfolio.js"></script>

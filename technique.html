@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Technique — Portfolio BUT 2 · Lucas Requena</title>
+<title>Technique : Portfolio BUT 2 · Lucas Requena</title>
 <meta name="description" content="Savoir-faire techniques : développement, système et réseau, données, sécurité. Huit traces commentées et un bilan.">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -16,9 +16,9 @@
       <span class="ident-line">
         <a href="mailto:lucas.requena.foch@gmail.com">lucas.requena.foch@gmail.com</a>
         <span class="sep">•</span>
-        <span>BUT&nbsp;Informatique — 2<sup>e</sup> année</span>
+        <span>BUT&nbsp;Informatique : 2<sup>e</sup> année</span>
         <span class="sep">•</span>
-        <span>Stage chez De&nbsp;Niveau — <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
+        <span>Stage chez De&nbsp;Niveau : <em>Audit&nbsp;&amp;&nbsp;Qualité</em></span>
       </span>
     </div>
     <nav class="mainnav" aria-label="Navigation principale">
@@ -56,7 +56,7 @@
         <button type="button" class="sp-tab t-data"  role="tab" id="tab-6" aria-controls="sp-6" aria-selected="false">6 · API ADEME / SIRENE</button>
         <button type="button" class="sp-tab t-sec"   role="tab" id="tab-7" aria-controls="sp-7" aria-selected="false">7 · Durcissement des accès</button>
         <button type="button" class="sp-tab t-sec"   role="tab" id="tab-8" aria-controls="sp-8" aria-selected="false">8 · Droits par ressource</button>
-        <button type="button" class="sp-tab t-bilan" role="tab" id="tab-9" aria-controls="sp-bilan" aria-selected="false">★ Bilan &amp; analyse</button>
+        <button type="button" class="sp-tab t-bilan" role="tab" id="tab-9" aria-controls="sp-bilan" aria-selected="false">Bilan &amp; analyse</button>
       </div>
       <div class="arrows">
         <button type="button" data-nav="next" aria-label="Sous-page suivante">›</button>
@@ -81,26 +81,26 @@
           <div class="trace-html">
             <div class="blocks">
               <div class="blk" style="--c:var(--sf-dev)">
-                <b>Routes HTTP</b> — points d'entrée du quiz et de l'administration
+                <b>Routes HTTP</b> : points d'entrée du quiz et de l'administration
                 <span class="sub">Reçoivent la requête, délèguent, renvoient la réponse. Aucune règle métier.</span>
                 <span class="pt pt-inline n1">1</span>
               </div>
               <div class="blk" style="--c:var(--sf-dev)">
-                <b>Gestion des données</b> — lecture et écriture des questionnaires
+                <b>Gestion des données</b> : lecture et écriture des questionnaires
                 <span class="sub">Les questions vivent désormais dans des fichiers éditables, plus dans le code source.</span>
                 <span class="pt pt-inline n2">2</span>
               </div>
               <div class="blk" style="--c:var(--sf-dev)">
-                <b>Scoring</b> — calcul du résultat et du niveau atteint
+                <b>Scoring</b> : calcul du résultat et du niveau atteint
                 <span class="sub">Isolé : c'est lui qui alimente le message du mail de fin et les statistiques par quiz.</span>
               </div>
               <div class="blk" style="--c:var(--sf-dev)">
-                <b>Authentification</b> — comptes administrateurs
+                <b>Authentification</b> : comptes administrateurs
                 <span class="sub">Module ajouté <em>après</em> le découpage, sans modifier les trois autres.</span>
                 <span class="pt pt-inline n3">3</span>
               </div>
               <div class="blk" style="--c:var(--txt-mute)">
-                <b>Front-end</b> — auparavant un fichier unique, éclaté en plusieurs fichiers
+                <b>Front-end</b> : auparavant un fichier unique, éclaté en plusieurs fichiers
                 <span class="sub">Même logique appliquée côté navigateur : un fichier = une responsabilité.</span>
               </div>
             </div>
@@ -132,28 +132,28 @@
               La <b>trace 1</b> représente l'état du back-end après le travail de restructuration mené en
               deuxième semaine : quatre modules aux responsabilités distinctes, plus un front-end éclaté en
               plusieurs fichiers. C'est le socle sur lequel toutes les évolutions ultérieures du quiz se sont
-              appuyées — minuteur, statistiques par quiz, mail de fin personnalisé, affichage mobile.
+              appuyées : minuteur, statistiques par quiz, mail de fin personnalisé, affichage mobile.
             </p>
           </div>
 
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-dev">Découper un back-end en modules fonctionnels</span> — j'ai d'abord listé
+              <span class="sf sf-dev">Découper un back-end en modules fonctionnels</span> : j'ai d'abord listé
               ce que faisait réellement l'application, puis regroupé le code par responsabilité plutôt que par
               ordre d'écriture. Le point remarquable <span class="rp n1">1</span> traduit la règle que je me suis
               fixée : une route ne fait que recevoir et répondre. C'est ce qui rend le scoring testable
               indépendamment du serveur web.
             </p>
             <p class="sfp">
-              <span class="sf sf-dev">Externaliser les données hors du code</span> — au point
+              <span class="sf sf-dev">Externaliser les données hors du code</span> : au point
               <span class="rp n2">2</span>, les questionnaires deviennent des fichiers de données. Cette décision
               est technique en apparence, mais c'est elle qui a rendu possible l'interface d'administration
               (<a href="integration.html#sp-19">trace 19</a>) : sans séparation entre contenu et code, aucune
               personne non développeuse n'aurait pu créer un quiz.
             </p>
             <p class="sfp">
-              <span class="sf sf-dev">Étendre une application sans la casser</span> — le point
+              <span class="sf sf-dev">Étendre une application sans la casser</span> : le point
               <span class="rp n3">3</span> est la vérification de tout le reste. L'ajout des comptes
               administrateurs, une semaine plus tard, n'a touché aucun des trois modules existants. C'est le
               seul critère qui m'a convaincu que le découpage était le bon.
@@ -194,8 +194,8 @@
             <span class="legende">
               <b>Légende :</b> recherche réelle exécutée depuis l'application, autour du code postal 44000
               dans un rayon de 50 km.
-              <span class="rp n1">1</span> les critères de la zone — code postal, coordonnées, rayon et domaines
-              RGE cumulables — qui donnent ici <b>5 342 lignes RGE dans la zone</b> ;
+              <span class="rp n1">1</span> les critères de la zone : code postal, coordonnées, rayon et domaines
+              RGE cumulables, qui donnent ici <b>5 342 lignes RGE dans la zone</b> ;
               <span class="rp n2">2</span> le découpage de cette liste en 10 parts (535, 535, 534…), la
               division 1 étant chargée ;
               <span class="rp n3">3</span> la liste des <b>238 destinataires</b> de cette seule division, cochés
@@ -215,7 +215,7 @@
             <p>
               La <b>trace 2</b> montre l'écran tel qu'il est après la cinquième semaine, une fois ajoutée la
               fonction de division des listes. Le besoin était concret, et les chiffres de la capture le
-              montrent : une recherche ordinaire — Nantes, 50 km — remonte <b>5 342 lignes</b>. Envoyer autant
+              montrent : une recherche ordinaire (Nantes, 50 km) remonte <b>5 342 lignes</b>. Envoyer autant
               de mails d'un coup n'est ni souhaitable ni raisonnable ; il fallait pouvoir traiter la liste par
               paquets, ici 238 destinataires.
             </p>
@@ -224,21 +224,21 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-dev">Construire une interface réactive avec Vue 3</span> — toute la zone
+              <span class="sf sf-dev">Construire une interface réactive avec Vue 3</span> : toute la zone
               <span class="rp n1">1</span> pilote un état partagé : changer un secteur d'activité ou le rayon
               recalcule immédiatement le nombre d'entreprises concernées, sans rechargement. C'est le premier
               projet où j'ai réellement travaillé avec un framework à état réactif plutôt qu'en manipulant le
               DOM à la main.
             </p>
             <p class="sfp">
-              <span class="sf sf-dev">Charger des données distantes par tranches</span> — la première version
+              <span class="sf sf-dev">Charger des données distantes par tranches</span> : la première version
               récupérait tous les résultats avant de les découper, ce qui était lent et fragile. Le point
               <span class="rp n2">2</span> repose maintenant sur une récupération par <em>offset</em> : seule la
               tranche du x<sup>e</sup> au y<sup>e</sup> résultat est demandée, ce qui suffit à calculer et à
               afficher la division retenue.
             </p>
             <p class="sfp">
-              <span class="sf sf-dev">Corriger des défauts d'affichage</span> — la barre du point
+              <span class="sf sf-dev">Corriger des défauts d'affichage</span> : la barre du point
               <span class="rp n2">2</span> a demandé plusieurs correctifs avant d'arriver à cet état : des blocs
               passaient derrière le champ de saisie, et les contrôles « diviser en » et « charger tout le
               résultat » se superposaient. Sur la capture, les deux sont désormais nettement séparés et une
@@ -294,14 +294,14 @@
             </table>
             <div class="blocks" style="margin-top:12px">
               <div class="blk" style="--c:var(--sf-sys)">
-                <b>Nginx — unique point d'entrée public</b>
+                <b>Nginx : unique point d'entrée public</b>
                 <span class="sub">Termine le TLS sur le port 443, puis oriente vers le service local selon le
                   sous-domaine demandé. Aucun service applicatif n'est exposé directement sur Internet.</span>
                 <span class="pt pt-inline n2">2</span>
               </div>
               <div class="blk" style="--c:var(--txt-mute)">
                 <b>Serveur : Ubuntu 24.04 · 1 vCPU · ~945 Mo de RAM</b>
-                <span class="sub">Un seul VPS pour les trois services — contrainte assumée, à l'origine des
+                <span class="sub">Un seul VPS pour les trois services : contrainte assumée, à l'origine des
                   incidents analysés dans la trace 4.</span>
               </div>
             </div>
@@ -338,21 +338,21 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-sys">Configurer un reverse proxy Nginx</span> — le point
+              <span class="sf sf-sys">Configurer un reverse proxy Nginx</span> : le point
               <span class="rp n2">2</span> est la clé de voûte du dispositif. Un seul processus écoute sur le port
               public ; il lit le nom de domaine demandé et transmet la requête au bon service local. Ce choix
               évite d'ouvrir un port par application et centralise en un seul endroit les certificats et les
               journaux.
             </p>
             <p class="sfp">
-              <span class="sf sf-sys">Publier un service en HTTPS derrière un nom de domaine</span> — au point
+              <span class="sf sf-sys">Publier un service en HTTPS derrière un nom de domaine</span> : au point
               <span class="rp n1">1</span>, la mise en production du quiz a impliqué le passage complet du
               sous-domaine <code>quizite.auditetqualite.fr</code> à <code>quiz.auditetqualite.fr</code> :
               enregistrement DNS, certificat, configuration Nginx et vérification que les liens envoyés par mail
               pointaient bien vers la nouvelle adresse.
             </p>
             <p class="sfp">
-              <span class="sf sf-sys">Conteneuriser une application avec Docker</span> — le point
+              <span class="sf sf-sys">Conteneuriser une application avec Docker</span> : le point
               <span class="rp n3">3</span> traduit une décision : Odoo apporte ses propres dépendances Python et sa
               base PostgreSQL, que je ne voulais pas mélanger avec le reste du serveur. Je l'ai d'abord testé
               en local sous Docker avant de reproduire la même configuration sur le VPS, ce qui a rendu la mise
@@ -387,7 +387,7 @@
                 <tr>
                   <td><b>1. Symptôme</b> <span class="rp n1">1</span></td>
                   <td class="no"><code>502 Bad Gateway</code>, <em>Internal Server Error</em>, chargements de 30–60 s</td>
-                  <td>Nginx n'obtient pas de réponse du service — mais rien sur la <em>raison</em></td>
+                  <td>Nginx n'obtient pas de réponse du service, sans rien dire de la <em>raison</em></td>
                 </tr>
                 <tr>
                   <td><b>2. Écarter</b></td>
@@ -408,12 +408,12 @@
             </table>
             <div class="blocks" style="margin-top:12px">
               <div class="blk" style="--c:var(--sf-sec)">
-                <b>Avant</b> — RAM physique ~945 Mo, aucun swap
+                <b>Avant</b> : RAM physique ~945 Mo, aucun swap
                 <span class="sub">Aux pics d'Odoo, la mémoire se sature : le noyau interrompt le processus, Nginx renvoie 502.</span>
               </div>
               <div class="blk" style="--c:var(--sf-qual)">
-                <b>Après</b> — ~945 Mo de RAM + fichier d'échange (swap)
-                <span class="sub">Les pics débordent sur le disque au lieu de tuer le service. Lent, mais stable — le bon compromis pour le budget serveur.</span>
+                <b>Après</b> : ~945 Mo de RAM + fichier d'échange (swap)
+                <span class="sub">Les pics débordent sur le disque au lieu de tuer le service. Lent, mais stable, et ça tenait dans le budget serveur.</span>
               </div>
             </div>
           </div>
@@ -422,11 +422,11 @@
             <span class="trace-title">La chaîne de diagnostic des 502 : du symptôme à la cause mémoire</span>
             <span class="legende">
               <b>Légende :</b> reconstitution du raisonnement suivi pendant la mise en production d'Odoo
-              (semaine 4), présentée comme les autres schémas du portfolio — les journaux Nginx d'alors n'étant
+              (semaine 4), présentée comme les autres schémas du portfolio : les journaux Nginx d'alors n'étant
               plus disponibles, c'est la démarche qui est tracée, pas une capture d'écran.
               <span class="rp n1">1</span> le symptôme visible (la 502), qui ne dit rien de la cause ;
               <span class="rp n2">2</span> la corrélation avec l'état mémoire, qui révèle la vraie cause ;
-              <span class="rp n3">3</span> la correction — la mémoire virtuelle — et son compromis assumé.
+              <span class="rp n3">3</span> la correction (la mémoire virtuelle) et son compromis assumé.
             </span>
           </figcaption>
         </figure>
@@ -437,7 +437,7 @@
             <p>
               Une fois Odoo réellement mis en ligne, le site est devenu instable : erreurs
               <code>502 Bad Gateway</code>, <em>Internal Server Error</em>, et des temps de chargement de
-              30 à 60 secondes. Le problème n'était plus reproductible en local — il n'existait que sur le
+              30 à 60 secondes. Le problème n'était plus reproductible en local : il n'existait que sur le
               serveur de production, chargé.
             </p>
             <p>
@@ -450,22 +450,22 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-sys">Lire les journaux pour remonter à la cause</span> — le point
+              <span class="sf sf-sys">Lire les journaux pour remonter à la cause</span> : le point
               <span class="rp n1">1</span> montre le symptôme, pas la panne. Une 502 signifie seulement que Nginx
               n'a pas obtenu de réponse ; elle ne dit rien de la raison. La démarche a consisté à ne
-              <em>pas</em> s'arrêter là et à corréler l'horodatage de l'erreur avec l'état de la machine —
+              <em>pas</em> s'arrêter là et à corréler l'horodatage de l'erreur avec l'état de la machine :
               c'est exactement l'exigence que mon maître de stage a formulée à plusieurs reprises :
               chercher l'origine du problème, pas le contournement le plus rapide.
             </p>
             <p class="sfp">
-              <span class="sf sf-sys">Dimensionner la mémoire d'un serveur</span> — au point
+              <span class="sf sf-sys">Dimensionner la mémoire d'un serveur</span> : au point
               <span class="rp n2">2</span>, la cause apparaît : avec environ 945 Mo de mémoire vive, le serveur
               n'absorbait pas les pics d'Odoo. L'ajout de mémoire virtuelle (<em>swap</em>), visible au point
-              <span class="rp n3">3</span>, a supprimé les coupures. Ce n'est pas une solution idéale — le swap
-              est lent — mais c'est la bonne réponse à la contrainte réelle : le budget serveur de l'entreprise.
+              <span class="rp n3">3</span>, a supprimé les coupures. Le swap est lent, mais ça a arrêté les 502
+              et ça rentrait dans le budget serveur de l'entreprise.
             </p>
             <p class="sfp">
-              <span class="sf sf-sys">Faire cohabiter des services sur une machine contrainte</span> — chaque
+              <span class="sf sf-sys">Faire cohabiter des services sur une machine contrainte</span> : chaque
               intervention ultérieure a dû tenir compte de ce plafond. C'est aussi ce qui explique les
               déconnexions des connexions temps réel d'Odoo observées la semaine suivante : sur une machine
               aussi juste, la ressource mémoire est devenue un critère de conception, pas seulement
@@ -494,10 +494,10 @@
           <div class="trace-media" data-src="assets/img/trace-05.png"
                data-hint="Captures des listes de l'Odoo en production montrant les compteurs d'enregistrements migrés.">
             <img src="assets/img/trace-05.png" alt="Trois listes de l'Odoo en production : 275 contacts, 219 factures clients, 261 devis et commandes. Le contenu des lignes est volontairement flouté.">
-            <span class="pt-box n1" style="--x:73.5%;--y:8.2%;--w:8.5%;--h:2.7%"></span>
-            <span class="pt n1" style="--x:70.5%;--y:9.5%">1</span>
-            <span class="pt-box n2" style="--x:73.5%;--y:39%;--w:8.5%;--h:2.7%"></span>
-            <span class="pt n2" style="--x:70.5%;--y:40.3%">2</span>
+            <span class="pt-box n1" style="--x:78%;--y:8.2%;--w:8%;--h:2.7%"></span>
+            <span class="pt n1" style="--x:75%;--y:9.5%">1</span>
+            <span class="pt-box n2" style="--x:78%;--y:41%;--w:8%;--h:2.7%"></span>
+            <span class="pt n2" style="--x:75%;--y:42.3%">2</span>
             <span class="pt-box n3" style="--x:70.3%;--y:73.7%;--w:8%;--h:2.7%"></span>
             <span class="pt n3" style="--x:67.3%;--y:75%">3</span>
           </div>
@@ -506,7 +506,7 @@
             <span class="trace-title">Les données migrées, comptées dans l'Odoo Community en production</span>
             <span class="legende">
               <b>Légende :</b> relevé effectué directement sur l'instance de production. Le contenu des lignes
-              est <b>volontairement flouté</b> — ce sont des données clients réelles, et seul le compteur
+              est <b>volontairement flouté</b> : ce sont des données clients réelles, et seul le compteur
               importe ici.
               <span class="rp n1">1</span> <b>275 contacts</b> ;
               <span class="rp n2">2</span> <b>219 factures et avoirs</b> ;
@@ -528,18 +528,17 @@
             </p>
             <p>
               La <b>trace 5</b> est le résultat, constaté sur l'instance de production plusieurs semaines après
-              la bascule. J'ai délibérément choisi de montrer les <em>compteurs</em> plutôt que l'assistant
-              d'import : une migration ne se juge pas à l'écran qu'on a vu pendant qu'elle tournait, mais aux
-              volumes qu'on retrouve de l'autre côté.
+              la bascule. J'ai montré les <em>compteurs</em> plutôt que l'assistant d'import : ce qui m'intéressait,
+              c'était les volumes retrouvés de l'autre côté, pas l'écran pendant que ça tournait.
             </p>
           </div>
 
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-data">Exporter et réimporter via CSV et identifiants externes</span> — la règle
-              que j'ai fini par ériger en principe : toujours mapper l'« ID externe ». Sans lui, chaque ligne
-              importée reçoit un nouvel identifiant et les relations entre tables sont perdues — une facture ne
+              <span class="sf sf-data">Exporter et réimporter via CSV et identifiants externes</span> : la règle
+              que j'ai retenue : toujours mapper l'« ID externe ». Sans lui, chaque ligne
+              importée reçoit un nouvel identifiant et les relations entre tables sont perdues : une facture ne
               retrouve plus son client, une ligne de commande plus son produit. C'est l'erreur que j'ai commise
               sur mes premiers essais. Les <b>249 identifiants externes</b> encore présents sur les contacts en
               sont la trace durable : ils ne servent plus à rien au quotidien, mais ce sont eux qui ont permis
@@ -547,18 +546,18 @@
               point <span class="rp n1">1</span>.
             </p>
             <p class="sfp">
-              <span class="sf sf-data">Découper un jeu de données trop volumineux</span> — au point
+              <span class="sf sf-data">Découper un jeu de données trop volumineux</span> : au point
               <span class="rp n1">1</span>, le fichier des contacts était tout simplement trop gros pour être
               avalé d'un coup par le serveur. J'ai écrit un script qui le découpe en une dizaine de morceaux
               importés successivement, avec gestion des étiquettes et des doublons. La contrainte matérielle du
               VPS a donc directement dicté la méthode de migration.
             </p>
             <p class="sfp">
-              <span class="sf sf-data">Restaurer une base à partir d'un dump complet</span> — après plusieurs
+              <span class="sf sf-data">Restaurer une base à partir d'un dump complet</span> : après plusieurs
               tables importées une à une, j'ai changé de stratégie : reprendre le dump complet de la base
-              Enterprise plutôt que de poursuivre table par table. Le compte rendu du point
-              <span class="rp n3">3</span> reste le juge de paix — une migration se vérifie par comptage, pas par
-              impression.
+              Enterprise plutôt que de poursuivre table par table. Au point
+              <span class="rp n3">3</span>, après import, j'ai compté. 261 devis de l'autre côté, c'est ça qui m'a
+              convaincu que la migration tenait.
             </p>
           </div>
         </div>
@@ -633,7 +632,7 @@
             <h3>Ce que montre la trace 6 et sa place dans le stage</h3>
             <p>
               MailRGE ne possède aucune base d'entreprises : il interroge en direct les données ouvertes de
-              l'État — l'API de l'ADEME pour les qualifications RGE, l'API SIRENE pour les établissements et
+              l'État : l'API de l'ADEME pour les qualifications RGE, l'API SIRENE pour les établissements et
               leurs codes d'activité. Toute la valeur de l'outil dépend donc de la qualité de ces appels.
             </p>
             <p>
@@ -646,20 +645,20 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-data">Consommer une API publique et respecter ses limites</span> — la dernière
+              <span class="sf sf-data">Consommer une API publique et respecter ses limites</span> : la dernière
               ligne du tableau résume une leçon : la première version émettait un appel par critère, ce qui
               multipliait les requêtes, déclenchait des limitations côté service et produisait des bugs
               intermittents. Regrouper les appels a autant amélioré la fiabilité que la lisibilité du code.
             </p>
             <p class="sfp">
-              <span class="sf sf-data">Normaliser des données hétérogènes</span> — le point
+              <span class="sf sf-data">Normaliser des données hétérogènes</span> : le point
               <span class="rp n1">1</span> est typique du travail sur données publiques : le même code d'activité
               s'écrit avec ou sans point selon la source. Tant que je n'ai pas mis en place une normalisation
               systématique à l'entrée, j'ai cherché des bugs applicatifs là où il n'y avait qu'un problème de
               format.
             </p>
             <p class="sfp">
-              <span class="sf sf-data">Prévoir un repli et filtrer les faux positifs</span> — les points
+              <span class="sf sf-data">Prévoir un repli et filtrer les faux positifs</span> : les points
               <span class="rp n2">2</span> et <span class="rp n3">3</span> traduisent la même exigence : une liste
               d'envoi vide est inutile, mais une liste polluée est pire, car les mails partent réellement. Le
               repli par mots-clés évite le résultat vide ; la liste d'exclusion évite d'écrire à une adresse
@@ -700,7 +699,7 @@
             <span class="trace-title">La politique de mot de passe du quiz, telle qu'elle s'applique en production</span>
             <span class="legende">
               <b>Légende :</b> écran de création de compte relevé sur le site en ligne
-              (<code>quiz.auditetqualite.fr/compte</code>) — la face visible de la mise à jour de sécurité de
+              (<code>quiz.auditetqualite.fr/compte</code>) : la face visible de la mise à jour de sécurité de
               la troisième semaine.
               <span class="rp n1">1</span> la règle de mot de passe, à la fois <b>annoncée</b> à l'utilisateur
               (« 10 caractères minimum, lettres et chiffres ») et <b>imposée</b> par le champ lui-même
@@ -723,8 +722,8 @@
             </p>
             <p>
               La <b>trace 7</b> a été relevée sur le site en ligne, plusieurs semaines après cette mise à
-              jour : ce n'est pas une capture d'un environnement de test, c'est la règle telle qu'elle
-              s'applique aujourd'hui à toute personne qui crée un compte. J'ai choisi de prendre cette trace
+              jour. C'est la règle telle qu'elle
+              s'applique aujourd'hui à toute personne qui crée un compte, pas une capture de test. J'ai choisi de prendre cette trace
               du côté public plutôt que dans le code, parce que c'est là qu'une politique de sécurité se
               vérifie vraiment.
             </p>
@@ -733,16 +732,16 @@
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-sec">Appliquer une politique de mot de passe</span> — les points
+              <span class="sf sf-sec">Appliquer une politique de mot de passe</span> : les points
               <span class="rp n1">1</span> et <span class="rp n2">2</span> montrent la règle sous ses deux formes :
               <em>énoncée</em> dans le libellé du champ, pour que l'utilisateur sache à quoi s'en tenir avant
               de saisir, et <em>contrainte</em> par l'attribut <code>minlength</code>. Ce double affichage est
               un choix : une règle qui n'apparaît qu'au moment du refus est vécue comme une brimade. La
-              vérification qui compte reste évidemment celle du serveur — le navigateur ne fait que rendre
+              vérification qui compte reste évidemment celle du serveur : le navigateur ne fait que rendre
               l'erreur immédiate.
             </p>
             <p class="sfp">
-              <span class="sf sf-sec">Limiter les tentatives de connexion</span> — la protection contre les
+              <span class="sf sf-sec">Limiter les tentatives de connexion</span> : la protection contre les
               attaques par force brute porte sur l'entrée « Connexion » du point <span class="rp n3">3</span> :
               au-delà d'un certain nombre d'échecs, les tentatives sont bloquées. C'est la contrepartie logique
               de l'ouverture du site, car une page de connexion publique est systématiquement sondée. Elle
@@ -750,12 +749,12 @@
               production, ce que je me suis interdit.
             </p>
             <p class="sfp">
-              <span class="sf sf-sec">Couvrir une règle de sécurité par des tests automatisés</span> — c'est ce
+              <span class="sf sf-sec">Couvrir une règle de sécurité par des tests automatisés</span> : c'est ce
               qui donne leur valeur aux deux précédents. Les deux règles ont été écrites <em>avec</em> leurs
               tests, parce qu'une protection ne se voit pas quand elle fonctionne : sans test, une modification
               ultérieure peut la neutraliser sans que personne s'en aperçoive. J'ai retrouvé la même logique sur
               FileManager, où les corrections issues de la revue de code ont systématiquement été accompagnées
-              de tests — le lien avec le <a href="suivi-projet.html#sp-11">savoir-faire qualité</a> est direct.
+              de tests : le lien avec le <a href="suivi-projet.html#sp-11">savoir-faire qualité</a> est direct.
             </p>
           </div>
         </div>
@@ -797,8 +796,8 @@
               types de sujets ;
               <span class="rp n2">2</span> une ligne par sujet, sept colonnes de droits (Voir, Télécharger,
               Déposer, +Dossier, Renommer, Supprimer, Gérer droits) ;
-              <span class="rp n3">3</span> les trois états d'une cellule — <b>Autoriser</b> (vert),
-              <b>Refuser</b> (rouge, prioritaire) et <b>Neutre</b> (hérité du parent) — ici le refus explicite
+              <span class="rp n3">3</span> les trois états d'une cellule : <b>Autoriser</b> (vert),
+              <b>Refuser</b> (rouge, prioritaire) et <b>Neutre</b> (hérité du parent). Ici le refus explicite
               de « Supprimer » au groupe Commercial.
             </span>
           </figcaption>
@@ -810,7 +809,7 @@
             <p>
               FileManager est né d'un besoin simple à énoncer : « une application où plusieurs personnes
               déposent des fichiers, et où l'administrateur définit dossier par dossier ce que chacun a le droit
-              de faire » — l'équivalent d'un service de partage grand public, mais avec des droits plus lisibles
+              de faire » : l'équivalent d'un service de partage grand public, mais avec des droits plus lisibles
               et sans imposer un type de compte aux destinataires.
             </p>
             <p>
@@ -819,28 +818,28 @@
               refus explicite, héritage depuis le parent, le refus l'emportant toujours) et de Jenkins pour sa
               présentation en matrice. On y lit directement la mécanique : le groupe Direction obtient presque
               tous les droits, tandis que le groupe Commercial se voit <em>explicitement</em> refuser la
-              suppression — un refus qui l'emportera même si un autre droit le lui accordait par héritage.
+              suppression : un refus qui l'emportera même si un autre droit le lui accordait par héritage.
             </p>
           </div>
 
           <div class="bloc">
             <h3>Les savoir-faire mobilisés</h3>
             <p class="sfp">
-              <span class="sf sf-sec">Modéliser un contrôle d'accès</span> — les points
+              <span class="sf sf-sec">Modéliser un contrôle d'accès</span> : les points
               <span class="rp n2">2</span> et <span class="rp n3">3</span> forment un tout : la matrice n'est que
               l'affichage d'un modèle où chaque droit peut être accordé, refusé ou hérité. La règle
               « le refus l'emporte » est ce qui rend le système prévisible : un administrateur peut donner
               largement à un groupe puis retirer précisément à une personne.
             </p>
             <p class="sfp">
-              <span class="sf sf-sec">Prévenir l'élévation de privilèges</span> — le point
+              <span class="sf sf-sec">Prévenir l'élévation de privilèges</span> : le point
               <span class="rp n1">1</span> a demandé des garde-fous ajoutés après coup : empêcher qu'un utilisateur
               s'attribue des droits qu'il ne possède pas, empêcher les cycles dans les groupes, et rendre
               cohérent le droit d'édition avec les droits qu'il implique. Un écran de permissions est lui-même
               une ressource sensible.
             </p>
             <p class="sfp">
-              <span class="sf sf-sec">Garantir l'intégrité d'un fichier par empreinte</span> — le même projet
+              <span class="sf sf-sec">Garantir l'intégrité d'un fichier par empreinte</span> : le même projet
               m'a amené à traiter le cas où deux personnes modifient le même fichier. La détection repose sur
               une empreinte <b>SHA-256</b> comparée avant écriture, complétée côté accès réseau par un
               mécanisme de concurrence optimiste (<em>ETag</em> / <code>If-Match</code>) : on n'écrase que si le
@@ -852,7 +851,7 @@
     </article>
 
     <!-- ================================================================= -->
-    <!-- SOUS-PAGE 9 — BILAN & ANALYSE                                      -->
+    <!-- SOUS-PAGE 9 : BILAN & ANALYSE                                      -->
     <!-- ================================================================= -->
     <article class="subpage" id="sp-bilan" role="tabpanel" aria-labelledby="tab-9" hidden>
       <div class="sp-head">
@@ -872,13 +871,13 @@
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Découper un back-end en modules</b> — back-end Flask du quiz (trace 1), puis architecture en
+            <li><b>Découper un back-end en modules</b> : back-end Flask du quiz (trace 1), puis architecture en
               couches de FileManager (Domain / Infrastructure / Serveur / Bureau).</li>
-            <li><b>Externaliser les données hors du code</b> — questionnaires du quiz rendus éditables,
+            <li><b>Externaliser les données hors du code</b> : questionnaires du quiz rendus éditables,
               condition indispensable à l'interface d'administration.</li>
-            <li><b>Construire une interface réactive</b> — MailRGE en Vue 3 (trace 2), interface web de
+            <li><b>Construire une interface réactive</b> : MailRGE en Vue 3 (trace 2), interface web de
               FileManager en Blazor WebAssembly, client bureau en WPF.</li>
-            <li><b>Développer dans un progiciel existant</b> — module Odoo <code>sale_payment_schedule</code>,
+            <li><b>Développer dans un progiciel existant</b> : module Odoo <code>sale_payment_schedule</code>,
               qui modifie le rendu d'un devis sans altérer le texte stocké.</li>
           </ul>
 
@@ -889,7 +888,7 @@
             <span>Travail personnel</span>
           </div>
           <p>
-            Les fondamentaux — langages, structuration d'un projet, séparation des responsabilités — viennent de
+            Les fondamentaux (langages, structuration d'un projet, séparation des responsabilités) viennent de
             la formation. Vue 3, Blazor, WPF et le développement de modules Odoo ont en revanche été appris
             pendant le stage, sur le tas.
           </p>
@@ -907,9 +906,9 @@
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> avant le stage, je savais produire une application qui fonctionne dans le
+            Avant le stage, je savais produire une application qui fonctionne dans le
             cadre d'un exercice. Je sais désormais reprendre une base existante, la restructurer et la faire
-            évoluer pendant plusieurs mois sans la rendre illisible — la trace 1 en est la preuve la plus nette.
+            évoluer pendant plusieurs mois sans la rendre illisible : la trace 1 en est la preuve la plus nette.
             Il me reste à progresser sur les tests d'interface et sur la conception initiale, que j'ai encore
             tendance à improviser.
           </p>
@@ -922,13 +921,13 @@
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Configurer un reverse proxy</b> — Nginx en point d'entrée unique des trois services du VPS
+            <li><b>Configurer un reverse proxy</b> : Nginx en point d'entrée unique des trois services du VPS
               (trace 3).</li>
-            <li><b>Publier en HTTPS derrière un nom de domaine</b> — mise en ligne du quiz, puis bascule
+            <li><b>Publier en HTTPS derrière un nom de domaine</b> : mise en ligne du quiz, puis bascule
               complète de <code>quizite</code> vers <code>quiz.auditetqualite.fr</code>.</li>
-            <li><b>Conteneuriser avec Docker</b> — Odoo 18 testé en local puis déployé selon la même
+            <li><b>Conteneuriser avec Docker</b> : Odoo 18 testé en local puis déployé selon la même
               configuration.</li>
-            <li><b>Diagnostiquer un incident de production</b> — erreurs 502, lenteurs, saturation mémoire,
+            <li><b>Diagnostiquer un incident de production</b> : erreurs 502, lenteurs, saturation mémoire,
               ajout de mémoire virtuelle (trace 4).</li>
           </ul>
 
@@ -940,8 +939,8 @@
           </div>
           <p>
             C'est le savoir-faire le plus éloigné de ma formation initiale. La notion de serveur et de réseau
-            était connue, mais l'exploitation réelle — un service que quelqu'un utilise et qui doit rester
-            debout — a été entièrement apprise ici, en documentation et en dépannage.
+            était connue, mais l'exploitation réelle (un service que quelqu'un utilise et qui doit rester
+            debout) a été entièrement apprise ici, en documentation et en dépannage.
           </p>
 
           <h4>Difficulté</h4>
@@ -957,7 +956,7 @@
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> c'est ma plus forte progression. Je suis passé de « je n'ai jamais mis un
+            C'est ma plus forte progression. Je suis passé de « je n'ai jamais mis un
             site en ligne » à « trois services cohabitent sur un serveur que j'administre et que je dépanne ».
             Mon niveau reste celui d'un exploitant débutant : je sais faire fonctionner, pas encore concevoir
             une infrastructure redondée ni superviser proprement.
@@ -971,13 +970,13 @@
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Exporter / importer avec identifiants externes</b> — toute la migration Odoo : contacts,
+            <li><b>Exporter / importer avec identifiants externes</b> : toute la migration Odoo : contacts,
               produits, devis, commandes, factures, avoirs, utilisateurs (trace 5).</li>
-            <li><b>Découper un jeu de données trop volumineux</b> — script de découpage du fichier de contacts
+            <li><b>Découper un jeu de données trop volumineux</b> : script de découpage du fichier de contacts
               en une dizaine de morceaux.</li>
-            <li><b>Restaurer une base depuis un dump</b> — reprise complète de la base Enterprise sur
+            <li><b>Restaurer une base depuis un dump</b> : reprise complète de la base Enterprise sur
               l'instance Community.</li>
-            <li><b>Consommer et normaliser des données publiques</b> — API ADEME et SIRENE dans MailRGE
+            <li><b>Consommer et normaliser des données publiques</b> : API ADEME et SIRENE dans MailRGE
               (trace 6) ; conversion code postal → ville, latitude, longitude pour le rayon de recherche.</li>
           </ul>
 
@@ -997,7 +996,7 @@
           <p>
             <b>Élevée.</b> L'export depuis Odoo Enterprise comporte des limites qui compliquent la récupération,
             le fichier des contacts dépassait ce que le serveur pouvait absorber, et l'oubli d'un identifiant
-            externe casse silencieusement les relations — une erreur qu'on ne voit pas tout de suite.
+            externe casse silencieusement les relations : une erreur qu'on ne voit pas tout de suite.
           </p>
 
           <div class="niveau">
@@ -1006,10 +1005,9 @@
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> je savais écrire des requêtes et concevoir un schéma ; je sais maintenant
-            déplacer les données réelles d'une entreprise d'un système à un autre, en vérifiant. La leçon
-            principale est méthodologique : on ne déclare pas une migration terminée sur une impression, on la
-            compte.
+            Je savais écrire des requêtes et concevoir un schéma ; je sais maintenant
+            déplacer les données réelles d'une entreprise d'un système à un autre, en vérifiant. J'ai appris
+            à compter après import plutôt qu'à me fier à l'impression que « ça a l'air bon ».
           </p>
         </section>
 
@@ -1020,15 +1018,15 @@
 
           <h4>Savoir-faire élémentaires et contexte d'utilisation</h4>
           <ul>
-            <li><b>Politique de mot de passe et anti-brute-force</b> — mise à jour de sécurité du quiz avant
+            <li><b>Politique de mot de passe et anti-brute-force</b> : mise à jour de sécurité du quiz avant
               son ouverture au public, avec tests dédiés (trace 7).</li>
-            <li><b>Contrôle d'accès par ressource</b> — droits par dossier et par fichier de FileManager,
+            <li><b>Contrôle d'accès par ressource</b> : droits par dossier et par fichier de FileManager,
               héritage et priorité au refus (trace 8).</li>
-            <li><b>Prévention de l'élévation de privilèges</b> — gardes ajoutées sur l'écran d'administration
+            <li><b>Prévention de l'élévation de privilèges</b> : gardes ajoutées sur l'écran d'administration
               des droits.</li>
-            <li><b>Intégrité et concurrence</b> — empreinte SHA-256 avant écrasement, ETag / <code>If-Match</code>
+            <li><b>Intégrité et concurrence</b> : empreinte SHA-256 avant écrasement, ETag / <code>If-Match</code>
               sur l'accès réseau.</li>
-            <li><b>Transport et authentification</b> — HTTPS/TLS sur tous les services, authentification
+            <li><b>Transport et authentification</b> : HTTPS/TLS sur tous les services, authentification
               OAuth pour l'accès à la messagerie Microsoft 365 depuis Odoo.</li>
           </ul>
 
@@ -1058,7 +1056,7 @@
             <p class="echelle">Échelle : notions · moyen · bon · très bon</p>
           </div>
           <p>
-            <b>Justification :</b> je me situe volontairement plus bas que sur les autres savoir-faire. Je sais
+            Je me situe volontairement plus bas que sur les autres savoir-faire. Je sais
             désormais appliquer les mesures attendues d'une application avant sa mise en ligne et raisonner sur
             un modèle d'autorisation, mais je n'ai pas encore la culture offensive qui permet de chercher
             activement les failles de son propre code. C'est l'axe de progression que je retiens en priorité.
@@ -1071,7 +1069,7 @@
   </main>
 
   <footer class="foot">
-    Portfolio BUT 2 — Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
+    Portfolio BUT 2 : Lucas Requena · Stage chez De Niveau (Audit &amp; Qualité) · mai – août 2026
   </footer>
 </div>
 <script src="assets/js/portfolio.js"></script>

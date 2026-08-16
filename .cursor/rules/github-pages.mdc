@@ -1,0 +1,12 @@
+---
+description: Publier chaque modification sur GitHub Pages sans attendre qu'on le redemande
+alwaysApply: true
+---
+
+# GitHub Pages
+
+Après chaque modification demandée par l'utilisateur, commit et `git push` vers `origin/main` (source de GitHub Pages) sans qu'il le redemande.
+
+Site : https://luluddof.github.io/portfolio-but2/
+Repo : https://github.com/luluddof/portfolio-but2
+Branche Pages : `main`, racine `/`.
